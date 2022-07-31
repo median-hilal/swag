@@ -80,6 +80,11 @@ public class LiteralCondition extends AbstractLiteralCondition {
 	setDirectType(directType);
     }
 
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
     public LiteralCondition() {
 	// TODO Auto-generated constructor stub
     }

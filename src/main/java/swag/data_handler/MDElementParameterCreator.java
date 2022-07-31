@@ -193,7 +193,7 @@ public class MDElementParameterCreator {
 
                 }else{
 
-                    String type = readPredicateType(owlConnection, granIndiv);
+                    String type = readPredicateType(owlConnection, parameter);
 
                     // Typed Slice Condition
                     if (type != null) {
@@ -259,7 +259,7 @@ public class MDElementParameterCreator {
                     if (binding != null) {
 
                     } else {
-                        String type = readPredicateType(owlConnection, granIndiv);
+                        String type = readPredicateType(owlConnection, parameter);
 
                         // Typed Slice Condition
                         if (type != null) {

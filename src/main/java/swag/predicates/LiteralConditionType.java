@@ -15,6 +15,11 @@ public class LiteralConditionType extends AbstractLiteralCondition {
 	super();
     }
 
+	@Override
+	public String getName() {
+		return super.getName();
+	}
+
     public LiteralConditionType(String uri, String comment, String name, String label, String expression,
 	    PredicateSyntacticTypes syntacticType, Set<PredicateInputVar> inputVars, Set<PredicateInputVar> positionVar,
 	    Set<MDElement> mdElems, Set<PredicateVariableToMDElementMapping> mappings) {

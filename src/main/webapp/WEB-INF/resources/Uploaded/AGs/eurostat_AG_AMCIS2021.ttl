@@ -190,10 +190,10 @@
 #Variables
 :dPredPair a owl:NamedIndividual, ag:GroundPredicate, ag:Predicate, ag:DimensionPredicate,
     ag:DimensionGroundPredicate, ag:Pair, ag:GroundDimensionPredicatePair;
-  ag:domain [ag:instanceOf pr:yearGreaterThan ];
   ag:parameter :dPred.
 
-:dPred a ag:Parameter.
+:dPred a ag:Parameter;
+  ag:domain [ag:derivedFrom pr:yearGreaterThan ].
 
 :geoNodePair a owl:NamedIndividual, ag:Variable, ag:LevelMemberPair ;
   ag:parameter :geoNode.
@@ -202,10 +202,10 @@
 
 :sumOfNumOfAppsGreaterThan a owl:NamedIndividual, ag:GroundPredicate, ag:Predicate, ag:GroundResultPredicatePair,
     ag:Variable, ag:ResultGroundPredicate, ag:ResultPredicate;
-  ag:domain [ag:instanceOf pr:highMonthlySumOfNumberOfApps];
   ag:parameter :mPred.
 
-:mPred a ag:Parameter.
+:mPred a ag:Parameter;
+  ag:domain [ag:derivedFrom pr:highMonthlySumOfNumberOfApps].
 
 schema:eurostat a owl:NamedIndividual, smd:MDSchema;
   rdfs:label "eurostat";

@@ -300,7 +300,7 @@ public class MDSchemaGraphQB4OLAP extends MDSchemaGraphSMD {
 	 * Renaming elements when eligible. If there are multiple paths arriving at an
 	 * element, then the element must be considered for renaming.
 	 */
-	public void injectInitiate() {
+	public void 	injectInitiate() {
 
 		Queue<IndexedMDElement> queue = new LinkedList<>();
 		Set<MDElement> visitedElems = new HashSet<>();

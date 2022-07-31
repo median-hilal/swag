@@ -139,7 +139,7 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	 * Builds the MD schema from the provided OWL conneciton which should have a
 	 * model containing and MD schema (instance of MDSchema).
 	 * 
-	 * @param conn OWL connection with model containing the MD schema
+	 * @param owlConnection OWL connection with model containing the MD schema
 	 * 
 	 * @return the built multidimensional schema, null in case of an exception
 	 * 
@@ -197,8 +197,8 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 						logger.error("Exception building MD schema.", ex);
 					}
 
-					//graph.injectInitiate();
-					// graph.injectIdentifyingNames();
+					graph.injectInitiate();
+					//graph.injectIdentifyingNames();
 					// System.out.println(graph.stringifyGraph());
 
 					graph.stringifyGraphMappings();
@@ -472,8 +472,6 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	 * @param set
 	 * @param sourceInd
 	 * @param fromElem
-	 * @param constantStr
-	 * @param clazzStr
 	 * 
 	 */
 	private static void addInDimensionEdgesToSet(OWlConnection owlConnection, Set<MDRelation> set, Individual sourceInd,
