@@ -1,0 +1,826 @@
+/* Based on other work. See js/graph/LICENSE */
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+input.variable {
+	height: 25px;	
+	bottom: 2px;
+	top: 2px;
+	margin-bottom: 0;
+	border: 1.0px solid #277a92;
+    border-radius: 4px;
+    font-size: 12px;
+    width: 300px;
+}
+
+input.error {
+	height: 25px;	
+	bottom: 2px;
+	top: 2px;
+	margin-bottom: 0;
+	border: 2.0px solid #ff0000;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+
+.tooltipForItems {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+
+a.toVisitLink {
+    color: #FFC0C0;
+    text-decoration: underline;
+}
+
+a.toVisitLink1 {
+    color: #5555FF;
+    text-decoration: underline;
+}
+
+a.error {
+    background-color: #f44336;
+    color: white;
+    padding: 4px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.smallFontSize{
+ 	font-size: small;
+}
+
+.small {
+	display: none;
+    height: 0px;
+    overflow:hidden;
+}
+.big {
+    height: 200px;
+    overflow:auto;
+}
+
+input.error{
+	
+}
+
+/*Stackoverflow https://stackoverflow.com/questions/51906907/how-to-set-an-active-css-tab-menu*/
+div.minitab{
+	width: 100%;
+	margin: 0 auto;
+	align-content: center;
+	float: none;
+    overflow: hidden;
+    border: 2px solid #000;
+    background-color: #555;
+    text-align:center;
+}
+
+div.minitabLessWide{
+	width: 40%;
+	margin: 0 auto;
+	align-content: center;
+	float: none;
+    overflow: hidden;
+    border: 2px solid #000;
+    background-color: #666;
+    text-align:center;
+}
+
+/* Change background color of buttons on hover */
+div.minitab button:hover {
+    background-color: #aaa;
+}
+
+/* Create an active/current tablink class */
+div.minitab button.active {
+    background-color: #0b0;
+}
+
+div.minitab button {
+	width: 25%;
+	display:inline-block;
+	margin: auto;
+    background-color: inherit;
+    float: none;
+    position:relative;
+    top:50%; 
+    border: none;
+    outline: none;
+    cursor: pointer; 
+    padding: 8px 0px;   
+    transition: 0.3s;
+    color: #EEE;
+    font-size: 16pt;
+    font-weight: bolder;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+
+div.tab {
+	min-width: 1100px;
+	margin: 0 auto;
+	align-content: center;
+	float: none;
+    overflow: hidden;
+    border: 2px solid #000;
+    background-color: #010;
+    text-align:center;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+	width: 15%;
+	display:inline-block;
+	margin: auto;
+    background-color: inherit;
+    float: none;
+    position:relative;
+    top:50%;     
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    color: #EEE;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #aaa;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #060;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 1px 1px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.tabcontentForGraphOrResult {
+    display: none;
+    padding: 0px 0px 0px 0px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+p.specification {
+	color: 	#008B45;
+    font-style: italic;
+}
+
+
+h3.specification{
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: wider;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  color: red;
+    
+  background: blue; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left,rgba(44,175,227,1),rgba(44,175,227,0)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(right,rgba(44,175,227,1),rgba(44,175,227,0)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(right,rgba(44,175,227,1),rgba(44,175,227,0)); /*Fx 3.6-15*/
+  background: linear-gradient(to right, rgba(5,50,15,1), rgba(5,50,15,0.5)); /*Standard*/
+}
+
+.myFooter {
+   /*position: fixed;*/
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 110px;
+   background-color: #000000;
+   color: white;
+   text-align: center;
+}
+
+
+h4.specification{
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: wider;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: center;
+  color: white;   
+
+  background: blue; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left,rgba(44,175,227,1),rgba(44,175,227,0)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(right,rgba(44,175,227,1),rgba(44,175,227,0)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(right,rgba(44,175,227,1),rgba(44,175,227,0)); /*Fx 3.6-15*/
+  background: linear-gradient(to right, rgba(5,90,5,1), rgba(5,90,5,0.5)); /*Standard*/  
+}
+
+h5.specification{
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: wider;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: left;
+  color: Black;   
+  background: #F0FFF0;
+}
+
+h6.specification{
+  font-size: 10px;
+  font-weight: bold;
+  font-stretch: wider;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: left;
+  color: Black;   
+  background: white;
+}
+
+
+analysisSituationParameters{
+  position:relative;
+  top:10px;
+  height:100%;
+  width:95%;
+  background-color:#ecfff5;
+  background-size:cover;
+  margin-left:auto;
+  align:center;
+  margin-right:auto; 
+  border:#00ca0015px solid;
+}
+
+/* Modal logic*/
+#page-container {
+  width: 100%;
+  height: 80%;
+  min-width: 1100px;
+  min-height: 750px;S
+  position: relative;
+  margin: 0 auto;
+}
+
+.inactive {
+  display: none;
+}
+
+img.github-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 48px;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: bold;
+  font-stretch: wider;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  color: white;
+    
+  background: blue; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left,rgba(44,175,227,1),rgba(44,175,227,0)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(right,rgba(44,175,227,1),rgba(44,175,227,0)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(right,rgba(44,175,227,1),rgba(44,175,227,0)); /*Fx 3.6-15*/
+  background: linear-gradient(to right, rgba(5,50,15,1), rgba(5,50,15,0.5)); /*Standard*/
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: wider;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  color: white;
+    
+  background: blue; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left,rgba(44,175,227,1),rgba(44,175,227,0)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(right,rgba(44,175,227,1),rgba(44,175,227,0)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(right,rgba(44,175,227,1),rgba(44,175,227,0)); /*Fx 3.6-15*/
+  background: linear-gradient(to right, rgba(5,50,15,1), rgba(5,50,15,0.5)); /*Standard*/
+}
+
+
+h7 {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 30;
+  color: black;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;    
+  left: 0%;
+  min-width: 900px;
+  min-height: 700px;
+}
+
+#mode-select {
+  margin-bottom: 8px;
+}
+
+#model-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#app-body {
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  width: 100%;
+  height: 98%;
+  min-width: 1000px;
+  min-height: 680px;
+  position: relative;
+  overflow: hidden;  
+}
+
+.app-body-cls {
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  width: 100%;
+  height: 98%;
+  min-width: 1000px;
+  min-height: 680px;
+  position: relative;
+  overflow: hidden;  
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffe1e1;
+  position: relative;
+}
+
+
+
+#chart {	
+	overflow: auto;
+}
+
+#fixedPercentageWidth{
+	height: 20%;
+}
+
+#app-body .panel {
+  width: 38%;
+  height: 100%;
+  min-width: 350px;
+  min-height: 600px;
+  padding: 18px 10px 10px 10px;
+  background-color: #f5f5f5;
+  border-right: 1px solid #e3e3e3;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+  position: absolute;
+  left: 0;
+  overflow: auto;  
+}
+
+#app-body .panel .tab-pane {
+  height: 90%;
+  width: 100%;
+  position: relative;
+}
+
+div.var-count {
+  margin-bottom: 15px;
+}
+
+table.propvars {
+  position: relative;
+  top: -24px;
+  left: 100px;
+  margin-bottom: -28px;
+}
+
+table.propvars td.var-name {
+  padding: 0 6px;
+}
+
+.eval-input {
+  margin-bottom: 10px;
+}
+
+input {
+  width: 350px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.buttonAG input {
+  width: 200px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.button input {
+  width: 150px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.eval-output .alert {
+  padding-right: 14px;
+  margin-bottom: 10px;
+}
+
+.eval-output .alert > div {
+  overflow-y: auto;
+  max-height: 40px;
+}
+
+.eval-output .alert > div > div {
+  overflow: hidden;
+}
+
+.eval-output .symbol {
+  width: 20px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.instructions {
+  position: absolute;
+  bottom: 0;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #e3e3e3;
+}
+
+.instructions > ul {
+  margin-bottom: 0;
+}
+
+.instructions > ul > li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+
+.oneHundredPercentHeight {
+	height: 100%;	 
+}
+
+.autoOverflowGraph{
+	width: 100%;
+	height: 100;
+	padding: 0 0 0 0px;	
+}
+
+.autoOverflow {
+  height: 90%;
+}
+
+#app-body .graph {
+  width: 100%;
+  height: 86%;
+  min-width: 600px;
+  min-height: 500px;
+  position: absolute;
+  right : 0px;
+  border-size:2px;
+  border-style:solid;
+  border-color:#499dab;  overflow: auto;
+
+}
+
+#app-body .graph1 {
+  width: 61%;
+  height: 100%;
+  min-width: 600px;
+  min-height: 600px;
+  position: absolute;
+  right : 0px;  
+}
+
+#app-body .current-formula {
+  position: absolute;
+  top: 0;
+  left: 320px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e3e3e3;
+  border-right: 1px solid #e3e3e3;
+  border-bottom-right-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.05), 1px 1px 1px rgba(255,255,255,0.95);
+  padding: 10px;
+}
+
+svg {
+  background-color: #FFF;
+  border-radius: 0 3px 3px 0;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+svg.edit:not(.active):not(.ctrl) {
+  cursor: crosshair;
+}
+
+path.link {
+  fill: none;
+  stroke: #777;
+  stroke-opacity: 0.5;
+  stroke-width: 8px;
+  cursor: pointer ;  
+
+}
+
+svg.edit:not(.active):not(.ctrl) path.link {
+  cursor: pointer;
+}
+
+path.link.selected {
+  /*stroke-dasharray: 10,0.5;*/ 
+  stroke: #440000;
+  stroke-opacity:0.4;
+  stroke-width: 14px;
+  fill: #076299;
+
+}
+
+path.link.enlarged {
+  stroke-opacity:1.0;
+  stroke-width: 14px;
+}
+
+/* EDGES : when the path is incoming or outgoing of a selected NODE */
+path.link.pointed {  
+  stroke: #076299;
+  stroke-opacity:0.4;
+  stroke-width: 10px;
+}
+
+path.link.dragline {
+  pointer-events: none;
+}
+
+path.link.hidden {
+  stroke-width: 0;
+}
+
+circle.node {
+  stroke-width: 1.5px;
+}
+
+circle.node text {
+  pointer-events: none;
+  font: 10px sans-serif;
+}
+
+circle.node title {
+  pointer-events: none;
+  font: 20px sans-serif;
+  color: blue;
+}
+
+svg.title circle.node {
+  pointer-events: none;
+  font: 20px sans-serif;
+  color: blue;
+}
+
+svg.edit circle.node {
+  cursor: pointer;
+}
+
+g.waiting circle.node {
+  fill: #c7c7c7 !important;
+}
+
+g.waiting circle.node:not(.reflexive) {
+  stroke: #7f7f7f !important;
+}
+
+g.true circle.node {
+  fill: #98df8a !important;
+}
+
+g.true circle.node:not(.reflexive) {
+  stroke: #2ca02c !important;
+}
+
+g.false circle.node {
+  fill: #ff9896 !important;
+}
+
+g.false circle.node:not(.reflexive) {
+  stroke: #d62728 !important;
+}
+
+circle.node.reflexive {
+  stroke: #000 !important;
+  stroke-width: 2.5px;
+}
+
+text {
+  font-size: 10px;
+  pointer-events: none;
+}
+
+text.front {
+  font-size: 10px;
+  pointer-events: none;
+  font-weight:bold;
+}
+
+text.shadow { 
+  stroke: #FFF;
+  stroke-width: 3px;
+  stroke-opacity: 0.9;
+}
+
+/* EDGES */
+text.navigation {	
+	font-size: 10px;
+  font-weight:bold;
+    pointer-events: none;
+}
+
+text.id {
+  text-anchor: middle;
+  font-weight: bold;
+}
+
+#whatis h2 {
+  margin-top: 50px;
+}
+
+#whatis h3 {
+  margin-top: 30px;
+  border-top: 1px solid #bce8f1;
+  color: #3a87ad;
+  letter-spacing: 2px;
+}
+
+#whatis h3:nth-of-type(2) {
+  text-align: right;
+}
+
+.table-striped tr:last-child td:first-child {
+  border-bottom-left-radius: 4px;
+}
+
+.table-striped tr:last-child td:last-child {
+  border-bottom-right-radius: 4px;
+}
+
+.connective-table th,
+.connective-table td {
+  width: 25%;
+}
+
+.truth-table th,
+.truth-table td {
+  width: 25%;
+  text-align: center;
+}
+
+.truth-table th:nth-child(2),
+.truth-table td:nth-child(2) {
+  border-right: 1px solid #ddd;
+}
+
+.relation-table th:first-child,
+.relation-table td:first-child {
+  width: 350px;
+}
+
+.relation-table th:nth-child(2),
+.relation-table td:nth-child(2) {
+  width: 200px;
+}
+
+.well > ul, .well > ol, .well > table {
+  margin-bottom: 0;
+}
+
+.well > p {
+  margin-bottom: 8px;
+}
+
+.example {
+  padding: 0 0 0 15px;
+  margin: 30px 0;
+  border-left: 5px solid #bce8f1;
+}
+
+.svg-well {
+  margin: 0 auto 20px;
+  width: 350px;
+}
+
+svg.static {
+  background: none;
+  border-radius: none;
+}
+
+svg.static * {
+  cursor: default;
+}
+
+.wffs > div {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+}
+
+.indent {
+  margin-left: 10px;
+}
+
+footer {
+  margin: 75px 0 25px;
+  text-align: center;
+  font-size: 13px;
+}
+
+#link-dialog.in {
+  top: 302px;
+}
+
+#link-dialog .modal-header {
+  background-color: #f7f7f7;
+  border-radius: 5px 5px 0 0;
+}
+
+#link-dialog input {
+  width: 516px;
+  background-color: #fff;
+  cursor: default;
+}
+
+/* Here goes the rectangle that appears on hovering over an AS or NV */
+.component .tooltip {visibility: hidden}
+.component:hover .tooltip {
+ 	visibility: visible;
+    z-index: 1003;
+	position:relative;
+	opacity: 1.0;
+}
+
+.tooltip {
+	 z-index: 1003;
+	position:relative;
+	opacity: 1.0;
+}
+
+.tooltip text {
+    fill: white;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.tooltip rect {
+    fill: black;
+    stroke: red;
+    z-index: 1003;
+	position:relative;
+	opacity: 1.0;
+}
+textarea {
+    width: 100%;
+    height: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    resize: none;
+}

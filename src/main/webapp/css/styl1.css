@@ -1,0 +1,176 @@
+@CHARSET "ISO-8859-1";
+*{  
+  margin:0;
+  padding:0;
+}
+
+body{
+  
+  background-color:#ffffff;
+  font-family:helvetica;
+}
+
+a{
+  display:block;
+  color:#ad5482;  
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:40px;
+  text-align:center;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+.boxDiv{
+	
+    margin: 10px;	
+}
+
+h4.mainPage{
+  height:35px;	
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: wider;
+  padding-top: 8px;
+  padding-bottom: 2px;
+  text-align: center;
+  color: white;   
+
+  background: blue; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left,rgba(44,175,100,1),rgba(44,175,100,0)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(right,rgba(44,175,100,1),rgba(44,175,100,0)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(right,rgba(44,175,100,1),rgba(44,175,100,0)); /*Fx 3.6-15*/
+  background: linear-gradient(to right, rgba(5,90,100,1), rgba(5,90,100,0.5)); /*Standard*/  
+}
+
+#bg{
+  position:relative;
+  top:20px;
+  height:800px;
+  width:100%;
+  background-color:#efe;
+  background-size:cover;
+  margin-left:auto;
+  margin-right:auto; 
+  border:#fff 15px solid;  
+}
+
+.minimizedButton{
+	width:20%;
+	font-weight:700;
+	font-size:12px;
+}
+
+.module{
+  
+  position:relative;
+  top:5%;    
+  height:90%;
+  width:800px;
+  margin-left:auto;
+  margin-right:auto;
+  border-radius:5px;
+  background:RGBA(255,255,255,1);
+    
+  -webkit-box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);        
+  box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+  
+  text-align:center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.module ul{
+  list-style-type:none;
+  margin:0;
+}
+
+.ui-menu .ui-menu-item a{
+    color: #96f226;
+    border-radius: 0px;
+    border: 1px solid #454545;
+}
+
+.textbox{
+  display:inline-block;	
+  height:40px;
+  width:50%;
+  border-radius:3px;
+  border:rgba(0,0,0,.3) 2px solid;
+  box-sizing:border-box;
+  padding:10px;
+  margin-bottom:30px;
+}
+
+.textbox:focus{
+  outline:none;
+   border:rgba(24,149,215,1) 2px solid;
+   color:rgba(24,149,215,1);
+}
+
+.button{
+  display:inline-block;
+  height:35px;
+  width:60%; 
+  border:rgba(0,0,0,.3) 0px solid;
+  box-sizing:border-box;   
+  background:#90c843;
+  color:#FFF;
+  font-weight:bold;
+  font-size: 10pt;
+  cursor:pointer;
+}
+
+.button:hover{
+  background:#80b438;
+  
+}
+
+/* Style the list */
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {background-color: #ddd;}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}

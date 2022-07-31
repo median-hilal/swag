@@ -1,0 +1,214 @@
+@prefix : <http://www.amcis2021.com/swag/myAG#> .
+@prefix schema: <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#> .
+@prefix films: <http://www.amcis2021.com/swag/filmsMDSchema#> .
+@prefix myMDSchema: <http://www.fing.edu.uy/inco/cubes/schemas/myMDSchema#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix pr: <http://www.amcis2021.com/swag/pr#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ag: <http://www.amcis2021.com/swag/ag#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix smd: <http://www.amcis2021.com/swag/smd#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix qb4o: <http://purl.org/qb4olap/cubes#> .
+@prefix property: <http://eurostat.linked-statistics.org/property#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+
+#This analysis graphs tracks the number of asylum applications.
+#Analysis graph
+:eurostatAG a owl:NamedIndividual, ag:AnalysisGraph;
+  rdfs:comment "This analysis graphs tracks the number of asylum applications."@en;
+  ag:analysisSituation :AS1, :AS2, :AS3, :AS4, :AS5;
+  ag:navigationStep :NV2-3, :NV1-2, :NV2-5, :NV3-4;
+  ag:onSchema schema:eurostat .
+
+#Analysis situations
+:AS1 a owl:NamedIndividual, ag:AnalysisSituation;
+  rdfs:comment "Sum of number of asylum applications submitted to a specific destination continent, grouped by destination continent."@en;
+  rdfs:label "Applications by destination continent"@en;
+  ag:dice :diceSpecOnContinent2;
+  ag:cube schema:migr_asyappctzmQB4O13;
+  ag:dataset schema:migr_asyappctzmQB4O13_ds;
+  ag:granularity :desContinentGran;
+  ag:resultMeasureInAG myMDSchema:SumOfNumOfApplicatoins .
+
+:AS2 a owl:NamedIndividual, ag:AnalysisSituation;
+  rdfs:comment "Sum of  number of asylum applications submitted to a specific destination continent, grouped by destination country."@en;
+  rdfs:label "Applications by destination country"@en;
+  ag:dice :diceSpecOnContinent2;
+  ag:cube schema:migr_asyappctzmQB4O13;
+  ag:dataset schema:migr_asyappctzmQB4O13_ds;
+  ag:granularity :destCountryGran;
+  ag:resultMeasureInAG myMDSchema:SumOfNumOfApplicatoins .
+
+:AS3 a owl:NamedIndividual, ag:AnalysisSituation;
+  rdfs:comment "Sum of number of asylum applications submitted to a specific destination country, after a specific year, grouped by destination country and year."@en;
+  rdfs:label "Applications by destination country and year"@en;
+  ag:dice :diceSpecOnCountry3;
+  ag:cube schema:migr_asyappctzmQB4O13;
+  ag:dataset schema:migr_asyappctzmQB4O13_ds;
+  ag:granularity :destCountryGran, :yearGranularity;
+  ag:resultMeasureInAG myMDSchema:SumOfNumOfApplicatoins;
+  ag:dimensionSelection :sliceOnYear .
+
+:AS4 a owl:NamedIndividual, ag:AnalysisSituation;
+  rdfs:comment "Sum of number of asylum applications filtered by intensity, submitted to a specific destination country, after a specific year, grouped by destination country and month."@en;
+  rdfs:label "Applications by destination country and month"@en;
+  ag:dice :diceSpecOnCountry3;
+  ag:cube schema:migr_asyappctzmQB4O13;
+  ag:dataset schema:migr_asyappctzmQB4O13_ds;
+  ag:granularity :geoGran, :monthGranularity;
+  ag:resultMeasureInAG myMDSchema:SumOfNumOfApplicatoins;
+  ag:dimensionSelection :sliceOnYear;
+  ag:resultPredicateInAG :sumOfNumOfAppsGreaterThan .
+
+:AS5 a owl:NamedIndividual, ag:AnalysisSituation;
+  rdfs:comment "Sum of number of asylum applications submitted to a specific destination country, grouped by citizenship country and destination country."@en;
+  rdfs:label "Applications by citizenship and destination country"@en;
+  ag:dice :diceSpecOnCountry3;
+  ag:cube schema:migr_asyappctzmQB4O13;
+  ag:dataset schema:migr_asyappctzmQB4O13_ds;
+  ag:granularity :destCountryGran, :citizenGran;
+  ag:resultMeasureInAG myMDSchema:SumOfNumOfApplicatoins .
+
+#Navigation steps
+:NV1-2 a owl:NamedIndividual, ag:NavigationStep;
+  rdfs:comment "Drill down to destination country"@en;
+  rdfs:label "Drill down to destination country"@en;
+  ag:operation :drillDownToDesCountry;
+  ag:source :AS1;
+  ag:target :AS2 .
+
+:NV2-3 a owl:NamedIndividual, ag:NavigationStep;
+  rdfs:comment "Restrict destination country to a specific country, drill down to year of applications, and restrict year of applications."@en;
+  rdfs:label "Drill down to year"@en;
+  ag:operation :addSelectionOnYear, :drillDownToYearOnTime, :moveToCountry;
+  ag:source :AS2;
+  ag:target :AS3 .
+  
+:NV3-4 a owl:NamedIndividual, ag:NavigationStep;
+  rdfs:comment "Drill down to month of applications, and filter sum of number of asylum applications by intensity per month and country."@en;
+  rdfs:label "Drill down to month"@en;
+  ag:operation :drillDownToMonthOnTime, :filterSumOfNumOfAppsToMoreThan;
+  ag:source :AS3;
+  ag:target :AS4 .
+
+:NV2-5 a owl:NamedIndividual, ag:NavigationStep;
+  rdfs:comment "Drill down to citizenship country, and restrict destination country to a specific country."@en;
+  rdfs:label "Drill down to citizenship country"@en;
+  ag:operation :moveToCountry, :drillDownToCitCountry;
+  ag:source :AS2;
+  ag:target :AS5 .
+
+#Navigation operations
+:drillDownToYearOnTime a owl:NamedIndividual, ag:DrillDownTo;
+  ag:opDimension schema:timeDim;
+  ag:opHierarchy schema:timeHier;
+  ag:opGranularityLevel schema:year .
+
+:moveToCountry a owl:NamedIndividual, ag:MoveToLevelAndNode;
+  ag:opDimension schema:destinationDim;
+  ag:opHierarchy schema:destinationGeoHier;
+  ag:opDiceLevelInAG property:geo;
+  ag:opDiceNodeInAG :geoNodePair .
+
+:addSelectionOnYear a owl:NamedIndividual, ag:AddDimPredicate;
+  ag:opDimension schema:timeDim;
+  ag:opNewDimPredicateInAG :dPredPair;
+  ag:opHierarchy schema:timeHier .
+  
+:drillDownToDesCountry a owl:NamedIndividual, ag:DrillDownTo;
+  ag:opDimension schema:destinationDim;
+  ag:opHierarchy schema:destinationGeoHier;
+  ag:opGranularityLevel property:geo .
+
+:drillDownToCitCountry a owl:NamedIndividual, ag:DrillDownTo;
+  ag:opDimension schema:citizenshipDim;
+  ag:opHierarchy schema:citizenshipGeoHier;
+  ag:opGranularityLevel property:citizen .
+
+:drillDownToMonthOnTime a owl:NamedIndividual, ag:DrillDownTo;
+  ag:opDimension schema:timeDim;
+  ag:opHierarchy schema:timeHier;
+  ag:opGranularityLevel sdmx-dimension:refPeriod .
+
+:filterSumOfNumOfAppsToMoreThan a owl:NamedIndividual, ag:AddResultPredicate;
+  ag:opNewResultPredicateInAG :sumOfNumOfAppsGreaterThan .
+
+#Specifications  
+:diceSpecOnContinent2 a owl:NamedIndividual, ag:DiceSpecification;
+  ag:diceLevelInAG schema:continent;
+  ag:diceNodeInAG :continentNodePair;
+  ag:dimension schema:destinationDim;
+  ag:hierarchy schema:destinationGeoHier .
+
+:diceSpecOnCountry3 a owl:NamedIndividual, ag:DiceSpecification;
+  ag:diceLevelInAG property:geo;
+  ag:diceNodeInAG :geoNodePair;
+  ag:dimension schema:destinationDim;
+  ag:hierarchy schema:destinationGeoHier .
+
+:desContinentGran a owl:NamedIndividual, ag:Granularity;
+  ag:dimension schema:destinationDim;
+  ag:hierarchy schema:destinationGeoHier;
+  ag:granularityLevelInAG schema:continent .  
+
+:destCountryGran a owl:NamedIndividual, ag:Granularity;
+  ag:dimension schema:destinationDim;
+  ag:hierarchy schema:destinationGeoHier;
+  ag:granularityLevelInAG property:geo .
+
+:sliceOnYear a owl:NamedIndividual, ag:DimensionSelection;
+  ag:dimension schema:timeDim;
+  ag:hierarchy schema:timeHier;
+  ag:dimensionPredicateInAG :dPredPair .
+
+:yearGranularity a owl:NamedIndividual, ag:Granularity;
+  ag:dimension schema:timeDim;
+  ag:hierarchy schema:timeHier;
+  ag:granularityLevelInAG schema:year .
+
+:geoGran a owl:NamedIndividual, ag:Granularity;
+  ag:dimension schema:destinationDim;
+  ag:hierarchy schema:destinationGeoHier;
+  ag:granularityLevelInAG property:geo .
+
+:monthGranularity a owl:NamedIndividual, ag:Granularity;
+  ag:dimension schema:timeDim;
+  ag:hierarchy schema:timeHier;
+  ag:granularityLevelInAG sdmx-dimension:refPeriod .
+
+:citizenGran a owl:NamedIndividual, ag:Granularity;
+  ag:dimension schema:citizenshipDim;
+  ag:hierarchy schema:citizenshipGeoHier;
+  ag:granularityLevelInAG property:citizen .
+ 
+#Variables
+:dPredPair a owl:NamedIndividual, ag:GroundPredicate, ag:Predicate, ag:DimensionPredicate,
+    ag:DimensionGroundPredicate, ag:Pair, ag:GroundDimensionPredicatePair;
+  ag:domain [ag:instanceOf pr:yearGreaterThan ];
+  ag:parameter :dPred.
+
+:dPred a ag:Parameter.
+
+:geoNodePair a owl:NamedIndividual, ag:Variable, ag:LevelMemberPair ;
+  ag:parameter :geoNode.
+:continentNodePair a owl:NamedIndividual, ag:Variable, ag:LevelMemberPair ;
+  ag:parameter :continentNode.
+
+:sumOfNumOfAppsGreaterThan a owl:NamedIndividual, ag:GroundPredicate, ag:Predicate, ag:GroundResultPredicatePair,
+    ag:Variable, ag:ResultGroundPredicate, ag:ResultPredicate;
+  ag:domain [ag:instanceOf pr:highMonthlySumOfNumberOfApps];
+  ag:parameter :mPred.
+
+:mPred a ag:Parameter.
+
+schema:eurostat a owl:NamedIndividual, smd:MDSchema;
+  rdfs:label "eurostat";
+  rdfs:isDefinedBy <https://raw.githubusercontent.com/lorenae/qb4olap/master/examples/eurostat_schema_QB4OLAP_v1.3.ttl>;
+  smd:hasFactClass schema:migr_asyappctzmQB4O13;
+  smd:hasSPARQLService "http://localhost:7200/repositories/AMCIS_2021" .  

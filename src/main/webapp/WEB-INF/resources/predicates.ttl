@@ -1,0 +1,410 @@
+@prefix : <http://www.amcis2021.com/swag/pr#> .
+@prefix schema: <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#> .
+@prefix films: <http://www.amcis2021.com/swag/filmsMDSchema#> .
+@prefix myMDSchema: <http://www.fing.edu.uy/inco/cubes/schemas/myMDSchema#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ag: <http://www.amcis2021.com/swag/ag#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix qb4o: <http://purl.org/qb4olap/cubes#> .
+
+<http://www.amcis2021.com/swag/pr> a owl:Ontology;
+  owl:imports <http://www.amcis2021.com/swag/ag> .
+
+
+:GroundPredicateProps a owl:ObjectProperty .
+
+:InstPredicateTypeProps a owl:ObjectProperty .
+
+:element a owl:ObjectProperty;
+  rdfs:subPropertyOf :GroundPredicateProps;
+  rdfs:domain :GroundPredicate;
+  rdfs:range ag:MDElement .
+
+:GroundPredicate a owl:Class .
+
+ag:MDElement a owl:Class .
+
+:hasAbstractTopic a owl:ObjectProperty;
+  rdfs:domain :GroundPredicate .
+
+:hasBindingValue a owl:ObjectProperty;
+  rdfs:domain :VariableBinding;
+  rdfs:range :Value .
+
+:VariableBinding a owl:Class .
+
+:Value a owl:Class .
+
+:hasBindingVar a owl:ObjectProperty;
+  rdfs:domain :PredicateInstance;
+  rdfs:range :InputVariable .
+
+:PredicateInstance a owl:Class .
+
+:InputVariable a owl:Class;
+  rdfs:subClassOf :Variable .
+
+:hasDescriptionVar a owl:ObjectProperty;
+  rdfs:domain :GroundPredicate;
+  rdfs:range :OutputVariable .
+
+:OutputVariable a owl:Class .
+
+:hasSelectionVar a owl:ObjectProperty;
+  rdfs:domain :PredicateInstance, :OutputVariable .
+
+:hasSubjectVar a owl:ObjectProperty;
+  rdfs:domain :GroundPredicate;
+  rdfs:range :OutputVariable .
+
+:hasTopic a owl:ObjectProperty .
+
+:impliedBy a owl:ObjectProperty;
+  rdfs:domain :InstPredicate;
+  rdfs:range :InstPredicate .
+
+:InstPredicate a owl:Class;
+  rdfs:subClassOf :GroundPredicate .
+
+:inputVar a owl:ObjectProperty;
+  rdfs:domain :GroundPredicate;
+  rdfs:range :InputVariable .
+
+:instanceOf a owl:ObjectProperty;
+  rdfs:domain :PredicateInstance;
+  rdfs:range :GroundPredicate .
+
+:memberOf a owl:ObjectProperty;
+  rdfs:subPropertyOf owl:topObjectProperty;
+  rdfs:domain :InstanceMember;
+  rdfs:range :PredicateInstance .
+
+:InstanceMember a owl:Class;
+  rdfs:subClassOf :PredicateInstance .
+
+:outputVar a owl:ObjectProperty;
+  rdfs:domain :GroundPredicate;
+  rdfs:range :OutputVariable .
+
+:positionVar a owl:ObjectProperty .
+
+:predMDElement a owl:ObjectProperty .
+
+:predType a owl:ObjectProperty .
+
+:subTypeOf a owl:TransitiveProperty, owl:ObjectProperty;
+  rdfs:domain :PredicateType;
+  rdfs:range :PredicateType .
+
+:PredicateType a owl:Class .
+
+:type a owl:ObjectProperty;
+  rdfs:domain :InstPredicate;
+  rdfs:range :PredicateType;
+  owl:propertyChainAxiom _:node1 .
+
+:typeElement a owl:ObjectProperty;
+  rdfs:subPropertyOf :InstPredicateTypeProps;
+  rdfs:domain :InstPredicateType;
+  rdfs:range ag:MDElement .
+
+:InstPredicateType a owl:Class;
+  rdfs:subClassOf :PredicateType .
+
+:typeMDElement a owl:ObjectProperty .
+
+:typePosition a owl:ObjectProperty;
+  rdfs:subPropertyOf :InstPredicateTypeProps;
+  rdfs:domain :InstPredicateType;
+  rdfs:range :Position .
+
+:Position a owl:Class .
+
+:typeVar a owl:ObjectProperty;
+  rdfs:subPropertyOf :InstPredicateTypeProps;
+  rdfs:domain :InstPredicateType;
+  rdfs:range :Variable .
+
+:Variable a owl:Class .
+
+:expression a owl:DatatypeProperty;
+  rdfs:domain :GroundPredicate;
+  rdfs:range xsd:string .
+
+:hasQuery a owl:DatatypeProperty;
+  rdfs:domain :GroundPredicate;
+  rdfs:range xsd:string .
+
+:hasValue a owl:DatatypeProperty;
+  rdfs:range xsd:string .
+
+:typeExpression a owl:DatatypeProperty;
+  rdfs:subPropertyOf owl:topDataProperty;
+  rdfs:domain :InstPredicateType;
+  rdfs:range xsd:string .
+
+:varName a owl:DatatypeProperty .
+
+:AbstractPredicateType a owl:Class;
+  rdfs:subClassOf :PredicateType .
+
+:DimensionGroundPredicate a owl:Class;
+  rdfs:subClassOf :GroundPredicate .
+
+:MDGroundPredicate a owl:Class;
+  rdfs:subClassOf :GroundPredicate .
+
+:MeasureGroundPredicate a owl:Class;
+  rdfs:subClassOf :GroundPredicate .
+
+:ResultGroundPredicate a owl:Class;
+  rdfs:subClassOf :GroundPredicate .
+
+:SimplePredicate a owl:Class;
+  rdfs:subClassOf :GroundPredicate .
+
+:Topic a owl:Class .
+
+:CivilWar a :Topic, owl:NamedIndividual .
+
+:SumNumOfAppsGreaterThan a owl:NamedIndividual, ag:Predicate, ag:ResultPredicate;
+  rdfs:comment "Restricts SumNumOfAppsGreaterThan values to be greater than a specific value"@en;
+  rdfs:label "Sum num of applications greater than"@en;
+  ag:predicateMDElement :pos1;
+  ag:predicateVariable :var2;
+  ag:expression "?aggMeasure > :1";
+  ag:clause "FILTER" .
+
+:pos1 a owl:NamedIndividual;
+  ag:onElement myMDSchema:SumOfNumOfApplicatoins;
+  ag:name "?aggMeasure" .
+
+:var2 a owl:NamedIndividual, ag:PredicateVariable;
+  ag:name ":1";
+  ag:domain _:node4 .
+
+:highMonthlySumOfNumberOfApps a owl:NamedIndividual, ag:Predicate, ag:ResultPredicate;
+  rdfs:comment "Intensity of migration of asylum seekers per month and country"@en;
+  rdfs:label "Intensity of migration of asylum seekers per month and country"@en .
+
+:SyrianCivilWar a :Topic, owl:NamedIndividual .
+
+:pos0 a owl:NamedIndividual;
+  ag:onElement schema:yearNum;
+  ag:name "?yearNum" .
+
+:yearGreaterThan a owl:NamedIndividual, ag:Predicate, ag:DimensionPredicate;
+  rdfs:comment "Restricts Year values to be greater than a specific value"@en;
+  rdfs:label "Year greater than"@en;
+  ag:predicateMDElement :pos0;
+  ag:predicateVariable :var1;
+  ag:expression "FILTER (?yearNum > :1)" .
+
+:var1 a owl:NamedIndividual, ag:PredicateVariable;
+  ag:name ":1";
+  ag:domain _:node3 .
+
+:civilWars a :GroundPredicate, owl:NamedIndividual;
+  :hasDescriptionVar <http://www.amcis2021.com/swag/pr#?description>;
+  :hasSubjectVar <http://www.amcis2021.com/swag/pr#?topic>;
+  :hasTopic :CivilWar;
+  :inputVar <http://www.amcis2021.com/swag/pr#?continent>;
+  :outputVar <http://www.amcis2021.com/swag/pr#?country>, <http://www.amcis2021.com/swag/pr#?startDate>;
+  :hasQuery """select ?xLabel ?startDate ?country ?topic
+where {
+SERVICE <https://query.wikidata.org/sparql> {
+  ?topic <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q8465>. # Civil war
+  ?topic <http://www.wikidata.org/prop/direct/P580> ?startDate. # Start date
+  ?topic <http://www.wikidata.org/prop/direct/P17> ?country. # country.
+  ?country <http://www.wikidata.org/prop/direct/P30> ?continent.  
+  #?topic schema:description ?topic. #Description
+  filter (?continent = <http://www.wikidata.org/entity/Q48> || ?continent = <http://www.wikidata.org/entity/Q15>)
+  #FILTER ( lang(?topic) = \\\"en\\\" )
+  filter (?startDate > \"2000-01-01\"^^<http://www.w3.org/2001/XMLSchema#dateTime>) #After 2000
+  SERVICE <http://wikiba.se/ontology#label> {
+        <http://www.bigdata.com/rdf#serviceParam> <http://wikiba.se/ontology#language> \"en\" .
+    }}
+  }""" .
+
+<http://www.amcis2021.com/swag/pr#?description> a :OutputVariable, owl:NamedIndividual .
+
+<http://www.amcis2021.com/swag/pr#?topic> a owl:NamedIndividual .
+
+<http://www.amcis2021.com/swag/pr#?continent> a :InputVariable, owl:NamedIndividual .
+
+<http://www.amcis2021.com/swag/pr#?country> a :OutputVariable, owl:NamedIndividual;
+  :hasVarName "country" .
+
+<http://www.amcis2021.com/swag/pr#?startDate> a :OutputVariable, owl:NamedIndividual .
+
+:condition1 a :InstPredicate, owl:NamedIndividual;
+  rdfs:comment "Year after 2010"@en;
+  :varBinding :b1;
+  :instanceOf :yearGreaterThan .
+
+:YearGreaterThan2013 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate;
+  rdfs:comment "Restricts Year values to be greater than 2013"@en;
+  rdfs:label "2013"@en;
+  ag:predicateMDElement :pos0;
+  ag:expression "FILTER (?yearNum > 2013)";
+  ag:instanceOf :yearGreaterThan .
+
+:YearGreaterThan2014 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate;
+  rdfs:comment "Restricts Year values to be greater than 2014"@en;
+  rdfs:label "2014"@en;
+  ag:predicateMDElement :pos0;
+  ag:expression "FILTER (?yearNum > 2014)";
+  ag:instanceOf :yearGreaterThan .
+
+:YearGreaterThan2015 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate;
+  rdfs:comment "Restricts Year values to be greater than 2015"@en;
+  rdfs:label "2015"@en;
+  ag:predicateMDElement :pos0;
+  ag:expression "FILTER (?yearNum > 2015)";
+  ag:instanceOf :yearGreaterThan .
+
+:SlightlyHigh a owl:NamedIndividual, ag:GroundPredicate, ag:GroundResultPredicate;
+  rdfs:comment "Filters Sum of Number of Application to be greater than 10000"@en;
+  rdfs:label "Slightly high: More than 10000 applications"@en;
+  ag:predicateMDElement :pos1;
+  ag:expression "?aggMeasure > 20000";
+  ag:clause "HAVING";
+  ag:instanceOf :highMonthlySumOfNumberOfApps .
+
+:ModeratelyHigh a owl:NamedIndividual, ag:GroundPredicate, ag:GroundResultPredicate;
+  rdfs:comment "Filters Sum of Number of Application to be greater than 20000"@en;
+  rdfs:label "Moderately high: More than 20000 applications"@en;
+  ag:predicateMDElement :pos1;
+  ag:expression "?aggMeasure > 20000";
+  ag:clause "HAVING";
+  ag:instanceOf :highMonthlySumOfNumberOfApps .
+
+:extremelyHigh a owl:NamedIndividual, ag:GroundPredicate, ag:GroundResultPredicate;
+  rdfs:comment "Filters Sum of Number of Application to be greater than 30000"@en;
+  rdfs:label "Extremely high: More than 30000 applications"@en;
+  ag:predicateMDElement :pos1;
+  ag:expression "?aggMeasure > 30000";
+  ag:clause "HAVING";
+  ag:instanceOf :highMonthlySumOfNumberOfApps .
+
+:MultiAwardNominatedFilm a owl:NamedIndividual, ag:GroundPredicate, ag:MeasureGroundPredicate;
+  rdfs:comment "Restricts Films to multi-award nominated ones"@en;
+  rdfs:label "Multi-award nominated film"@en;
+  ag:predicateMDElement :pos2;
+  ag:expression "?msr > 1";
+  ag:clause "FILTER" .
+
+:pos2 a owl:NamedIndividual;
+  ag:onElement films:Nominations;
+  ag:name "?msr" .
+
+:ReleaseYearGreaterThan a owl:NamedIndividual, ag:Predicate, ag:DimensionPredicate;
+  rdfs:comment "Restricts Year values to be greater than a specific value"@en;
+  rdfs:label "Year greater than"@en;
+  ag:predicateMDElement :pos3;
+  ag:predicateVariable :var1;
+  ag:expression "FILTER (?yearNum > :1)" .
+
+:pos3 a owl:NamedIndividual;
+  ag:onElement films:Year;
+  ag:name "?yearNum" .
+
+:ReleaseYearGreaterThan2010 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate;
+  rdfs:comment "Restricts Year values to be greater than 2010"@en;
+  rdfs:label "Year greater than 2010"@en;
+  ag:predicateMDElement :pos3;
+  ag:expression "FILTER (?yearNum > 2010)";
+  ag:instanceOf :ReleaseYearGreaterThan .
+
+:ReleaseYearGreaterThan2015 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate;
+  rdfs:comment "Restricts Year values to be greater than 2015"@en;
+  rdfs:label "Year greater than 2015"@en;
+  ag:predicateMDElement :pos3;
+  ag:expression "FILTER (?yearNum > 2015)";
+  ag:instanceOf :ReleaseYearGreaterThan .
+
+:condition2 a :InstPredicate, owl:NamedIndividual;
+  rdfs:comment "observation more than 3000"@en;
+  :varBinding :b2;
+  :instanceOf :SumNumOfAppsGreaterThan .
+
+:countryBinding a :VariableBinding, owl:NamedIndividual;
+  :hasBindingVar <http://www.amcis2021.com/swag/pr#?continent>;
+  :hasValue "<http://www.wikidata.org/entity/Q48>" .
+
+:pos a owl:NamedIndividual;
+  ag:onElement schema:year;
+  ag:name "?yearNum" .
+
+schema:year a owl:NamedIndividual .
+
+myMDSchema:SumOfNumOfApplicatoins a ag:ResultMeasure;
+  rdfs:comment "The sum of the number of asylum applications"@en;
+  rdfs:label "Sum of number of asylum applications"@en;
+  qb4o:aggregateFunction qb4o:sum;
+  ag:aggregatedMeasure sdmx-measure:obsValue .
+
+:predInstance1 a :PredicateInstance, owl:NamedIndividual;
+  :hasSelectionVar <http://www.amcis2021.com/swag/pr#?description>, <http://www.amcis2021.com/swag/pr#?country>,
+    <http://www.amcis2021.com/swag/pr#?startDate>, <http://www.amcis2021.com/swag/pr#?subjectVar>;
+  :instanceOf :civilWars .
+
+<http://www.amcis2021.com/swag/pr#?subjectVar> a :OutputVariable, owl:NamedIndividual .
+
+xsd:integer a owl:NamedIndividual .
+
+myMDSchema:aggMeasure a owl:NamedIndividual .
+
+myMDSchema:derivedMeasure a ag:DerivedMeasure;
+  rdfs:comment "A derived measure value based on the measure observation value"@en;
+  ag:derivationExpression "?obsValue + 1";
+  ag:derivedFrom sdmx-measure:obsValue .
+
+_:node1 rdf:first :type;
+  rdf:rest _:node2 .
+
+_:node2 rdf:first :subTypeOf;
+  rdf:rest rdf:nil .
+
+:b1 :bindingValue 2010;
+  :bindingVar :var1 .
+
+:b2 :bindingValue 3000;
+  :bindingVar :var2 .
+
+_:node3 ag:dataType xsd:integer .
+
+_:node4 ag:dataType xsd:integer .
+
+schema:migr_asyappctzmQB4O13 qb:component _:node5, _:node6 .
+
+_:node5 qb:measure myMDSchema:derivedMeasure .
+
+_:node6 qb:measure myMDSchema:SumOfNumOfApplicatoins .
+
+ag:condOnElem a owl:AnnotationProperty .
+
+ag:hasValue a owl:AnnotationProperty .
+
+:bindingValue a owl:AnnotationProperty .
+
+:bindingVar a owl:AnnotationProperty .
+
+:hasVarName a owl:AnnotationProperty .
+
+:posOnElement a owl:AnnotationProperty .
+
+:positionVarName a owl:AnnotationProperty .
+
+:sType a owl:AnnotationProperty .
+
+:varBinding a owl:AnnotationProperty .
+
+:varID a owl:AnnotationProperty .

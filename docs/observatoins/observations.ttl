@@ -1,0 +1,1123 @@
+@prefix citizen: <http://eurostat.linked-statistics.org/dic/citizen#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix obs: <http://www.amcis2021.com/migr_asyapp/observation#> .
+@prefix obsv: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix property: <http://eurostat.linked-statistics.org/property#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix qb4o: <http://purl.org/qb4olap/cubes#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+obs:obsA1092 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#UNK>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#UK>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201403>;
+  obsv:obsValue 15 .
+
+obs:obsA1093 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#UNK>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#UK>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201408>;
+  obsv:obsValue 15 .
+
+obs:obsA1101 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#UNK>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#NASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#UK>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201403>;
+  obsv:obsValue 15 .
+
+obs:obsA1102 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#UNK>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#NASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#UK>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201408>;
+  obsv:obsValue 15 .
+
+obs:obsA1103 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201401>;
+  obsv:obsValue 15 .
+
+obs:obsA1104 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201402>;
+  obsv:obsValue 15 .
+
+obs:obsA1105 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201403>;
+  obsv:obsValue 15 .
+
+obs:obsA1106 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201404>;
+  obsv:obsValue 15 .
+
+obs:obsA1107 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201405>;
+  obsv:obsValue 15 .
+
+obs:obsA1108 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201406>;
+  obsv:obsValue 15 .
+
+obs:obsA1109 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201407>;
+  obsv:obsValue 15 .
+
+obs:obsA1110 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201408>;
+  obsv:obsValue 20 .
+
+obs:obsA1111 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201409>;
+  obsv:obsValue 20 .
+
+obs:obsA1112 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201410>;
+  obsv:obsValue 25 .
+
+obs:obsA1113 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201411>;
+  obsv:obsValue 20 .
+
+obs:obsA1114 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201412>;
+  obsv:obsValue 15 .
+
+obs:obsA1115 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201501>;
+  obsv:obsValue 20 .
+
+obs:obsA1116 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201502>;
+  obsv:obsValue 15 .
+
+obs:obsA1117 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201503>;
+  obsv:obsValue 15 .
+
+obs:obsA1118 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201504>;
+  obsv:obsValue 15 .
+
+obs:obsA1119 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201505>;
+  obsv:obsValue 20 .
+
+obs:obsA1120 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201506>;
+  obsv:obsValue 25 .
+
+obs:obsA1121 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201507>;
+  obsv:obsValue 55 .
+
+obs:obsA1122 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201508>;
+  obsv:obsValue 60 .
+
+obs:obsA1123 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201509>;
+  obsv:obsValue 85 .
+
+obs:obsA1124 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201510>;
+  obsv:obsValue 85 .
+
+obs:obsA1125 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201511>;
+  obsv:obsValue 170 .
+
+obs:obsA1126 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#AT>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201512>;
+  obsv:obsValue 90 .
+
+obs:obsA1127 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201401>;
+  obsv:obsValue 15 .
+
+obs:obsA1128 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201402>;
+  obsv:obsValue 15 .
+
+obs:obsA1129 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201403>;
+  obsv:obsValue 15 .
+
+obs:obsA1130 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201406>;
+  obsv:obsValue 15 .
+
+obs:obsA1131 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201409>;
+  obsv:obsValue 15 .
+
+obs:obsA1132 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201410>;
+  obsv:obsValue 15 .
+
+obs:obsA1133 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201507>;
+  obsv:obsValue 15 .
+
+obs:obsA1134 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201509>;
+  obsv:obsValue 15 .
+
+obs:obsA1135 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201510>;
+  obsv:obsValue 20 .
+
+obs:obsA1136 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201511>;
+  obsv:obsValue 50 .
+
+obs:obsA1137 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201512>;
+  obsv:obsValue 40 .
+
+obs:obsA1138 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BG>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201405>;
+  obsv:obsValue 15 .
+
+obs:obsA1139 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BG>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201409>;
+  obsv:obsValue 15 .
+
+obs:obsA1140 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BG>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201410>;
+  obsv:obsValue 15 .
+
+obs:obsA1141 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BG>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201412>;
+  obsv:obsValue 15 .
+
+obs:obsA1142 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BG>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201503>;
+  obsv:obsValue 15 .
+
+obs:obsA1143 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BG>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201508>;
+  obsv:obsValue 15 .
+
+obs:obsA1144 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#BG>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201511>;
+  obsv:obsValue 15 .
+
+obs:obsA1145 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#CH>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201410>;
+  obsv:obsValue 15 .
+
+obs:obsA1146 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#CH>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201412>;
+  obsv:obsValue 15 .
+
+obs:obsA1147 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#CH>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201501>;
+  obsv:obsValue 15 .
+
+obs:obsA1148 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#CH>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201507>;
+  obsv:obsValue 15 .
+
+obs:obsA1149 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#CH>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201508>;
+  obsv:obsValue 15 .
+
+obs:obsA1150 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#CH>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201509>;
+  obsv:obsValue 25 .
+
+obs:obsA1151 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#CH>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201510>;
+  obsv:obsValue 30 .
+
+obs:obsA1152 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#CH>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201511>;
+  obsv:obsValue 55 .
+
+obs:obsA1153 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#CH>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201512>;
+  obsv:obsValue 50 .
+
+obs:obsA1154 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201401>;
+  obsv:obsValue 35 .
+
+obs:obsA1155 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201402>;
+  obsv:obsValue 35 .
+
+obs:obsA1156 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201403>;
+  obsv:obsValue 25 .
+
+obs:obsA1157 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201404>;
+  obsv:obsValue 30 .
+
+obs:obsA1158 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201405>;
+  obsv:obsValue 20 .
+
+obs:obsA1159 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201406>;
+  obsv:obsValue 35 .
+
+obs:obsA1160 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201407>;
+  obsv:obsValue 30 .
+
+obs:obsA1161 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201408>;
+  obsv:obsValue 25 .
+
+obs:obsA1162 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201409>;
+  obsv:obsValue 45 .
+
+obs:obsA1163 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201410>;
+  obsv:obsValue 30 .
+
+obs:obsA1164 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201411>;
+  obsv:obsValue 35 .
+
+obs:obsA1165 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201412>;
+  obsv:obsValue 35 .
+
+obs:obsA1166 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201501>;
+  obsv:obsValue 40 .
+
+obs:obsA1167 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201502>;
+  obsv:obsValue 40 .
+
+obs:obsA1168 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201503>;
+  obsv:obsValue 35 .
+
+obs:obsA1169 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201504>;
+  obsv:obsValue 40 .
+
+obs:obsA1170 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201505>;
+  obsv:obsValue 40 .
+
+obs:obsA1171 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201506>;
+  obsv:obsValue 50 .
+
+obs:obsA1172 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201507>;
+  obsv:obsValue 55 .
+
+obs:obsA1173 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201508>;
+  obsv:obsValue 70 .
+
+obs:obsA1174 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201509>;
+  obsv:obsValue 70 .
+
+obs:obsA1175 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201510>;
+  obsv:obsValue 120 .
+
+obs:obsA1176 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201511>;
+  obsv:obsValue 155 .
+
+obs:obsA1177 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DE>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201512>;
+  obsv:obsValue 120 .
+
+obs:obsA1178 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DK>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201505>;
+  obsv:obsValue 15 .
+
+obs:obsA1179 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DK>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201508>;
+  obsv:obsValue 15 .
+
+obs:obsA1180 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DK>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201510>;
+  obsv:obsValue 20 .
+
+obs:obsA1181 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DK>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201511>;
+  obsv:obsValue 30 .
+
+obs:obsA1182 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#DK>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201512>;
+  obsv:obsValue 30 .
+
+obs:obsA1183 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201401>;
+  obsv:obsValue 15 .
+
+obs:obsA1184 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201402>;
+  obsv:obsValue 15 .
+
+obs:obsA1185 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201405>;
+  obsv:obsValue 15 .
+
+obs:obsA1186 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201409>;
+  obsv:obsValue 15 .
+
+obs:obsA1187 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201411>;
+  obsv:obsValue 20 .
+
+obs:obsA1188 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201502>;
+  obsv:obsValue 15 .
+
+obs:obsA1189 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201503>;
+  obsv:obsValue 15 .
+
+obs:obsA1190 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201504>;
+  obsv:obsValue 15 .
+
+obs:obsA1191 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201505>;
+  obsv:obsValue 15 .
+
+obs:obsA1192 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201506>;
+  obsv:obsValue 20 .
+
+obs:obsA1193 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201507>;
+  obsv:obsValue 15 .
+
+obs:obsA1194 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201508>;
+  obsv:obsValue 15 .
+
+obs:obsA1195 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#EL>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201509>;
+  obsv:obsValue 15 .
+
+obs:obsA1244 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#FI>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201507>;
+  obsv:obsValue 15 .
+
+obs:obsA1245 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#FI>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201508>;
+  obsv:obsValue 20 .
+
+obs:obsA1246 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#FI>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201509>;
+  obsv:obsValue 25 .
+
+obs:obsA1247 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#FI>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201510>;
+  obsv:obsValue 30 .
+
+obs:obsA1248 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#FI>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201511>;
+  obsv:obsValue 55 .
+
+obs:obsA1249 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#FI>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201512>;
+  obsv:obsValue 35 .
+
+obs:obsA1250 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#FR>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201503>;
+  obsv:obsValue 15 .
+
+obs:obsA1251 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#FR>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201509>;
+  obsv:obsValue 15 .
+
+obs:obsA1252 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#FR>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201510>;
+  obsv:obsValue 20 .
+
+obs:obsA1253 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#FR>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201511>;
+  obsv:obsValue 20 .
+
+obs:obsA1254 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#HU>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201401>;
+  obsv:obsValue 20 .
+
+obs:obsA1255 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#HU>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201402>;
+  obsv:obsValue 15 .
+
+obs:obsA1256 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#HU>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201403>;
+  obsv:obsValue 15 .
+
+obs:obsA1257 a qb:Observation;
+  property:age <http://eurostat.linked-statistics.org/dic/age#Y14-17>;
+  property:asyl_app <http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>;
+  property:citizen citizen:AF;
+  property:geo <http://eurostat.linked-statistics.org/dic/geo#HU>;
+  property:sex <http://eurostat.linked-statistics.org/dic/sex#F>;
+  qb:dataSet <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#migr_asyappctzmQB4O13_ds>;
+  sdmx-dimension:refPeriod <http://purl.org/qb4olap/dimensions/time#201404>;
+  obsv:obsValue 15 .
