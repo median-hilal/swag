@@ -1,10 +1,10 @@
-@prefix : <http://www.dke.jku.ac.at/swag/ag#> .
+@prefix : <http://www.amcis2021.com/swag/ag#> .
 @prefix gn: <http://www.geonames.org/ontology#> .
-@prefix pr: <http://www.dke.jku.ac.at/swag/pr#> .
+@prefix pr: <http://www.amcis2021.com/swag/pr#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix smd: <http://www.dke.jku.ac.at/swag/smd#> .
+@prefix smd: <http://www.amcis2021.com/swag/smd#> .
 @prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -43,6 +43,26 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://purl.org/qb4olap/cubes#binding
+qb4o:binding rdf:type owl:ObjectProperty ;
+             rdfs:domain :Pair ;
+             rdfs:range qb4o:Constant .
+
+
+###  http://purl.org/qb4olap/cubes#opGranularityLevelInAG
+qb4o:opGranularityLevelInAG rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf :navigationOperationProperty ;
+                            rdfs:domain :SetGranularity ;
+                            rdfs:range :LevelInAG .
+
+
+###  http://purl.org/qb4olap/cubes#parameter
+qb4o:parameter rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Pair ;
+               rdfs:range <http://www.dke.jku.ac.at/swag/pr#Parameter> .
+
 
 ###  http://www.dke.jku.ac.at/swag/ag#analysisGraphProperty
 :analysisGraphProperty rdf:type owl:ObjectProperty .
@@ -261,7 +281,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 :navigationStep rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :analysisGraphProperty ;
                 rdfs:domain :AnalysisGraph ;
-                rdfs:range :AnalysisSituation ;
+                rdfs:range :NavigationStep ;
                 rdfs:comment "Links an analysis graph to a member navigation step. "@en .
 
 
@@ -321,7 +341,8 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#opGranularityLevel
 :opGranularityLevel rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :navigationOperationProperty ;
+                    rdfs:subPropertyOf qb4o:opGranularityLevelInAG ,
+                                       :navigationOperationProperty ;
                     rdfs:domain :ChangeGranularityTo ;
                     rdfs:range qb4o:LevelProperty ;
                     rdfs:comment "Specifies a level in a navigation operation to be a level in the navigation target analysis situation (e.g., a dice level or a granularity)."@en .
@@ -555,6 +576,10 @@ qb:MeasureProperty rdf:type owl:Class ;
                                    :NonAggregatedMeasure .
 
 
+###  http://purl.org/qb4olap/cubes#Constant
+qb4o:Constant rdf:type owl:Class .
+
+
 ###  http://purl.org/qb4olap/cubes#Hierarchy
 qb4o:Hierarchy rdf:type owl:Class ;
                rdfs:subClassOf :MDElement .
@@ -567,12 +592,15 @@ qb4o:LevelAttribute rdf:type owl:Class ;
 
 ###  http://purl.org/qb4olap/cubes#LevelMember
 qb4o:LevelMember rdf:type owl:Class ;
-                 rdfs:subClassOf :Attribute .
+                 rdfs:subClassOf qb4o:Constant ,
+                                 :Attribute ,
+                                 :LevelMemberInAG .
 
 
 ###  http://purl.org/qb4olap/cubes#LevelProperty
 qb4o:LevelProperty rdf:type owl:Class ;
-                   rdfs:subClassOf :Level ,
+                   rdfs:subClassOf qb4o:Constant ,
+                                   :Level ,
                                    :LevelInAG .
 
 
@@ -701,7 +729,9 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#DimensionSelectionOperation
 :DimensionSelectionOperation rdf:type owl:Class ;
-                             rdfs:subClassOf :DimensionOperation ;
+                             rdfs:subClassOf :AddDimPredicate ,
+                                             :DimensionOperation ,
+                                             :RemoveDimPredicate ;
                              rdfs:comment "Abstract class for selection operations."@en .
 
 
@@ -786,7 +816,8 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#GroundDimensionPredicate
 :GroundDimensionPredicate rdf:type owl:Class ;
-                          rdfs:subClassOf :GroundDimensionPredicateInAG ,
+                          rdfs:subClassOf qb4o:Constant ,
+                                          :GroundDimensionPredicateInAG ,
                                           :GroundPredicate ;
                           rdfs:comment "Ground dimension predicate."@en .
 
@@ -816,7 +847,8 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#GroundResultPredicate
 :GroundResultPredicate rdf:type owl:Class ;
-                       rdfs:subClassOf :GroundPredicate ,
+                       rdfs:subClassOf qb4o:Constant ,
+                                       :GroundPredicate ,
                                        :GroundResultPredicateInAG ;
                        rdfs:comment "Measure ground condition."@en .
 
@@ -871,7 +903,8 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#LevelMemberPair
 :LevelMemberPair rdf:type owl:Class ;
-                 rdfs:subClassOf :Pair .
+                 rdfs:subClassOf :LevelMemberInAG ,
+                                 :Pair .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#LevelPropertyPair
@@ -1112,17 +1145,22 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#ReplaceResultMeasure
 :ReplaceResultMeasure rdf:type owl:Class ;
-                      rdfs:subClassOf :ResultMeasureOperation .
+                      rdfs:subClassOf :AddResultMeasure ,
+                                      :RemoveResultMeasure ,
+                                      :ResultMeasureOperation .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#ReplaceResultPredicate
 :ReplaceResultPredicate rdf:type owl:Class ;
-                        rdfs:subClassOf :ResultPredicateOperation .
+                        rdfs:subClassOf :AddResultPredicate ,
+                                        :RemoveResultPredicate ,
+                                        :ResultPredicateOperation .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#ResultMeasure
 :ResultMeasure rdf:type owl:Class ;
-               rdfs:subClassOf :ResultMeasureInAG ,
+               rdfs:subClassOf qb4o:Constant ,
+                               :ResultMeasureInAG ,
                                :ResultMeasureSpecification ;
                rdfs:comment "Aggregation expression over a measure."@en .
 
@@ -1209,8 +1247,8 @@ voaf:Vocabulary rdf:type owl:Class .
           rdfs:comment "A variable is like a plcae holder on a specific element of an analysis situation / navigation step. A variable can encode further information, e.g., the type of the variable representing the set of potential values, etc."@en .
 
 
-###  http://www.dke.jku.ac.at/swag/pr#Variable
-<http://www.dke.jku.ac.at/swag/pr#Variable> rdf:type owl:Class .
+###  http://www.dke.jku.ac.at/swag/pr#Parameter
+<http://www.dke.jku.ac.at/swag/pr#Parameter> rdf:type owl:Class .
 
 
 ###  http://www.dke.jku.ac.at/swag/smd#MDSchema
@@ -1231,6 +1269,11 @@ xsd:String rdf:type owl:Class .
 
 ###  http://purl.org/qb4olap/cubes#Avg
 qb4o:Avg rdf:type owl:NamedIndividual .
+
+
+###  http://www.dke.jku.ac.at/swag/ag
+<http://www.dke.jku.ac.at/swag/ag> rdf:type owl:NamedIndividual ,
+                                            voaf:Vocabulary .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#All
@@ -1306,11 +1349,6 @@ qb4o:Avg rdf:type owl:NamedIndividual .
 ###  http://www.dke.jku.ac.at/swag/ag#defaultMsrConfig
 :defaultMsrConfig rdf:type owl:NamedIndividual ,
                            :MeasureSummarizability .
-
-
-###  http://www.dke.jku.ac.at/swag/ag
-<http://www.dke.jku.ac.at/swag/ag> rdf:type owl:NamedIndividual ,
-                                            voaf:Vocabulary .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

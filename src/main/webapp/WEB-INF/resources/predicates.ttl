@@ -1,7 +1,6 @@
-@prefix : <http://www.dke.jku.ac.at/swag/pr#> .
+@prefix : <http://www.dke.jku.ac.at/swag/myAG#> .
 @prefix schema: <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#> .
 @prefix films: <http://www.dke.jku.ac.at/swag/filmsMDSchema#> .
-@prefix myMDSchema: <http://www.fing.edu.uy/inco/cubes/schemas/myMDSchema#> .
 @prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix ag: <http://www.dke.jku.ac.at/swag/ag#> .
@@ -15,7 +14,7 @@
 @prefix qb4o: <http://purl.org/qb4olap/cubes#> .
 
 
-:SumNumOfAppsGreaterThan a owl:NamedIndividual, ag:Predicate, ag:ResultPredicate;
+:sumOfNumOfAppsGreaterThan a owl:NamedIndividual, ag:Predicate, ag:ResultPredicate;
   rdfs:comment "Restricts SumNumOfAppsGreaterThan values to be greater than a specific value"@en;
   rdfs:label "Sum num of applications greater than"@en;
   ag:predicateMDElement :pos1;
@@ -23,33 +22,33 @@
   ag:expression ":1 > :2";
   ag:clause "FILTER" .
 
-:yearGreaterThan a owl:NamedIndividual, ag:Predicate, ag:DimensionPredicate, ag:FreeDimensionPredicate;
+:yearAfter a owl:NamedIndividual, ag:Predicate, ag:DimensionPredicate, ag:FreeDimensionPredicate;
   rdfs:comment "Restricts Year values to be greater than a specific value"@en;
   rdfs:label "Year greater than"@en;
   ag:predicateMDElement :pos0;
   ag:predicateVariable :var1;
   ag:expression "FILTER (:1 > :2)" .
 
-:YearGreaterThan2013 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
+:yearAfter2013 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
   rdfs:comment "Restricts Year values to be greater than 2013"@en;
   rdfs:label "2013"@en;
   ag:predicateMDElement :pos0;
   ag:expression "FILTER (:1 > 2013)";
-  ag:derivedFrom :yearGreaterThan .
+  ag:derivedFrom :yearAfter .
 
-:YearGreaterThan2014 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
+:yearAfter2014 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
   rdfs:comment "Restricts Year values to be greater than 2014"@en;
   rdfs:label "2014"@en;
   ag:predicateMDElement :pos0;
   ag:expression "FILTER (:1 > 2014)";
-  ag:derivedFrom :yearGreaterThan .
+  ag:derivedFrom :yearAfter .
 
-:YearGreaterThan2015 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
+:yearAfter2015 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
   rdfs:comment "Restricts Year values to be greater than 2015"@en;
   rdfs:label "2015"@en;
   ag:predicateMDElement :pos0;
   ag:expression "FILTER (:1 > 2015)";
-  ag:derivedFrom :yearGreaterThan .
+  ag:derivedFrom :yearAfter .
 
 :SlightlyHigh a owl:NamedIndividual, ag:GroundPredicate, ag:GroundResultPredicate;
   rdfs:comment "Filters Sum of Number of Application to be greater than 10000"@en;
@@ -57,7 +56,7 @@
   ag:predicateMDElement :pos1;
   ag:expression ":1 > 20000";
   ag:clause "HAVING";
-  ag:derivedFrom :highMonthlySumOfNumberOfApps .
+  ag:derivedFrom :sumOfNumOfAppsGreaterThan .
 
 :ModeratelyHigh a owl:NamedIndividual, ag:GroundPredicate, ag:GroundResultPredicate;
   rdfs:comment "Filters Sum of Number of Application to be greater than 20000"@en;
@@ -65,7 +64,7 @@
   ag:predicateMDElement :pos1;
   ag:expression ":1 > 20000";
   ag:clause "HAVING";
-  ag:derivedFrom :highMonthlySumOfNumberOfApps .
+  ag:derivedFrom :sumOfNumOfAppsGreaterThan .
 
 :extremelyHigh a owl:NamedIndividual, ag:GroundPredicate, ag:GroundResultPredicate;
   rdfs:comment "Filters Sum of Number of Application to be greater than 30000"@en;
@@ -73,20 +72,16 @@
   ag:predicateMDElement :pos1;
   ag:expression ":1 > 30000";
   ag:clause "HAVING";
-  ag:derivedFrom :highMonthlySumOfNumberOfApps .
+  ag:derivedFrom :sumOfNumOfAppsGreaterThan .
 
-myMDSchema:SumOfNumOfApplicatoins a ag:ResultMeasure;
+schema:sumOfNumOfApps a ag:ResultMeasure;
   rdfs:comment "The sum of the number of asylum applications"@en;
   rdfs:label "Sum of number of asylum applications"@en;
   qb4o:aggregateFunction qb4o:sum;
   ag:aggregatedMeasure sdmx-measure:obsValue .
 
-:highMonthlySumOfNumberOfApps a owl:NamedIndividual, ag:Predicate, ag:ResultPredicate;
-  rdfs:comment "Intensity of migration of asylum seekers per month and country"@en;
-  rdfs:label "Intensity of migration of asylum seekers per month and country"@en .
-
 :pos1 a owl:NamedIndividual;
-  ag:mdElement myMDSchema:SumOfNumOfApplicatoins;
+  ag:mdElement schema:sumOfNumOfApps;
   ag:name ":1" .
 
 :var2 a owl:NamedIndividual, ag:PredicateVariable;

@@ -58,7 +58,7 @@ schema:migr_asyappctzmQB4O13
       rdf:type qb:DataStructureDefinition ;
       qb:component [ qb:measure sdmx-measure:obsValue; qb4o:aggregateFunction qb4o:sum ] ;
 	  qb:component [ qb:measure myMDSchema:derivedMeasure ] ;
-	  qb:component [ qb:measure myMDSchema:SumOfNumOfApplicatoins ] ;
+	  qb:component [ qb:measure schema:sumOfNumOfApps ] ;
 	  
       qb:component [ qb4o:level property:age ; qb4o:cardinality qb4o:ManyToOne         ] ;
       qb:component [ qb4o:level sdmx-dimension:refPeriod ; qb4o:cardinality qb4o:ManyToOne ] ;
@@ -74,11 +74,11 @@ myMDSchema:derivedMeasure ag:derivationExpression  "?obsValue + 1".
 myMDSchema:derivedMeasure ag:derivedFrom     	   sdmx-measure:obsValue.
 myMDSchema:derivedMeasure rdfs:comment     	       "A derived measure value based on the measure observation value"@en.
 
-myMDSchema:SumOfNumOfApplicatoins rdf:type 		  		  ag:AggregatedMeasure.
-myMDSchema:SumOfNumOfApplicatoins rdfs:label 		  	  "Sum of Number of Asylum Applications"@en .
-myMDSchema:SumOfNumOfApplicatoins qb4o:aggregateFunction  qb4o:sum.
-myMDSchema:SumOfNumOfApplicatoins ag:aggregatedMeasure    sdmx-measure:obsValue.
-myMDSchema:SumOfNumOfApplicatoins rdfs:comment     	      "The sum of the number of asylum applications"@en.
+schema:sumOfNumOfApps rdf:type 		  		  ag:AggregatedMeasure.
+schema:sumOfNumOfApps rdfs:label 		  	  "Sum of Number of Asylum Applications"@en .
+schema:sumOfNumOfApps qb4o:aggregateFunction  qb4o:sum.
+schema:sumOfNumOfApps ag:aggregatedMeasure    sdmx-measure:obsValue.
+schema:sumOfNumOfApps rdfs:comment     	      "The sum of the number of asylum applications"@en.
 
 
 #states that eurostat instances are described by the schema defined in QB4OLAP

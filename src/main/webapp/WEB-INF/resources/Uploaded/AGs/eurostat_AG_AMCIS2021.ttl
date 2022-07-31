@@ -1,9 +1,7 @@
 @prefix : <http://www.dke.jku.ac.at/swag/myAG#> .
 @prefix schema: <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#> .
 @prefix films: <http://www.dke.jku.ac.at/swag/filmsMDSchema#> .
-@prefix myMDSchema: <http://www.fing.edu.uy/inco/cubes/schemas/myMDSchema#> .
 @prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix pr: <http://www.dke.jku.ac.at/swag/pr#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix ag: <http://www.dke.jku.ac.at/swag/ag#> .
 @prefix gn: <http://www.geonames.org/ontology#> .
@@ -24,7 +22,9 @@
   rdfs:comment "This analysis graphs tracks the number of asylum applications."@en;
   ag:analysisSituation :AS1, :AS2, :AS3, :AS4, :AS5;
   ag:navigationStep :NV2-3, :NV1-2, :NV2-5, :NV3-4;
-  ag:onSchema schema:eurostat .
+  ag:onSchema schema:eurostat;
+  ag:cube schema:migr_asyappctzmQB4O13;
+  ag:dataset schema:migr_asyappctzmQB4O13_ds.
 
 #Analysis situations
 :AS1 a owl:NamedIndividual, ag:AnalysisSituation;
@@ -34,7 +34,7 @@
   ag:cube schema:migr_asyappctzmQB4O13;
   ag:dataset schema:migr_asyappctzmQB4O13_ds;
   ag:granularity :desContinentGran;
-  ag:resultMeasureInAG myMDSchema:SumOfNumOfApplicatoins .
+  ag:resultMeasureInAG schema:sumOfNumOfApps .
 
 :AS2 a owl:NamedIndividual, ag:AnalysisSituation;
   rdfs:comment "Sum of  number of asylum applications submitted to a specific destination continent, grouped by destination country."@en;
@@ -43,7 +43,7 @@
   ag:cube schema:migr_asyappctzmQB4O13;
   ag:dataset schema:migr_asyappctzmQB4O13_ds;
   ag:granularity :destCountryGran;
-  ag:resultMeasureInAG myMDSchema:SumOfNumOfApplicatoins .
+  ag:resultMeasureInAG schema:sumOfNumOfApps .
 
 :AS3 a owl:NamedIndividual, ag:AnalysisSituation;
   rdfs:comment "Sum of number of asylum applications submitted to a specific destination country, after a specific year, grouped by destination country and year."@en;
@@ -52,7 +52,7 @@
   ag:cube schema:migr_asyappctzmQB4O13;
   ag:dataset schema:migr_asyappctzmQB4O13_ds;
   ag:granularity :destCountryGran, :yearGranularity;
-  ag:resultMeasureInAG myMDSchema:SumOfNumOfApplicatoins;
+  ag:resultMeasureInAG schema:sumOfNumOfApps;
   ag:dimensionSelection :sliceOnYear .
 
 :AS4 a owl:NamedIndividual, ag:AnalysisSituation;
@@ -62,9 +62,9 @@
   ag:cube schema:migr_asyappctzmQB4O13;
   ag:dataset schema:migr_asyappctzmQB4O13_ds;
   ag:granularity :geoGran, :monthGranularity;
-  ag:resultMeasureInAG myMDSchema:SumOfNumOfApplicatoins;
+  ag:resultMeasureInAG schema:sumOfNumOfApps;
   ag:dimensionSelection :sliceOnYear;
-  ag:resultPredicateInAG :sumOfNumOfAppsGreaterThan .
+  ag:resultPredicateInAG :mPredPair .
 
 :AS5 a owl:NamedIndividual, ag:AnalysisSituation;
   rdfs:comment "Sum of number of asylum applications submitted to a specific destination country, grouped by citizenship country and destination country."@en;
@@ -73,7 +73,7 @@
   ag:cube schema:migr_asyappctzmQB4O13;
   ag:dataset schema:migr_asyappctzmQB4O13_ds;
   ag:granularity :destCountryGran, :citizenGran;
-  ag:resultMeasureInAG myMDSchema:SumOfNumOfApplicatoins .
+  ag:resultMeasureInAG schema:sumOfNumOfApps .
 
 #Navigation steps
 :NV1-2 a owl:NamedIndividual, ag:NavigationStep;
@@ -84,7 +84,7 @@
   ag:target :AS2 .
 
 :NV2-3 a owl:NamedIndividual, ag:NavigationStep;
-  rdfs:comment "Restrict destination country to a specific country, drill down to year of applications, and restrict year of applications."@en;
+  rdfs:comment "Drill down to year of applications, and restrict destination country to a specific country, and restrict year of applications."@en;
   rdfs:label "Drill down to year"@en;
   ag:operation :addSelectionOnYear, :drillDownToYearOnTime, :moveToCountry;
   ag:source :AS2;
@@ -137,7 +137,7 @@
   ag:opGranularityLevel sdmx-dimension:refPeriod .
 
 :filterSumOfNumOfAppsToMoreThan a owl:NamedIndividual, ag:AddResultPredicate;
-  ag:opNewResultPredicateInAG :sumOfNumOfAppsGreaterThan .
+  ag:opNewResultPredicateInAG :mPredPair .
 
 #Specifications  
 :diceSpecOnContinent2 a owl:NamedIndividual, ag:DiceSpecification;
@@ -193,19 +193,22 @@
   ag:parameter :dPred.
 
 :dPred a ag:Parameter;
-  ag:domain [ag:derivedFrom pr:yearGreaterThan ].
+  ag:domain [ag:derivedFrom :yearAfter ].
 
 :geoNodePair a owl:NamedIndividual, ag:Variable, ag:LevelMemberPair ;
   ag:parameter :geoNode.
+:geoNode a ag:Parameter.
+
 :continentNodePair a owl:NamedIndividual, ag:Variable, ag:LevelMemberPair ;
   ag:parameter :continentNode.
+:continentNode a ag:Parameter.
 
-:sumOfNumOfAppsGreaterThan a owl:NamedIndividual, ag:GroundPredicate, ag:Predicate, ag:GroundResultPredicatePair,
+:mPredPair a owl:NamedIndividual, ag:GroundPredicate, ag:Predicate, ag:GroundResultPredicatePair,
     ag:Variable, ag:ResultGroundPredicate, ag:ResultPredicate;
   ag:parameter :mPred.
 
 :mPred a ag:Parameter;
-  ag:domain [ag:derivedFrom pr:highMonthlySumOfNumberOfApps].
+  ag:domain [ag:derivedFrom :sumOfNumOfAppsGreaterThan].
 
 schema:eurostat a owl:NamedIndividual, smd:MDSchema;
   rdfs:label "eurostat";

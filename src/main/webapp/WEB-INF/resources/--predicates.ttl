@@ -183,7 +183,7 @@ ag:MDElement a owl:Class .
   ag:clause "FILTER" .
 
 :pos1 a owl:NamedIndividual;
-  ag:mdElement myMDSchema:SumOfNumOfApplicatoins;
+  ag:mdElement schema:sumOfNumOfApps;
   ag:name "?aggMeasure" .
 
 :var2 a owl:NamedIndividual, ag:PredicateVariable;
@@ -200,7 +200,7 @@ ag:MDElement a owl:Class .
   ag:mdElement schema:yearNum;
   ag:name "?yearNum" .
 
-:yearGreaterThan a owl:NamedIndividual, ag:Predicate, ag:DimensionPredicate, ag:FreeDimensionPredicate;
+:yearAfter a owl:NamedIndividual, ag:Predicate, ag:DimensionPredicate, ag:FreeDimensionPredicate;
   rdfs:comment "Restricts Year values to be greater than a specific value"@en;
   rdfs:label "Year greater than"@en;
   ag:predicateMDElement :pos0;
@@ -247,28 +247,28 @@ SERVICE <https://query.wikidata.org/sparql> {
 :condition1 a :InstPredicate, owl:NamedIndividual;
   rdfs:comment "Year after 2010"@en;
   :varBinding :b1;
-  :instanceOf :yearGreaterThan .
+  :instanceOf :yearAfter .
 
-:YearGreaterThan2013 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
+:yearAfter2013 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
   rdfs:comment "Restricts Year values to be greater than 2013"@en;
   rdfs:label "2013"@en;
   ag:predicateMDElement :pos0;
   ag:expression "FILTER (?yearNum > 2013)";
-  ag:derivedFrom :yearGreaterThan .
+  ag:derivedFrom :yearAfter .
 
-:YearGreaterThan2014 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
+:yearAfter2014 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
   rdfs:comment "Restricts Year values to be greater than 2014"@en;
   rdfs:label "2014"@en;
   ag:predicateMDElement :pos0;
   ag:expression "FILTER (?yearNum > 2014)";
-  ag:derivedFrom :yearGreaterThan .
+  ag:derivedFrom :yearAfter .
 
-:YearGreaterThan2015 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
+:yearAfter2015 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
   rdfs:comment "Restricts Year values to be greater than 2015"@en;
   rdfs:label "2015"@en;
   ag:predicateMDElement :pos0;
   ag:expression "FILTER (?yearNum > 2015)";
-  ag:derivedFrom :yearGreaterThan .
+  ag:derivedFrom :yearAfter .
 
 :SlightlyHigh a owl:NamedIndividual, ag:GroundPredicate, ag:GroundResultPredicate;
   rdfs:comment "Filters Sum of Number of Application to be greater than 10000"@en;
@@ -345,7 +345,7 @@ SERVICE <https://query.wikidata.org/sparql> {
 
 schema:year a owl:NamedIndividual .
 
-myMDSchema:SumOfNumOfApplicatoins a ag:ResultMeasure;
+schema:sumOfNumOfApps a ag:ResultMeasure;
   rdfs:comment "The sum of the number of asylum applications"@en;
   rdfs:label "Sum of number of asylum applications"@en;
   qb4o:aggregateFunction qb4o:sum;
@@ -387,7 +387,7 @@ schema:migr_asyappctzmQB4O13 qb:component _:node5, _:node6 .
 
 _:node5 qb:measure myMDSchema:derivedMeasure .
 
-_:node6 qb:measure myMDSchema:SumOfNumOfApplicatoins .
+_:node6 qb:measure schema:sumOfNumOfApps .
 
 ag:condOnElem a owl:AnnotationProperty .
 
