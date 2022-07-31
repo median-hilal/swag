@@ -1,6 +1,6 @@
 @prefix citizen: <http://eurostat.linked-statistics.org/dic/citizen#> .
 @prefix fn: <http://www.w3.org/2005/xpath-functions#> .
-@prefix obs: <http://www.amcis2021.com/migr_asyapp/observation#> .
+@prefix obs: <http://www.dke.jku.ac.at/migr_asyapp/observation#> .
 @prefix obsv: <http://purl.org/linked-data/sdmx/2009/measure#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix property: <http://eurostat.linked-statistics.org/property#> .

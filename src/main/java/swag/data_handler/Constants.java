@@ -59,7 +59,7 @@ public class Constants {
 	public static final String RES_MEASURE_PAIR = "ResultMeasurePair";
 	public final static String HAS_OPERATION_E = "operation";
 	public final static String PREDICATE_MD_ELEMENT = "predicateMDElement";
-	public final static String ON_ELEMENT = "onElement";
+	public final static String ON_ELEMENT = "mdElement";
 	public final static String PREDICATE_EXPRESSION = "expression";
 	public final static String VARIABLE_DOMAIN = "domain";
 	public final static String INSTANCE_OF = "derivedFrom";
@@ -172,7 +172,7 @@ public class Constants {
 	public final static String ON_LEVEL = "onLevel";
 	public final static String ON_ATTRIBUTE = "onAttribute";
 
-	public final static String PRED_TYPE = "http://www.amcis2021.com/swag/pr#predType";
+	public final static String PRED_TYPE = "http://www.dke.jku.ac.at/swag/pr#predType";
 
 	public final static String SLICE_SPECIFICATION_PROP = "hasDimSliceSpecification";
 	public final static String OP_SLICE_COND_PROP = "opDimCondition";
@@ -320,12 +320,12 @@ public class Constants {
 	public static final String QB4O_NS = "http://purl.org/qb4olap/cubes#";
 
 	public static final String SMD = "SMD";
-	public static final String SMD_NS = "http://www.amcis2021.com/swag/smd#";
+	public static final String SMD_NS = "http://www.dke.jku.ac.at/swag/smd#";
 
 	public static final String SMD_INS = "SMD_INS";
 
 	public static final String AG = "AG";
-	public static final String AG_NS = "http://www.amcis2021.com/swag/ag#";
+	public static final String AG_NS = "http://www.dke.jku.ac.at/swag/ag#";
 
 	public static final String AG_INS = "AG_INS";
 

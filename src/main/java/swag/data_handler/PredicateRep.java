@@ -42,7 +42,7 @@ public class PredicateRep implements IPredicateRep {
               OWLConnectionFactory.getAGNamespace(owlConnection) + Constants.ON_PREDICATE));
 
       if (basePredicateNode != null && basePredicateNode.as(Individual.class).hasProperty(RDF.type,
-          owlConnection.getClassByName("http://www.amcis2021.com/swag/pr#PredicateInstance"))) {
+          owlConnection.getClassByName("http://www.dke.jku.ac.at/swag/pr#PredicateInstance"))) {
 
         Individual predicateInd = owlConnection.getPropertyValueEncAsIndividual(ind,
             this.owlConnection.getModel().getProperty(

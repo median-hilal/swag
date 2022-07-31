@@ -123,11 +123,12 @@ public class ManipulateAnalysisGraphs extends HttpServlet {
 		request.setAttribute("nodesPositions", request.getParameter("nodesPositions"));
 	    }
 
+		/*
 	    session.setAttribute("nodesPositions",
 		    "[{\"x\":234.0,\"y\":360.0},{\"x\":529.0,\"y\":440.0},{\"x\":234.0,\"y\":40.0},{\"x\":234.0,\"y\":200.0},{\"x\":529.0,\"y\":280.0}]");
 	    request.setAttribute("nodesPositions",
 		    "[{\"x\":234.0,\"y\":360.0},{\"x\":529.0,\"y\":440.0},{\"x\":234.0,\"y\":40.0},{\"x\":234.0,\"y\":200.0},{\"x\":529.0,\"y\":280.0}]");
-
+*/
 	    /* Setting nodes positions. */
 	    if (!"".equals(request.getParameter("transform")) && null != request.getParameter("transform")) {
 		session.setAttribute("transform", request.getParameter("transform"));

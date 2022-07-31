@@ -4,10 +4,10 @@ public class QUERY_STRINGS {
 
 //@formatter:off
   public final static String LITERAL_CONDITION_TYPES =
-      "PREFIX pr: <http://www.amcis2021.com/swag/pr#>"
+      "PREFIX pr: <http://www.dke.jku.ac.at/swag/pr#>"
           + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
           + "PREFIX wdt: <http://www.wikidata.org/prop/direct/>"
-          + "PREFIX ag: <http://www.amcis2021.com/swag/ag#>"
+          + "PREFIX ag: <http://www.dke.jku.ac.at/swag/ag#>"
           + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
           + "PREFIX wd: <http://www.wikidata.org/entity/>"
           + ""
@@ -28,8 +28,8 @@ public class QUERY_STRINGS {
             + " } "
           + " OPTIONAL { ?literalConditionType ag:predicateMDElement ?positionVar. "
             + " OPTIONAL { ?positionVar ag:name ?positionVarName } "
-            + " OPTIONAL { ?positionVar ag:onElement ?onMDElement .} "
-            + " OPTIONAL { ?positionVar ag:onElement ?onMDElement . "
+            + " OPTIONAL { ?positionVar ag:mdElement ?onMDElement .} "
+            + " OPTIONAL { ?positionVar ag:mdElement ?onMDElement . "
             + " ?onMDElement rdf:type ag:QualifiedAttribute ; "
             + " ag:ofAttribute ?conditinPositoinAttribute ; "
             + " ag:inLevel ?levelOnHierAndDim ; "
@@ -37,13 +37,13 @@ public class QUERY_STRINGS {
             + " ag:inDimension ?dimAttribute "
             + " } "
             + "OPTIONAL "
-            + " { ?positionVar ag:onElement ?onMDElement . "
+            + " { ?positionVar ag:mdElement ?onMDElement . "
             + " ?onMDElement rdf:type ag:QualifiedLevel ; "
             + " ag:ofLevel ?conditinPositoinLevel ;"
             + " ag:inHierarchy ?hierAttribute ; "
             + " ag:inDimension ?dimAttribute }"
           + " } "
-          + " OPTIONAL { ?positionVar ag:onElement ?onMDElement . "
+          + " OPTIONAL { ?positionVar ag:mdElement ?onMDElement . "
                   + " ?positionVar ag:inHierarchy ?hierOfCond . "
                   + " ?positionVar ag:inDimension ?dimOfCond. "
                   + " } "
@@ -61,10 +61,10 @@ public class QUERY_STRINGS {
           + "ORDER BY ?literalConditionType";
   
   public final static String LITERAL_CONDITIONS =
-      "PREFIX pr: <http://www.amcis2021.com/swag/pr#>"
+      "PREFIX pr: <http://www.dke.jku.ac.at/swag/pr#>"
           + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
           + "PREFIX wdt: <http://www.wikidata.org/prop/direct/>"
-          + "PREFIX ag: <http://www.amcis2021.com/swag/ag#>"
+          + "PREFIX ag: <http://www.dke.jku.ac.at/swag/ag#>"
           + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
           + "PREFIX wd: <http://www.wikidata.org/entity/>"
           + ""
@@ -86,20 +86,20 @@ public class QUERY_STRINGS {
             + " } "
           + " OPTIONAL { ?literalConditionType ag:predicateMDElement ?positionVar. "
             + " OPTIONAL { ?positionVar ag:name ?positionVarName } "
-            + " OPTIONAL { ?positionVar ag:onElement ?onMDElement .} "
-            + " OPTIONAL { ?positionVar ag:onElement ?onMDElement . "
+            + " OPTIONAL { ?positionVar ag:mdElement ?onMDElement .} "
+            + " OPTIONAL { ?positionVar ag:mdElement ?onMDElement . "
             + " ?onMDElement rdf:type ag:QualifiedAttribute ; "
             + " ag:ofAttribute ?conditinPositoinAttribute ; "
             + " ag:inLevel ?levelOnHierAndDim ; "
             + " ag:inHierarchy ?hierAttribute ; "
             + " ag:inDimension ?dimAttribute "
             + " } "
-            + " OPTIONAL { ?positionVar ag:onElement ?onMDElement . "
+            + " OPTIONAL { ?positionVar ag:mdElement ?onMDElement . "
             + " ?positionVar ag:inHierarchy ?hierOfCond . "
             + " ?positionVar ag:inDimension ?dimOfCond. "
             + " } "
             + "OPTIONAL "
-            + " { ?positionVar ag:onElement ?onMDElement . "
+            + " { ?positionVar ag:mdElement ?onMDElement . "
             + " ?onMDElement rdf:type ag:QualifiedLevel ; "
             + " ag:ofLevel ?conditinPositoinLevel ;"
             + " ag:inHierarchy ?hierAttribute ; "
@@ -120,9 +120,9 @@ public class QUERY_STRINGS {
   public final static String CONDITIONS_WITH_BINDINGS = 
       "PREFIX wd: <http://www.wikidata.org/entity/>\r\n" + 
       "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n" +
-      "PREFIX pr:<http://www.amcis2021.com/swag/pr#> \r\n" + 
+      "PREFIX pr:<http://www.dke.jku.ac.at/swag/pr#> \r\n" + 
       "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" +
-      "PREFIX ag: <http://www.amcis2021.com/swag/ag#> \r\n " +
+      "PREFIX ag: <http://www.dke.jku.ac.at/swag/ag#> \r\n " +
       "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"  +
       
       "select ?conditoinURI ?conditoinString" +
@@ -172,9 +172,9 @@ public class QUERY_STRINGS {
   public final static String CONDITIONS = 
       "PREFIX wd: <http://www.wikidata.org/entity/>\r\n" + 
       "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n" +
-      "PREFIX pr:<http://www.amcis2021.com/swag/pr#> \r\n" + 
+      "PREFIX pr:<http://www.dke.jku.ac.at/swag/pr#> \r\n" + 
       "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" +
-      "PREFIX ag: <http://www.amcis2021.com/swag/ag#> \r\n " +
+      "PREFIX ag: <http://www.dke.jku.ac.at/swag/ag#> \r\n " +
       "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"  +
       
       "select ?conditoinURI ?conditoinString" +
@@ -218,7 +218,7 @@ public class QUERY_STRINGS {
   public final static String PREDICATE_INSTANCES = 
       "PREFIX wd: <http://www.wikidata.org/entity/>\r\n" + 
       "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n"
-      + "PREFIX pr:<http://www.amcis2021.com/swag/pr#> "
+      + "PREFIX pr:<http://www.dke.jku.ac.at/swag/pr#> "
       + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
       + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
       + ""
@@ -241,7 +241,7 @@ public class QUERY_STRINGS {
   public final static String PREDICATE_INSTANCE_BY_NAME = 
       "PREFIX wd: <http://www.wikidata.org/entity/>\r\n" + 
       "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n" + 
-      "PREFIX pr:<http://www.amcis2021.com/swag/pr#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" + 
+      "PREFIX pr:<http://www.dke.jku.ac.at/swag/pr#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" + 
       "select ?predicate ?query ?subjectVar ?bindingVar ?bindingVal ?selectionVar ?resVar ?resVal\r\n" + 
       "where{ \r\n" + 
       "    ?xXxPredicateInstancexXx rdf:type pr:PredicateInstance.\r\n" + 
@@ -257,7 +257,7 @@ public class QUERY_STRINGS {
   public final static String PREDICATE_SUBJECTS = 
       "PREFIX wd: <http://www.wikidata.org/entity/>\r\n" + 
       "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n"
-      + "PREFIX pr:<http://www.amcis2021.com/swag/pr#> \r\n" + 
+      + "PREFIX pr:<http://www.dke.jku.ac.at/swag/pr#> \r\n" + 
       "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" + 
       "select ?predicate ?outputVar ?outputVarType ?outputVarName ?inputVar ?inputVarType ?inputVarName ?subjectVar ?subjectVarType ?subjectVarName ?descriptionVar ?descriptionVarType ?descriptionVarName ?qurey ?topic\r\n" + 
       "where{ ?predicate rdf:type pr:Predicate.\r\n" + 
@@ -272,7 +272,7 @@ public class QUERY_STRINGS {
   public final static String PREDICATES = 
       "PREFIX wd: <http://www.wikidata.org/entity/>\r\n" + 
       "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n"
-      + "PREFIX pr:<http://www.amcis2021.com/swag/pr#> \r\n" + 
+      + "PREFIX pr:<http://www.dke.jku.ac.at/swag/pr#> \r\n" + 
       "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" + 
       "select ?predicate ?outputVar ?outputVarType ?outputVarName ?inputVar ?inputVarType ?inputVarName ?subjectVar ?subjectVarType ?subjectVarName ?descriptionVar ?descriptionVarType ?descriptionVarName ?query ?topic\r\n" + 
       "where{ ?predicate rdf:type pr:Predicate.\r\n" + 
@@ -287,7 +287,7 @@ public class QUERY_STRINGS {
   public final static String PREDICATE_BY_NAME = 
       "PREFIX wd: <http://www.wikidata.org/entity/>\r\n" + 
       "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n"
-      + "PREFIX pr:<http://www.amcis2021.com/swag/pr#> \r\n" + 
+      + "PREFIX pr:<http://www.dke.jku.ac.at/swag/pr#> \r\n" + 
       "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" + 
       "select ?predicate ?outputVar ?outputVarType ?outputVarName ?inputVar ?inputVarType ?inputVarName ?subjectVar ?subjectVarType ?subjectVarName ?descriptionVar ?descriptionVarType ?descriptionVarName ?qurey ?topic\r\n" + 
       "where{ ?xXxPredicatexXx rdf:type pr:Predicate.\r\n" + 

@@ -1,9 +1,9 @@
-@prefix : <http://www.amcis2021.com/swag/smd#> .
-@prefix ag: <http://www.amcis2021.com/swag/ag#> .
+@prefix : <http://www.dke.jku.ac.at/swag/smd#> .
+@prefix ag: <http://www.dke.jku.ac.at/swag/ag#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix smd: <http://www.amcis2021.com/swag/smd#> .
+@prefix smd: <http://www.dke.jku.ac.at/swag/smd#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -12,16 +12,16 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://www.amcis2021.com/swag/smd> .
+@base <http://www.dke.jku.ac.at/swag/smd> .
 
-<http://www.amcis2021.com/swag/smd> rdf:type owl:Ontology ;
+<http://www.dke.jku.ac.at/swag/smd> rdf:type owl:Ontology ;
                                   owl:imports <http://purl.org/qb4olap/cubes> ,
                                               qb4o: ;
                                   dcterms:created "2019-01-01"^^xsd:date ;
                                  
                                   dcterms:title "The Superimposed Multidimensional Schemas Vocabulary" ;
                                   vann:preferredNamespacePrefix "smd" ;
-                                  vann:preferredNamespaceUri "http://www.amcis2021.com/swag/smd#" ;
+                                  vann:preferredNamespaceUri "http://www.dke.jku.ac.at/swag/smd#" ;
                                   rdfs:comment "This vocabulary enables superimposing multidimensional schemas over RDF datasets." ;
                                   rdfs:label "The Superimposed Multidimensional Schemas Vocabulary" ;
                                   owl:versionInfo "1.0" .
@@ -31,85 +31,85 @@
 #    Object Properties
 #################################################################
 
-###  http://www.amcis2021.com/swag/smd#factClassOfLevel
+###  http://www.dke.jku.ac.at/swag/smd#factClassOfLevel
 smd:factClassOfLevel rdf:type owl:ObjectProperty ;
                      rdfs:domain smd:HasLevel ;
                      rdfs:range smd:FactClass ;
                      rdfs:comment "Specifies the fact class that the level describes."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#factClassOfMeasure
+###  http://www.dke.jku.ac.at/swag/smd#factClassOfMeasure
 smd:factClassOfMeasure rdf:type owl:ObjectProperty ;
                        rdfs:domain smd:HasMeasure ;
                        rdfs:range smd:FactClass ;
                        rdfs:comment "Specifies the fact class that the measures describes."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#fromLevel
+###  http://www.dke.jku.ac.at/swag/smd#fromLevel
 smd:fromLevel rdf:type owl:ObjectProperty ;
               rdfs:domain smd:HasAttribute ;
               rdfs:range smd:Level ;
               rdfs:comment "Specifies the level that the attribute describes."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#hasDescriptor
+###  http://www.dke.jku.ac.at/swag/smd#hasDescriptor
 smd:hasDescriptor rdf:type owl:ObjectProperty ;
                   rdfs:domain smd:Level ;
                   rdfs:range smd:Descriptor ;
                   rdfs:comment "Specifies an attribute of the level."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#hasFact
+###  http://www.dke.jku.ac.at/swag/smd#hasFact
 smd:hasFact rdf:type owl:ObjectProperty ;
             rdfs:domain smd:MDSchema ;
             rdfs:range smd:FactClass ;
             rdfs:comment "Specifies the fact class of the MD schema."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#hasLevel
+###  http://www.dke.jku.ac.at/swag/smd#hasLevel
 smd:hasLevel rdf:type owl:ObjectProperty ;
              rdfs:domain smd:FactClass ;
              rdfs:range smd:Level ;
              rdfs:comment "Specifies a level that describes the fact class."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#hasMapping
+###  http://www.dke.jku.ac.at/swag/smd#hasMapping
 smd:hasMapping rdf:type owl:ObjectProperty ;
                rdfs:domain smd:MappableElement ;
                rdfs:range smd:Mapping ;
                rdfs:comment "Specifies a mapping of the multidimensional element."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#hasMeasure
+###  http://www.dke.jku.ac.at/swag/smd#hasMeasure
 smd:hasMeasure rdf:type owl:ObjectProperty ;
                rdfs:domain smd:FactClass ;
                rdfs:range smd:Measure ;
                rdfs:comment "Specifies a measure of the fact class."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#hierInDimension
+###  http://www.dke.jku.ac.at/swag/smd#hierInDimension
 smd:hierInDimension rdf:type owl:ObjectProperty .
 
 
-###  http://www.amcis2021.com/swag/smd#inDimension
+###  http://www.dke.jku.ac.at/swag/smd#inDimension
 smd:inDimension rdf:type owl:ObjectProperty ;
                 rdfs:domain smd:Level ;
                 rdfs:range smd:Dimension ;
                 rdfs:comment "Specifies the dimension of the level."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#inHierarchy
+###  http://www.dke.jku.ac.at/swag/smd#inHierarchy
 smd:inHierarchy rdf:type owl:ObjectProperty .
 
 
-###  http://www.amcis2021.com/swag/smd#propMapping
+###  http://www.dke.jku.ac.at/swag/smd#propMapping
 smd:propMapping rdf:type owl:ObjectProperty ;
                 rdfs:domain smd:MappableRelation ;
                 rdfs:range smd:Mapping ;
                 rdfs:comment "Specifies a binary mapping of a mappable multidimensional relation."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#rollsUpTo
+###  http://www.dke.jku.ac.at/swag/smd#rollsUpTo
 smd:rollsUpTo rdf:type owl:ObjectProperty ,
                        owl:TransitiveProperty ;
               rdfs:domain smd:Level ;
@@ -117,21 +117,21 @@ smd:rollsUpTo rdf:type owl:ObjectProperty ,
               rdfs:comment "Specifies a roll up relationship between two levels."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#toAttribute
+###  http://www.dke.jku.ac.at/swag/smd#toAttribute
 smd:toAttribute rdf:type owl:ObjectProperty ;
                 rdfs:domain smd:HasAttribute ;
                 rdfs:range smd:Attribute ;
                 rdfs:comment "Specifies an attribute of the level."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#toLevel
+###  http://www.dke.jku.ac.at/swag/smd#toLevel
 smd:toLevel rdf:type owl:ObjectProperty ;
             rdfs:domain smd:HasLevel ;
             rdfs:range smd:Level ;
             rdfs:comment "Specifies a level of the fact class."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#toMeasure
+###  http://www.dke.jku.ac.at/swag/smd#toMeasure
 smd:toMeasure rdf:type owl:ObjectProperty ;
               rdfs:domain smd:HasMeasure ;
               rdfs:range smd:Measure ;
@@ -142,14 +142,14 @@ smd:toMeasure rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
-###  http://www.amcis2021.com/swag/smd#hasSPARQLService
+###  http://www.dke.jku.ac.at/swag/smd#hasSPARQLService
 smd:hasSPARQLService rdf:type owl:DatatypeProperty ;
                      rdfs:domain smd:MDSchema ;
                      rdfs:range xsd:string ;
                      rdfs:comment "Specifies the web address of the SPARQL service for the multidimensional schema."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#hasString
+###  http://www.dke.jku.ac.at/swag/smd#hasString
 smd:hasString rdf:type owl:DatatypeProperty ,
                        owl:FunctionalProperty ;
               rdfs:range xsd:string ;
@@ -161,93 +161,93 @@ smd:hasString rdf:type owl:DatatypeProperty ,
 #################################################################
 
 
-###  http://www.amcis2021.com/swag/smd#Attribute
+###  http://www.dke.jku.ac.at/swag/smd#Attribute
 smd:Attribute rdf:type owl:Class .
 
 
-###  http://www.amcis2021.com/swag/smd#Descriptor
+###  http://www.dke.jku.ac.at/swag/smd#Descriptor
 smd:Descriptor rdf:type owl:Class ;
                rdfs:subClassOf qb4o:LevelAttribute ,
                                smd:MappableElement ;
                rdfs:comment "An attribute that describes a level."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#Dimension
+###  http://www.dke.jku.ac.at/swag/smd#Dimension
 smd:Dimension rdf:type owl:Class ;
               rdfs:subClassOf qb:DimensionProperty ;
               rdfs:comment "A set of hierarichally organized levels."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#Fact
+###  http://www.dke.jku.ac.at/swag/smd#Fact
 smd:Fact rdf:type owl:Class ;
          rdfs:subClassOf qb:DataStructureDefinition ,
                          smd:MappableElement ;
          rdfs:comment "A subject of interest, that is numerically measured by measures, and described by dimensions."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#FactClass
+###  http://www.dke.jku.ac.at/swag/smd#FactClass
 smd:FactClass rdf:type owl:Class .
 
 
-###  http://www.amcis2021.com/swag/smd#HasAttribute
+###  http://www.dke.jku.ac.at/swag/smd#HasAttribute
 smd:HasAttribute rdf:type owl:Class ;
                  rdfs:subClassOf smd:MappableRelation ;
                  rdfs:comment "Connects a level to its attribute."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#HasLevel
+###  http://www.dke.jku.ac.at/swag/smd#HasLevel
 smd:HasLevel rdf:type owl:Class ;
              rdfs:subClassOf smd:MappableRelation ;
              rdfs:comment "Connects a fact class to a level."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#HasMeasure
+###  http://www.dke.jku.ac.at/swag/smd#HasMeasure
 smd:HasMeasure rdf:type owl:Class ;
                rdfs:subClassOf smd:MappableRelation ;
                rdfs:comment "Connects a fact to a measure."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#Hierarchy
+###  http://www.dke.jku.ac.at/swag/smd#Hierarchy
 smd:Hierarchy rdf:type owl:Class ;
               rdfs:subClassOf qb4o:Hierarchy ,
                               smd:MappableElement .
 
 
-###  http://www.amcis2021.com/swag/smd#HierarchyStep
+###  http://www.dke.jku.ac.at/swag/smd#HierarchyStep
 smd:HierarchyStep rdf:type owl:Class ;
                   rdfs:subClassOf qb4o:HierarchyStep ,
                                   smd:MappableRelation ;
                   rdfs:comment "Connects two levels to each other in a roll up relationship."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#Level
+###  http://www.dke.jku.ac.at/swag/smd#Level
 smd:Level rdf:type owl:Class ;
           rdfs:subClassOf qb4o:LevelProperty ,
                           smd:MappableElement ;
           rdfs:comment "An element of a dimension that defines a specific granularity to describe facts."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#MDSchema
+###  http://www.dke.jku.ac.at/swag/smd#MDSchema
 smd:MDSchema rdf:type owl:Class ;
              rdfs:comment "A multidimensional schema."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#MappableElement
+###  http://www.dke.jku.ac.at/swag/smd#MappableElement
 smd:MappableElement rdf:type owl:Class ;
                     rdfs:comment "An element that can have a mapping query."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#MappableRelation
+###  http://www.dke.jku.ac.at/swag/smd#MappableRelation
 smd:MappableRelation rdf:type owl:Class ;
                      rdfs:comment "A relationship that can have a mapping query."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#Mapping
+###  http://www.dke.jku.ac.at/swag/smd#Mapping
 smd:Mapping rdf:type owl:Class ;
             rdfs:comment "Defines a query that identifies the instances that belong to an element."@en .
 
 
-###  http://www.amcis2021.com/swag/smd#Measure
+###  http://www.dke.jku.ac.at/swag/smd#Measure
 smd:Measure rdf:type owl:Class ;
             rdfs:subClassOf qb:MeasureProperty ,
                             smd:MappableElement ;
@@ -258,8 +258,8 @@ smd:Measure rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  http://www.amcis2021.com/swag/smd
-<http://www.amcis2021.com/swag/smd> rdf:type owl:NamedIndividual ,
+###  http://www.dke.jku.ac.at/swag/smd
+<http://www.dke.jku.ac.at/swag/smd> rdf:type owl:NamedIndividual ,
                                           voaf:Vocabulary .
 
 

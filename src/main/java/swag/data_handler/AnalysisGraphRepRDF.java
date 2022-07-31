@@ -471,7 +471,6 @@ public class AnalysisGraphRepRDF implements IAnalysisGraphRep {
      * 
      * @param ind
      *            the individual to read slices of
-     * @param dimToAS
      *            the dimension to AS object being built
      * @return a list of multiple swag.predicates
      * 
@@ -519,7 +518,7 @@ public class AnalysisGraphRepRDF implements IAnalysisGraphRep {
 				    OWLConnectionFactory.getAGNamespace(owlConnection) + Constants.ON_PREDICATE));
 
 		    if (basePredicateNode != null && basePredicateNode.as(Individual.class).hasProperty(RDF.type,
-			    owlConnection.getClassByName("http://www.amcis2021.com/swag/pr#PredicateInstance"))) {
+			    owlConnection.getClassByName("http://www.dke.jku.ac.at/swag/pr#PredicateInstance"))) {
 			Individual sliceCondIndiv = sliceSpecificationIndivNode.as(Individual.class);
 			Individual predicateInd = owlConnection.getPropertyValueEncAsIndividual(sliceCondIndiv,
 				this.owlConnection.getModel().getProperty(
@@ -594,7 +593,6 @@ public class AnalysisGraphRepRDF implements IAnalysisGraphRep {
     // TODO
     /**
      * @param ind
-     * @param dimToAS
      * @return
      * @throws Exception
      */
@@ -652,7 +650,7 @@ public class AnalysisGraphRepRDF implements IAnalysisGraphRep {
 				    OWLConnectionFactory.getAGNamespace(owlConnection) + Constants.ON_PREDICATE));
 
 		    if (basePredicateNode != null && basePredicateNode.as(Individual.class).hasProperty(RDF.type,
-			    owlConnection.getClassByName("http://www.amcis2021.com/swag/pr#PredicateInstance"))) {
+			    owlConnection.getClassByName("http://www.dke.jku.ac.at/swag/pr#PredicateInstance"))) {
 
 			Individual sliceCondIndiv = sliceSpecificationIndivNode.as(Individual.class);
 

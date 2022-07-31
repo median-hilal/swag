@@ -199,7 +199,6 @@ public class DataHandlerUtils {
    * Gets a dimension individual of an individual. Uses property {@code Constants.OP_ON_DIMENSION_E}
    * 
    * @param owlConnection the OWL connection at hand
-   * @param ind the individual to get the dimension to
    * 
    * @return individual of the dimension
    */
@@ -220,7 +219,6 @@ public class DataHandlerUtils {
    * Gets a operation hierarchy of an individual. Uses property {@code Constants.OP_ON_HIERARCHY_E}
    * 
    * @param owlConnection the OWL connection at hand
-   * @param ind the individual to get the hierarchy to
    * 
    * @return uri of the hierarchy
    */
@@ -246,7 +244,6 @@ public class DataHandlerUtils {
    * Gets a level of an individual. Uses property {@code Constants.OP_TO_LEVEL_E}
    * 
    * @param owlConnection the OWL connection at hand
-   * @param ind the individual to get the level to
    * 
    * @return uri of the level
    */
@@ -504,7 +501,7 @@ public class DataHandlerUtils {
 
             if (basePredicateNode != null && basePredicateNode.as(Individual.class).hasProperty(
                 RDF.type,
-                owlConnection.getClassByName("http://www.amcis2021.com/swag/pr#PredicateInstance"))) {
+                owlConnection.getClassByName("http://www.dke.jku.ac.at/swag/pr#PredicateInstance"))) {
 
               Individual sliceCondIndiv = sliceCondNode.as(Individual.class);
 

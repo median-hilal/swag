@@ -58,7 +58,7 @@ public class PredicateReader {
 
     SPARQLEndpointConnection conn = new SPARQLEndpointConnection();
     // generatePredicateInstanceQuerz("http://www.wikidata.org/entity/Q178810", inputVars,
-    // "http://www.amcis2021.com/swag/pr#predInstance1", m, conn);
+    // "http://www.dke.jku.ac.at/swag/pr#predInstance1", m, conn);
   }
 
   public static ResultSet queryPredicates(Model m) {

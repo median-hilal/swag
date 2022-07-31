@@ -1,15 +1,15 @@
-@prefix : <http://www.amcis2021.com/swag/myAG#> .
+@prefix : <http://www.dke.jku.ac.at/swag/myAG#> .
 @prefix schema: <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#> .
-@prefix films: <http://www.amcis2021.com/swag/filmsMDSchema#> .
+@prefix films: <http://www.dke.jku.ac.at/swag/filmsMDSchema#> .
 @prefix myMDSchema: <http://www.fing.edu.uy/inco/cubes/schemas/myMDSchema#> .
 @prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix pr: <http://www.amcis2021.com/swag/pr#> .
+@prefix pr: <http://www.dke.jku.ac.at/swag/pr#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix ag: <http://www.amcis2021.com/swag/ag#> .
+@prefix ag: <http://www.dke.jku.ac.at/swag/ag#> .
 @prefix gn: <http://www.geonames.org/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix smd: <http://www.amcis2021.com/swag/smd#> .
+@prefix smd: <http://www.dke.jku.ac.at/swag/smd#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -211,4 +211,5 @@ schema:eurostat a owl:NamedIndividual, smd:MDSchema;
   rdfs:label "eurostat";
   rdfs:isDefinedBy <https://raw.githubusercontent.com/lorenae/qb4olap/master/examples/eurostat_schema_QB4OLAP_v1.3.ttl>;
   smd:hasFactClass schema:migr_asyappctzmQB4O13;
-  smd:hasSPARQLService "http://localhost:7200/repositories/AMCIS_2021" .  
+  smd:hasSPARQLService "http://localhost:7200/repositories/AMCIS_2021" .
+
