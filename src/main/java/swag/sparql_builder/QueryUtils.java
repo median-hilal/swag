@@ -104,6 +104,17 @@ public class QueryUtils {
 		return bgp;
 	}
 
+	public TripleCollectorBGP getTriplesOfFact() {
+		TripleCollectorBGP bgp = new TripleCollectorBGP();
+
+		Triple triple1 = new Triple(getVarOfFact(schema.getFactOfSchema().getURI()),
+				NodeFactory.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
+				NodeFactory.createURI("http://purl.org/linked-data/cube#Observation"));
+		SetBasedBGP.addTripleToBgp(bgp, triple1);
+
+		return bgp;
+	}
+
 
 	public TripleCollectorBGP getTriplesOfPath(String d, String l, String l2) {
 

@@ -42,6 +42,8 @@ public class AsSPARQLGeneratorSimple extends AsSPARQLGeneratorExtended {
 		List<String> aggs = new ArrayList<>();
 		List<Var> grans = new ArrayList<Var>();
 
+		SetBasedBGP.addBgpToBgp(bgp, utils.getTriplesOfFact());
+
 		for (IDimensionQualification dimToAS : as.getDimensionsToAnalysisSituation()) {
 
 			if (dimToAS.getGranularities().size() > 0) {
@@ -119,6 +121,7 @@ public class AsSPARQLGeneratorSimple extends AsSPARQLGeneratorExtended {
 
 		query += ")";
 
+		System.out.println("query: " + query);
 
 	}
 
