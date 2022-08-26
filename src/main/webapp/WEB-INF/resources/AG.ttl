@@ -45,20 +45,20 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  http://purl.org/qb4olap/cubes#binding
-qb4o:binding rdf:type owl:ObjectProperty ;
+:binding rdf:type owl:ObjectProperty ;
              rdfs:domain :Pair ;
-             rdfs:range qb4o:Constant .
+             rdfs:range :Constant .
 
 
 ###  http://purl.org/qb4olap/cubes#opGranularityLevelInAG
-qb4o:opGranularityLevelInAG rdf:type owl:ObjectProperty ;
+:opGranularityLevelInAG rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf :navigationOperationProperty ;
                             rdfs:domain :SetGranularity ;
                             rdfs:range :LevelInAG .
 
 
 ###  http://purl.org/qb4olap/cubes#parameter
-qb4o:parameter rdf:type owl:ObjectProperty ;
+:parameter rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:domain :Pair ;
                rdfs:range :Parameter .
@@ -341,7 +341,7 @@ qb4o:parameter rdf:type owl:ObjectProperty ;
 
 ###  http://www.dke.jku.ac.at/swag/ag#opGranularityLevel
 :opGranularityLevel rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf qb4o:opGranularityLevelInAG ,
+                    rdfs:subPropertyOf :opGranularityLevelInAG ,
                                        :navigationOperationProperty ;
                     rdfs:domain :ChangeGranularityTo ;
                     rdfs:range qb4o:LevelProperty ;
@@ -577,7 +577,7 @@ qb:MeasureProperty rdf:type owl:Class ;
 
 
 ###  http://purl.org/qb4olap/cubes#Constant
-qb4o:Constant rdf:type owl:Class .
+:Constant rdf:type owl:Class .
 
 
 ###  http://purl.org/qb4olap/cubes#Hierarchy
@@ -592,14 +592,14 @@ qb4o:LevelAttribute rdf:type owl:Class ;
 
 ###  http://purl.org/qb4olap/cubes#LevelMember
 qb4o:LevelMember rdf:type owl:Class ;
-                 rdfs:subClassOf qb4o:Constant ,
+                 rdfs:subClassOf :Constant ,
                                  :Attribute ,
                                  :LevelMemberInAG .
 
 
 ###  http://purl.org/qb4olap/cubes#LevelProperty
 qb4o:LevelProperty rdf:type owl:Class ;
-                   rdfs:subClassOf qb4o:Constant ,
+                   rdfs:subClassOf :Constant ,
                                    :Level ,
                                    :LevelInAG .
 
@@ -816,7 +816,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#GroundDimensionPredicate
 :GroundDimensionPredicate rdf:type owl:Class ;
-                          rdfs:subClassOf qb4o:Constant ,
+                          rdfs:subClassOf :Constant ,
                                           :GroundDimensionPredicateInAG ,
                                           :GroundPredicate ;
                           rdfs:comment "Ground dimension predicate."@en .
@@ -847,7 +847,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#GroundResultPredicate
 :GroundResultPredicate rdf:type owl:Class ;
-                       rdfs:subClassOf qb4o:Constant ,
+                       rdfs:subClassOf :Constant ,
                                        :GroundPredicate ,
                                        :GroundResultPredicateInAG ;
                        rdfs:comment "Measure ground condition."@en .
@@ -1159,7 +1159,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#ResultMeasure
 :ResultMeasure rdf:type owl:Class ;
-               rdfs:subClassOf qb4o:Constant ,
+               rdfs:subClassOf :Constant ,
                                :ResultMeasureInAG ;
                rdfs:comment "Aggregation expression over a measure."@en .
 
