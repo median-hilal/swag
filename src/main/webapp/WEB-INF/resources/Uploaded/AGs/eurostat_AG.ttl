@@ -20,14 +20,14 @@
 #Analysis graph
 :eurostatAG a owl:NamedIndividual, ag:AnalysisGraph;
   rdfs:comment "This analysis graphs tracks the number of asylum applications."@en;
-  ag:analysisSituation :AS1, :AS2, :AS3, :AS4, :AS5;
+  ag:analysisSituation :q1, :q2, :q3, :q4, :q5;
   ag:navigationStep :NV2-3, :NV1-2, :NV2-5, :NV3-4;
   ag:onSchema schema:eurostat;
   ag:cube schema:migr_asyappctzmQB4O13;
   ag:dataset schema:migr_asyappctzmQB4O13_ds.
 
 #Analysis situations
-:AS1 a owl:NamedIndividual, ag:AnalysisSituation;
+:q1 a owl:NamedIndividual, ag:AnalysisSituation;
   rdfs:comment "Sum of number of asylum applications submitted to a specific destination continent, grouped by destination continent."@en;
   rdfs:label "Applications by destination continent"@en;
   ag:dice :diceSpecOnContinent2;
@@ -36,7 +36,7 @@
   ag:granularity :desContinentGran;
   ag:resultMeasureInAG schema:sumOfNumOfApps .
 
-:AS2 a owl:NamedIndividual, ag:AnalysisSituation;
+:q2 a owl:NamedIndividual, ag:AnalysisSituation;
   rdfs:comment "Sum of  number of asylum applications submitted to a specific destination continent, grouped by destination country."@en;
   rdfs:label "Applications by destination country"@en;
   ag:dice :diceSpecOnContinent2;
@@ -45,7 +45,7 @@
   ag:granularity :destCountryGran;
   ag:resultMeasureInAG schema:sumOfNumOfApps .
 
-:AS3 a owl:NamedIndividual, ag:AnalysisSituation;
+:q3 a owl:NamedIndividual, ag:AnalysisSituation;
   rdfs:comment "Sum of number of asylum applications submitted to a specific destination country, after a specific year, grouped by destination country and year."@en;
   rdfs:label "Applications by destination country and year"@en;
   ag:dice :diceSpecOnCountry3;
@@ -55,7 +55,7 @@
   ag:resultMeasureInAG schema:sumOfNumOfApps;
   ag:dimensionSelection :sliceOnYear .
 
-:AS4 a owl:NamedIndividual, ag:AnalysisSituation;
+:q4 a owl:NamedIndividual, ag:AnalysisSituation;
   rdfs:comment "Sum of number of asylum applications filtered by intensity, submitted to a specific destination country, after a specific year, grouped by destination country and month."@en;
   rdfs:label "Applications by destination country and month"@en;
   ag:dice :diceSpecOnCountry3;
@@ -66,7 +66,7 @@
   ag:dimensionSelection :sliceOnYear;
   ag:resultPredicateInAG :mPredPair .
 
-:AS5 a owl:NamedIndividual, ag:AnalysisSituation;
+:q5 a owl:NamedIndividual, ag:AnalysisSituation;
   rdfs:comment "Sum of number of asylum applications submitted to a specific destination country, grouped by citizenship country and destination country."@en;
   rdfs:label "Applications by citizenship and destination country"@en;
   ag:dice :diceSpecOnCountry3;
@@ -80,29 +80,29 @@
   rdfs:comment "Drill down to destination country"@en;
   rdfs:label "Drill down to destination country"@en;
   ag:operation :drillDownToDesCountry;
-  ag:source :AS1;
-  ag:target :AS2 .
+  ag:source :q1;
+  ag:target :q2 .
 
 :NV2-3 a owl:NamedIndividual, ag:NavigationStep;
   rdfs:comment "Drill down to year of applications, and restrict destination country to a specific country, and restrict year of applications."@en;
   rdfs:label "Drill down to year"@en;
   ag:operation :addSelectionOnYear, :drillDownToYearOnTime, :moveToCountry;
-  ag:source :AS2;
-  ag:target :AS3 .
+  ag:source :q2;
+  ag:target :q3 .
   
 :NV3-4 a owl:NamedIndividual, ag:NavigationStep;
   rdfs:comment "Drill down to month of applications, and filter sum of number of asylum applications by intensity per month and country."@en;
   rdfs:label "Drill down to month"@en;
   ag:operation :drillDownToMonthOnTime, :filterSumOfNumOfAppsToMoreThan;
-  ag:source :AS3;
-  ag:target :AS4 .
+  ag:source :q3;
+  ag:target :q4 .
 
 :NV2-5 a owl:NamedIndividual, ag:NavigationStep;
   rdfs:comment "Drill down to citizenship country, and restrict destination country to a specific country."@en;
   rdfs:label "Drill down to citizenship country"@en;
   ag:operation :moveToCountry, :drillDownToCitCountry;
-  ag:source :AS2;
-  ag:target :AS5 .
+  ag:source :q2;
+  ag:target :q5 .
 
 #Navigation operations
 :drillDownToYearOnTime a owl:NamedIndividual, ag:DrillDownTo;
@@ -187,24 +187,23 @@
   ag:hierarchy schema:citizenshipGeoHier;
   ag:granularityLevelInAG property:citizen .
  
-#Variables
-:dPredPair a owl:NamedIndividual, ag:GroundPredicate, ag:Predicate, ag:DimensionPredicate,
-    ag:DimensionGroundPredicate, ag:Pair, ag:GroundDimensionPredicatePair;
+#Pairs and Parameters
+:dPredPair a owl:NamedIndividual, ag:GroundPredicate, ag:Predicate,
+   ag:Pair, ag:GroundDimensionPredicatePair;
   ag:parameter :dPred.
 
 :dPred a ag:Parameter;
   ag:domain [ag:derivedFrom :yearAfter ].
 
-:geoNodePair a owl:NamedIndividual, ag:Variable, ag:LevelMemberPair ;
+:geoNodePair a owl:NamedIndividual,ag:LevelMemberPair ;
   ag:parameter :geoNode.
 :geoNode a ag:Parameter.
 
-:continentNodePair a owl:NamedIndividual, ag:Variable, ag:LevelMemberPair ;
+:continentNodePair a owl:NamedIndividual, ag:LevelMemberPair ;
   ag:parameter :continentNode.
 :continentNode a ag:Parameter.
 
-:mPredPair a owl:NamedIndividual, ag:GroundPredicate, ag:Predicate, ag:GroundResultPredicatePair,
-    ag:Variable, ag:ResultGroundPredicate, ag:ResultPredicate;
+:mPredPair a owl:NamedIndividual, ag:GroundPredicate, ag:Predicate, ag:GroundResultPredicatePair;
   ag:parameter :mPred.
 
 :mPred a ag:Parameter;

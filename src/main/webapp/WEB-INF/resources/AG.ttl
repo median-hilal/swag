@@ -61,7 +61,7 @@ qb4o:opGranularityLevelInAG rdf:type owl:ObjectProperty ;
 qb4o:parameter rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:domain :Pair ;
-               rdfs:range <http://www.dke.jku.ac.at/swag/pr#Parameter> .
+               rdfs:range :Parameter .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#analysisGraphProperty
@@ -306,7 +306,7 @@ qb4o:parameter rdf:type owl:ObjectProperty ;
 :onSchema rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf :analysisGraphProperty ;
           rdfs:domain :AnalysisGraph ;
-          rdfs:range <http://www.dke.jku.ac.at/swag/smd#MDSchema> ;
+          rdfs:range smd:MDSchema ;
           rdfs:comment "Specifies a multidimensional schema on which an analysis situation is defined."@en .
 
 
@@ -1160,14 +1160,14 @@ voaf:Vocabulary rdf:type owl:Class .
 ###  http://www.dke.jku.ac.at/swag/ag#ResultMeasure
 :ResultMeasure rdf:type owl:Class ;
                rdfs:subClassOf qb4o:Constant ,
-                               :ResultMeasureInAG ,
-                               :ResultMeasureSpecification ;
+                               :ResultMeasureInAG ;
                rdfs:comment "Aggregation expression over a measure."@en .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#ResultMeasureInAG
 :ResultMeasureInAG rdf:type owl:Class ;
-                   rdfs:subClassOf :Value .
+                   rdfs:subClassOf :ResultMeasureSpecification ,
+                                   :Value .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#ResultMeasureOperation
@@ -1248,11 +1248,11 @@ voaf:Vocabulary rdf:type owl:Class .
 
 
 ###  http://www.dke.jku.ac.at/swag/pr#Parameter
-<http://www.dke.jku.ac.at/swag/pr#Parameter> rdf:type owl:Class .
+:Parameter rdf:type owl:Class .
 
 
 ###  http://www.dke.jku.ac.at/swag/smd#MDSchema
-<http://www.dke.jku.ac.at/swag/smd#MDSchema> rdf:type owl:Class .
+smd:MDSchema rdf:type owl:Class .
 
 
 ###  http://www.w3.org/2000/01/rdf-schema#Datatype

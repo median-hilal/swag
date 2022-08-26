@@ -290,12 +290,11 @@ public class DataHandlerUtils {
     // Dice node
     if (diceNodeNode != null) {
       String diceNodeURI = diceNodeNode.as(Individual.class).getURI();
-      if (diceNodeNode.as(Individual.class).hasProperty(RDF.type, owlConnection.getModel()
-              .getOntClass(OWLConnectionFactory.getAGNamespace(owlConnection) + Constants.variable))) {
+
 
         DiceNodeInAnalysisSituation diceNode = MDElementParameterCreator.readDiceNode(diceNodeNode, owlConnection, dimToAS);
         diceSpec.setDiceNodeInAnalysisSituation(diceNode);
-      }
+
 
     }
     return diceSpec;
