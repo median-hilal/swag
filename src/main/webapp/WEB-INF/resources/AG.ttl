@@ -44,26 +44,6 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  http://purl.org/qb4olap/cubes#binding
-:binding rdf:type owl:ObjectProperty ;
-             rdfs:domain :Pair ;
-             rdfs:range :Constant .
-
-
-###  http://purl.org/qb4olap/cubes#opGranularityLevelInAG
-:opGranularityLevelInAG rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf :navigationOperationProperty ;
-                            rdfs:domain :SetGranularity ;
-                            rdfs:range :LevelInAG .
-
-
-###  http://purl.org/qb4olap/cubes#parameter
-:parameter rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty ;
-               rdfs:domain :Pair ;
-               rdfs:range :Parameter .
-
-
 ###  http://www.dke.jku.ac.at/swag/ag#analysisGraphProperty
 :analysisGraphProperty rdf:type owl:ObjectProperty .
 
@@ -86,6 +66,12 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
                           rdfs:domain :AnalysisSituation ;
                           rdfs:range :GroundBaseMeasurePredicate ;
                           rdfs:comment "Specifies a conditoin over a measure." .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#binding
+:binding rdf:type owl:ObjectProperty ;
+         rdfs:domain :Pair ;
+         rdfs:range :Constant .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#clause
@@ -310,9 +296,14 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
           rdfs:comment "Specifies a multidimensional schema on which an analysis situation is defined."@en .
 
 
+###  http://www.dke.jku.ac.at/swag/ag#opArgument
+:opArgument rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :navigationOperationProperty .
+
+
 ###  http://www.dke.jku.ac.at/swag/ag#opDiceLevelInAG
 :opDiceLevelInAG rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf :navigationOperationProperty ;
+                 rdfs:subPropertyOf :opArgument ;
                  rdfs:domain :MoveToLevelAndNode ;
                  rdfs:range :LevelInAG ;
                  rdfs:comment "Specifies a value in a navigation operation to be a dice value in the navigation target analysis situation."@en .
@@ -320,7 +311,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#opDiceNodeInAG
 :opDiceNodeInAG rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :navigationOperationProperty ;
+                rdfs:subPropertyOf :opArgument ;
                 rdfs:domain :MoveToNode ;
                 rdfs:range :LevelMemberInAG ;
                 rdfs:comment "Specifies a value in a navigation operation to be a dice value in the navigation target analysis situation."@en .
@@ -333,7 +324,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#opDimension
 :opDimension rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :navigationOperationProperty ;
+             rdfs:subPropertyOf :opArgument ;
              rdfs:domain :DimensionOperation ;
              rdfs:range qb:DimensionProperty ;
              rdfs:comment "Specifies the dimension on which a navigation is to be performed."@en .
@@ -341,16 +332,23 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#opGranularityLevel
 :opGranularityLevel rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :opGranularityLevelInAG ,
-                                       :navigationOperationProperty ;
+                    rdfs:subPropertyOf :opArgument ,
+                                       :opGranularityLevelInAG ;
                     rdfs:domain :ChangeGranularityTo ;
                     rdfs:range qb4o:LevelProperty ;
                     rdfs:comment "Specifies a level in a navigation operation to be a level in the navigation target analysis situation (e.g., a dice level or a granularity)."@en .
 
 
+###  http://www.dke.jku.ac.at/swag/ag#opGranularityLevelInAG
+:opGranularityLevelInAG rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :opArgument ;
+                        rdfs:domain :SetGranularity ;
+                        rdfs:range :LevelInAG .
+
+
 ###  http://www.dke.jku.ac.at/swag/ag#opHierarchy
 :opHierarchy rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :navigationOperationProperty ;
+             rdfs:subPropertyOf :opArgument ;
              rdfs:domain :DimensionOperation ;
              rdfs:range qb4o:Hierarchy ;
              rdfs:comment "Specifies the dimension on which a navigation is to be performed."@en .
@@ -365,7 +363,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#opNewDimPredicateInAG
 :opNewDimPredicateInAG rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf :navigationOperationProperty ;
+                       rdfs:subPropertyOf :opArgument ;
                        rdfs:domain :AddDimPredicate ;
                        rdfs:range :GroundDimensionPredicateInAG .
 
@@ -379,7 +377,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#opNewResultMeasureInAG
 :opNewResultMeasureInAG rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf :navigationOperationProperty ;
+                        rdfs:subPropertyOf :opArgument ;
                         rdfs:domain :AddResultMeasure ;
                         rdfs:range :ResultMeasureInAG ;
                         rdfs:comment "Specifies a measure speicification for the operation."@en .
@@ -394,7 +392,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#opNewResultPredicateInAG
 :opNewResultPredicateInAG rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf :navigationOperationProperty ;
+                          rdfs:subPropertyOf :opArgument ;
                           rdfs:domain :AddResultPredicate ;
                           rdfs:range :GroundResultPredicateInAG ;
                           rdfs:comment "Specifies a filter conditoin for the operation."@en .
@@ -402,7 +400,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#opOldDimPredicateInAG
 :opOldDimPredicateInAG rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf :navigationOperationProperty ;
+                       rdfs:subPropertyOf :opArgument ;
                        rdfs:domain :RemoveDimPredicate ;
                        rdfs:range :GroundDimensionPredicateInAG .
 
@@ -416,7 +414,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#opOldResultMeasureInAG
 :opOldResultMeasureInAG rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf :navigationOperationProperty ;
+                        rdfs:subPropertyOf :opArgument ;
                         rdfs:domain :RemoveResultMeasure ;
                         rdfs:range :ResultMeasureInAG .
 
@@ -430,7 +428,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#opOldResultPredicateInAG
 :opOldResultPredicateInAG rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf :navigationOperationProperty ;
+                          rdfs:subPropertyOf :opArgument ;
                           rdfs:domain :RemoveResultPredicate ;
                           rdfs:range :GroundResultPredicateInAG .
 
@@ -448,6 +446,13 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
            rdfs:domain :NavigationStep ;
            rdfs:range :NavigationOperation ;
            rdfs:comment "Connects a navigation step to an operation of the step." .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#parameter
+:parameter rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :Pair ;
+           rdfs:range :Parameter .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#predicateMDElement
@@ -576,10 +581,6 @@ qb:MeasureProperty rdf:type owl:Class ;
                                    :NonAggregatedMeasure .
 
 
-###  http://purl.org/qb4olap/cubes#Constant
-:Constant rdf:type owl:Class .
-
-
 ###  http://purl.org/qb4olap/cubes#Hierarchy
 qb4o:Hierarchy rdf:type owl:Class ;
                rdfs:subClassOf :MDElement .
@@ -592,8 +593,8 @@ qb4o:LevelAttribute rdf:type owl:Class ;
 
 ###  http://purl.org/qb4olap/cubes#LevelMember
 qb4o:LevelMember rdf:type owl:Class ;
-                 rdfs:subClassOf :Constant ,
-                                 :Attribute ,
+                 rdfs:subClassOf :Attribute ,
+                                 :Constant ,
                                  :LevelMemberInAG .
 
 
@@ -695,6 +696,10 @@ voaf:Vocabulary rdf:type owl:Class .
 :Clause rdf:type owl:Class ;
         rdfs:subClassOf :PredicateElement ;
         rdfs:comment "Syntactic SPARQL clause used in a predicate."@en .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#Constant
+:Constant rdf:type owl:Class .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#DerivedMeasure
@@ -1059,6 +1064,10 @@ voaf:Vocabulary rdf:type owl:Class .
 :Pair rdf:type owl:Class .
 
 
+###  http://www.dke.jku.ac.at/swag/ag#Parameter
+:Parameter rdf:type owl:Class .
+
+
 ###  http://www.dke.jku.ac.at/swag/ag#Predicate
 :Predicate rdf:type owl:Class ;
            rdfs:comment "A predicate specifies a selection condition that can be evaluated to true or false."@en .
@@ -1245,10 +1254,6 @@ voaf:Vocabulary rdf:type owl:Class .
 ###  http://www.dke.jku.ac.at/swag/ag#Variable
 :Variable rdf:type owl:Class ;
           rdfs:comment "A variable is like a plcae holder on a specific element of an analysis situation / navigation step. A variable can encode further information, e.g., the type of the variable representing the set of potential values, etc."@en .
-
-
-###  http://www.dke.jku.ac.at/swag/pr#Parameter
-:Parameter rdf:type owl:Class .
 
 
 ###  http://www.dke.jku.ac.at/swag/smd#MDSchema
