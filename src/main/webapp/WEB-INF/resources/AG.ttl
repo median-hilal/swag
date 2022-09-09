@@ -688,7 +688,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#ChangeGranularityTo
 :ChangeGranularityTo rdf:type owl:Class ;
-                     rdfs:subClassOf :GranularityOperatoin ;
+                     rdfs:subClassOf :GranularityOperation ;
                      rdfs:comment "Abstract Navigation Operation for the operations that change a granularity level of an analysis situation up or down the hierarchy." .
 
 
@@ -764,7 +764,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#DrillDown
 :DrillDown rdf:type owl:Class ;
-           rdfs:subClassOf :GranularityOperatoin ;
+           rdfs:subClassOf :GranularityOperation ;
            rdfs:comment "A navigation operation that changes the current granularity level on a dimenion-hierarchy to the level below it in the hierarchy."@en .
 
 
@@ -798,8 +798,8 @@ voaf:Vocabulary rdf:type owl:Class .
 											Used to specifiy the granularity level on a dimension"""@en .
 
 
-###  http://www.dke.jku.ac.at/swag/ag#GranularityOperatoin
-:GranularityOperatoin rdf:type owl:Class ;
+###  http://www.dke.jku.ac.at/swag/ag#GranularityOperation
+:GranularityOperation rdf:type owl:Class ;
                       rdfs:subClassOf :DimensionOperation ;
                       rdfs:comment "Umbrella Navigation Operation for the operations that change a granularity level of an analysis situation." .
 
@@ -1207,7 +1207,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#RollUp
 :RollUp rdf:type owl:Class ;
-        rdfs:subClassOf :GranularityOperatoin ;
+        rdfs:subClassOf :GranularityOperation ;
         rdfs:comment "A navigation operation that changes the current granularity level on a dimenion/hierarchy to the level up in the hierarchy."@en .
 
 
@@ -1219,7 +1219,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#SetGranularity
 :SetGranularity rdf:type owl:Class ;
-                rdfs:subClassOf :GranularityOperatoin .
+                rdfs:subClassOf :GranularityOperation .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#Specification
