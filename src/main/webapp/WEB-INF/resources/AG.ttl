@@ -1169,8 +1169,8 @@ voaf:Vocabulary rdf:type owl:Class .
 ###  http://www.dke.jku.ac.at/swag/ag#ResultMeasure
 :ResultMeasure rdf:type owl:Class ;
                rdfs:subClassOf :Constant ,
-                               :MDElement ,
-                               :ResultMeasureInAG ;
+                               :ResultMeasureInAG ,
+                               :MDElement ;
                rdfs:comment "Aggregation expression over a measure."@en .
 
 
