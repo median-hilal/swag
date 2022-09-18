@@ -84,7 +84,6 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 ###  http://www.dke.jku.ac.at/swag/ag#cube
 :cube rdf:type owl:ObjectProperty ;
       rdfs:subPropertyOf :analysisSituationProperty ;
-      rdfs:domain :AnalysisSituation ;
       rdfs:range qb:DataStructureDefinition ;
       rdfs:comment "Specifies the cube of an analysis situtation."@en .
 
@@ -99,7 +98,6 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 ###  http://www.dke.jku.ac.at/swag/ag#dataset
 :dataset rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf :analysisSituationProperty ;
-         rdfs:domain :AnalysisSituation ;
          rdfs:range qb:DataSet ;
          rdfs:comment "Specifies the dataset of an analysis situation."@en .
 
