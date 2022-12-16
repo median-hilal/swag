@@ -74,12 +74,6 @@
   ag:clause "HAVING";
   ag:derivedFrom :sumOfNumOfAppsGreaterThan .
 
-schema:sumOfNumOfApps a ag:ResultMeasure;
-  rdfs:comment "The sum of the number of asylum applications"@en;
-  rdfs:label "Sum of number of asylum applications"@en;
-  qb4o:aggregateFunction qb4o:sum;
-  ag:aggregatedMeasure sdmx-measure:obsValue .
-
 :pos1 a owl:NamedIndividual;
   ag:mdElement schema:sumOfNumOfApps;
   ag:name ":1" .
@@ -95,3 +89,13 @@ schema:sumOfNumOfApps a ag:ResultMeasure;
 :var1 a owl:NamedIndividual, ag:PredicateVariable;
   ag:name ":2";
   ag:dataType xsd:integer .
+
+schema:sumOfNumOfApps  a owl:NamedIndividual, ag:AggregatedMeasure;
+  rdfs:comment "Sum of Number of Asylum Applications"@en;
+  rdfs:label "Sum of Number of Asylum Applications"@en;
+  ag:resultMeasureMDElement :pos0;
+  ag:expression "SUM (:1)".
+
+:pos0 a owl:NamedIndividual;
+  ag:mdElement sdmx-measure:obsValue;
+  ag:name ":1" .
