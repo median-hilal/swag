@@ -44,6 +44,13 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+###  http://purl.org/qb4olap/cubes#resultMeasureMDElement
+qb4o:resultMeasureMDElement rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf :predicateOrResultMeasureProperty ;
+                            rdfs:domain :ResultMeasure ;
+                            rdfs:range :ExpressionMDElement .
+
+
 ###  http://www.dke.jku.ac.at/swag/ag#analysisGraphProperty
 :analysisGraphProperty rdf:type owl:ObjectProperty .
 
@@ -76,7 +83,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#clause
 :clause rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf :predicateProperty ;
+        rdfs:subPropertyOf :predicateOrResultMeasureProperty ;
         rdfs:domain :Predicate ;
         rdfs:range :Clause .
 
@@ -84,14 +91,13 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 ###  http://www.dke.jku.ac.at/swag/ag#cube
 :cube rdf:type owl:ObjectProperty ;
       rdfs:subPropertyOf :analysisSituationProperty ;
-      rdfs:domain :AnalysisSituation ;
       rdfs:range qb:DataStructureDefinition ;
       rdfs:comment "Specifies the cube of an analysis situtation."@en .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#dataType
 :dataType rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf :predicateProperty ;
+          rdfs:subPropertyOf :predicateOrResultMeasureProperty ;
           rdfs:domain :PredicateVariable ;
           rdfs:range rdfs:Datatype .
 
@@ -99,14 +105,13 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 ###  http://www.dke.jku.ac.at/swag/ag#dataset
 :dataset rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf :analysisSituationProperty ;
-         rdfs:domain :AnalysisSituation ;
          rdfs:range qb:DataSet ;
          rdfs:comment "Specifies the dataset of an analysis situation."@en .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#derivedFrom
 :derivedFrom rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :predicateProperty ;
+             rdfs:subPropertyOf :predicateOrResultMeasureProperty ;
              rdf:type owl:TransitiveProperty ;
              rdfs:domain :GroundPredicate ;
              rdfs:range :FreePredicate ;
@@ -199,7 +204,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#impliedBy
 :impliedBy rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :predicateProperty ;
+           rdfs:subPropertyOf :predicateOrResultMeasureProperty ;
            owl:inverseOf :implies ;
            rdfs:domain :GroundPredicate ;
            rdfs:range :GroundPredicate ;
@@ -208,7 +213,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#implies
 :implies rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf :predicateProperty ;
+         rdfs:subPropertyOf :predicateOrResultMeasureProperty ;
          rdfs:domain :GroundPredicate ;
          rdfs:range :GroundPredicate ;
          rdfs:comment "Specifies an implication relationship between two predicates."@en .
@@ -224,8 +229,8 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#mdElement
 :mdElement rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :predicateProperty ;
-           rdfs:domain :PredicateMDElement ;
+           rdfs:subPropertyOf :predicateOrResultMeasureProperty ;
+           rdfs:domain :ExpressionMDElement ;
            rdfs:range :MDElement .
 
 
@@ -457,20 +462,20 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.dke.jku.ac.at/swag/ag#predicateMDElement
 :predicateMDElement rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :predicateProperty ;
+                    rdfs:subPropertyOf :predicateOrResultMeasureProperty ;
                     rdfs:domain :Predicate ;
-                    rdfs:range :PredicateMDElement .
+                    rdfs:range :ExpressionMDElement .
 
 
-###  http://www.dke.jku.ac.at/swag/ag#predicateProperty
-:predicateProperty rdf:type owl:ObjectProperty ;
-                   rdfs:domain :Predicate ;
-                   rdfs:range :MDElement .
+###  http://www.dke.jku.ac.at/swag/ag#predicateOrResultMeasureProperty
+:predicateOrResultMeasureProperty rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :Predicate ;
+                                  rdfs:range :MDElement .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#predicateVariable
 :predicateVariable rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf :predicateProperty ;
+                   rdfs:subPropertyOf :predicateOrResultMeasureProperty ;
                    rdfs:domain :Predicate ;
                    rdfs:range :PredicateVariable ;
                    rdfs:comment "Specifies a variable of a predicate."@en .
@@ -688,13 +693,13 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#ChangeGranularityTo
 :ChangeGranularityTo rdf:type owl:Class ;
-                     rdfs:subClassOf :GranularityOperatoin ;
+                     rdfs:subClassOf :GranularityOperation ;
                      rdfs:comment "Abstract Navigation Operation for the operations that change a granularity level of an analysis situation up or down the hierarchy." .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#Clause
 :Clause rdf:type owl:Class ;
-        rdfs:subClassOf :PredicateElement ;
+        rdfs:subClassOf :PredicateOrResultMeasureElement ;
         rdfs:comment "Syntactic SPARQL clause used in a predicate."@en .
 
 
@@ -761,7 +766,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#DrillDown
 :DrillDown rdf:type owl:Class ;
-           rdfs:subClassOf :GranularityOperatoin ;
+           rdfs:subClassOf :GranularityOperation ;
            rdfs:comment "A navigation operation that changes the current granularity level on a dimenion-hierarchy to the level below it in the hierarchy."@en .
 
 
@@ -769,6 +774,12 @@ voaf:Vocabulary rdf:type owl:Class .
 :DrillDownTo rdf:type owl:Class ;
              rdfs:subClassOf :ChangeGranularityTo ;
              rdfs:comment "A drill down to a specific level navigation operation that changes the granularity level on a dimenions/hierarchy  to a specific level that is lower it in the hierarchy."@en .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#ExpressionMDElement
+:ExpressionMDElement rdf:type owl:Class ;
+                     rdfs:subClassOf :PredicateOrResultMeasureElement ;
+                     rdfs:comment "Abstract class for MD elements of a predicate or a business term."@en .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#FreeDimensionPredicate
@@ -795,8 +806,8 @@ voaf:Vocabulary rdf:type owl:Class .
 											Used to specifiy the granularity level on a dimension"""@en .
 
 
-###  http://www.dke.jku.ac.at/swag/ag#GranularityOperatoin
-:GranularityOperatoin rdf:type owl:Class ;
+###  http://www.dke.jku.ac.at/swag/ag#GranularityOperation
+:GranularityOperation rdf:type owl:Class ;
                       rdfs:subClassOf :DimensionOperation ;
                       rdfs:comment "Umbrella Navigation Operation for the operations that change a granularity level of an analysis situation." .
 
@@ -1070,20 +1081,14 @@ voaf:Vocabulary rdf:type owl:Class .
            rdfs:comment "A predicate specifies a selection condition that can be evaluated to true or false."@en .
 
 
-###  http://www.dke.jku.ac.at/swag/ag#PredicateElement
-:PredicateElement rdf:type owl:Class ;
-                  rdfs:comment "Abstract class for predicate elements."@en .
-
-
-###  http://www.dke.jku.ac.at/swag/ag#PredicateMDElement
-:PredicateMDElement rdf:type owl:Class ;
-                    rdfs:subClassOf :PredicateElement ;
-                    rdfs:comment "Abstract class for MD elements of a predicate."@en .
+###  http://www.dke.jku.ac.at/swag/ag#PredicateOrResultMeasureElement
+:PredicateOrResultMeasureElement rdf:type owl:Class ;
+                                 rdfs:comment "Abstract class for predicate elements."@en .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#PredicateVariable
 :PredicateVariable rdf:type owl:Class ;
-                   rdfs:subClassOf :PredicateElement ;
+                   rdfs:subClassOf :PredicateOrResultMeasureElement ;
                    rdfs:comment "A predicate predicate variable can be bound to a concrete value allowing for reusable predicates."@en .
 
 
@@ -1205,7 +1210,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#RollUp
 :RollUp rdf:type owl:Class ;
-        rdfs:subClassOf :GranularityOperatoin ;
+        rdfs:subClassOf :GranularityOperation ;
         rdfs:comment "A navigation operation that changes the current granularity level on a dimenion/hierarchy to the level up in the hierarchy."@en .
 
 
@@ -1217,7 +1222,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#SetGranularity
 :SetGranularity rdf:type owl:Class ;
-                rdfs:subClassOf :GranularityOperatoin .
+                rdfs:subClassOf :GranularityOperation .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#Specification
@@ -1241,7 +1246,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#Topic
 :Topic rdf:type owl:Class ;
-       rdfs:subClassOf :PredicateElement .
+       rdfs:subClassOf :PredicateOrResultMeasureElement .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#Value
