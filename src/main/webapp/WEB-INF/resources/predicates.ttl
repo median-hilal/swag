@@ -93,9 +93,9 @@
 schema:sumOfNumOfApps  a owl:NamedIndividual, ag:AggregatedMeasure;
   rdfs:comment "Sum of Number of Asylum Applications"@en;
   rdfs:label "Sum of Number of Asylum Applications"@en;
-  ag:resultMeasureMDElement :pos0;
+  ag:resultMeasureMDElement :pos3;
   ag:expression "SUM (:1)".
 
-:pos0 a owl:NamedIndividual;
+:pos3 a owl:NamedIndividual;
   ag:mdElement sdmx-measure:obsValue;
   ag:name ":1" .
