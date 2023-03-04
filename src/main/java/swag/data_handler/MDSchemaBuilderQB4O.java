@@ -1,13 +1,15 @@
 package swag.data_handler;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jena.ontology.Individual;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntResource;
+import org.apache.jena.query.*;
+import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.NodeIterator;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.util.iterator.ExtendedIterator;
@@ -15,7 +17,10 @@ import org.apache.jena.vocabulary.RDFS;
 
 import swag.analysis_graphs.execution_engine.NoMappingExistsForElementException;
 import swag.analysis_graphs.execution_engine.NoSuchElementExistsException;
+import swag.analysis_graphs.execution_engine.analysis_situations.AggregationFunction;
+import swag.analysis_graphs.execution_engine.analysis_situations.MeasureAggregated;
 import swag.analysis_graphs.execution_engine.analysis_situations.MeasureDerived;
+import swag.analysis_graphs.execution_engine.analysis_situations.PredicateVariableToMDElementMapping;
 import swag.graph.Graph;
 import swag.md_elements.Descriptor;
 import swag.md_elements.Dimension;
@@ -34,6 +39,10 @@ import swag.md_elements.Mapping;
 import swag.md_elements.Measure;
 import swag.md_elements.QB4OHierarchy;
 import swag.md_elements.QB4OHierarchyStep;
+import swag.predicates.FileBasedPredicateFunction;
+import swag.predicates.PredicateInputVar;
+import swag.predicates.QUERY_STRINGS;
+import swag.predicates.Utils;
 import swag.sparql_builder.Configuration;
 
 /**
@@ -89,11 +98,9 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	}
 
 	/**
-	 * 
 	 * Creates an instance of {@code MDSchemaBuilder}.
-	 * 
+	 *
 	 * @param conn data connection with model containing the MD schema.
-	 * 
 	 */
 	public MDSchemaBuilderQB4O(OWlConnection conn) {
 		this.conn = conn;
@@ -105,16 +112,15 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	}
 
 	/**
-	 * 
 	 * Recursively traverses the data MD schema instance starting from the fact, and
 	 * builds the corresponding {@code MDSchema} instance.
-	 * 
+	 *
 	 * @param owlConnection data connection with model containing the MD schema
 	 * @param graph         the MDSchema being built
 	 * @param outEdges      the edges outgoing from the current node
 	 */
 	private static void propagate(OWlConnection owlConnection, Graph<MDElement, MDRelation> graph,
-			Set<MDRelation> outEdges) {
+								  Set<MDRelation> outEdges) {
 
 		// System.out.println("Now before: ");
 		for (MDRelation rel : outEdges) {
@@ -135,14 +141,11 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	}
 
 	/**
-	 * 
 	 * Builds the MD schema from the provided OWL conneciton which should have a
 	 * model containing and MD schema (instance of MDSchema).
-	 * 
+	 *
 	 * @param owlConnection OWL connection with model containing the MD schema
-	 * 
 	 * @return the built multidimensional schema, null in case of an exception
-	 * 
 	 */
 	private static MDSchema buildMDSchema(OWlConnection owlConnection) {
 
@@ -152,7 +155,7 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 			Individual mdSchemaInd = null;
 			OntClass oc = owlConnection.getModel()
 					.getOntClass(OWLConnectionFactory.getSMDNamespace(owlConnection) + Constants.mdSchema);
-			for (ExtendedIterator<? extends OntResource> ii = oc.listInstances(); ii.hasNext();) {
+			for (ExtendedIterator<? extends OntResource> ii = oc.listInstances(); ii.hasNext(); ) {
 				mdSchemaInd = (Individual) ii.next();
 				break;
 			}
@@ -171,7 +174,7 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 
 			if (clazz != null) {
 				for (ExtendedIterator<? extends org.apache.jena.ontology.OntResource> i = clazz.listInstances(); i
-						.hasNext();) {
+						.hasNext(); ) {
 
 					// Getting the fact of the MD schema
 					ind = (Individual) i.next();
@@ -192,6 +195,8 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 									fact);
 							propagate(owlConnection, graph, outEdges);
 						}
+
+						buildAggMeasures(graph, owlConnection.getModel());
 
 					} catch (Exception ex) {
 						logger.error("Exception building MD schema.", ex);
@@ -215,17 +220,15 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	}
 
 	/**
-	 * 
 	 * Gets a set of outgoing edges from a specific nodes. This means the MD
 	 * relationships of the current MD element being visited.
-	 * 
+	 *
 	 * @param owlConnection OWL connection with model containing the MD schema
 	 * @param elem          current MD element being visited
-	 * 
 	 * @return the outgoing relationships from {@param elem}
 	 */
 	private static Set<MDRelation> getOutMDInPMappedPropsAndValuesThatHaveMapping1(OWlConnection owlConnection,
-			MDElement elem) {
+																				   MDElement elem) {
 
 		Individual ind = owlConnection.getModel().getIndividual(elem.getURI());
 
@@ -257,7 +260,7 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	}
 
 	private static void addInverseHasLevelEdgesToSet(OWlConnection owlConnection, Set<MDRelation> set,
-			Individual sourceInd, MDElement levelElem) {
+													 Individual sourceInd, MDElement levelElem) {
 
 		OntModel model = owlConnection.getModel();
 		MappingRepInterface mappRepInterface = new MappingRepImpl(owlConnection);
@@ -308,7 +311,7 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	}
 
 	private static void addHasAttributeEdgesToSet(OWlConnection owlConnection, Set<MDRelation> set,
-			Individual sourceInd, MDElement elem) {
+												  Individual sourceInd, MDElement elem) {
 
 		MappingRepInterface mappRepInterface = new MappingRepImpl(owlConnection);
 
@@ -345,7 +348,7 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	}
 
 	private static void addHasHierarchyEdgesToSet(OWlConnection owlConnection, Set<MDRelation> set,
-			Individual sourceInd, MDElement elem) {
+												  Individual sourceInd, MDElement elem) {
 
 		MappingRepInterface mappRepInterface = new MappingRepImpl(owlConnection);
 
@@ -380,7 +383,7 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	}
 
 	private static void addFactOutEdgesToSet(OWlConnection owlConnection, Set<MDRelation> set, Individual sourceInd,
-			MDElement elem) {
+											 MDElement elem) {
 
 		MappingRepInterface mappRepInterface = new MappingRepImpl(owlConnection);
 
@@ -465,17 +468,15 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	}
 
 	/**
-	 * 
 	 * addInDimensionEdgesToSet
-	 * 
+	 *
 	 * @param owlConnection
 	 * @param set
 	 * @param sourceInd
 	 * @param fromElem
-	 * 
 	 */
 	private static void addInDimensionEdgesToSet(OWlConnection owlConnection, Set<MDRelation> set, Individual sourceInd,
-			MDElement fromElem) {
+												 MDElement fromElem) {
 
 		Individual dimIndiv = null;
 
@@ -508,9 +509,8 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	}
 
 	/**
-	 * 
 	 * addEdgesToSet
-	 * 
+	 *
 	 * @param owlConnection
 	 * @param set
 	 * @param sourceInd     the individual for we which we are getting related
@@ -525,26 +525,26 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 	 *                      connects the edge individual with its to
 	 */
 	private static void addEdgesToSet(OWlConnection owlConnection, Set<MDRelation> set, Individual sourceInd,
-			MDElement elem, String constantStr, String clazzStr, String fromStr, String toStr) {
+									  MDElement elem, String constantStr, String clazzStr, String fromStr, String toStr) {
 
 		MappingRepInterface mappRepInterface = new MappingRepImpl(owlConnection);
 
 		OntClass clazz = owlConnection.getModel().getOntClass(clazzStr);
 
-		for (ExtendedIterator<? extends org.apache.jena.ontology.OntResource> i = clazz.listInstances(); i.hasNext();) {
+		for (ExtendedIterator<? extends org.apache.jena.ontology.OntResource> i = clazz.listInstances(); i.hasNext(); ) {
 
 			org.apache.jena.ontology.Individual indiv = (Individual) i.next();
 
 			org.apache.jena.ontology.Individual from = fromStr == null || owlConnection.getPropertyValueEnc(indiv,
 					owlConnection.getModel().getOntProperty(fromStr)) == null ? null
-							: owlConnection.getPropertyValueEnc(indiv, owlConnection.getModel().getOntProperty(fromStr))
-									.as(Individual.class);
+					: owlConnection.getPropertyValueEnc(indiv, owlConnection.getModel().getOntProperty(fromStr))
+					.as(Individual.class);
 
 			org.apache.jena.ontology.Individual to = toStr == null
 					|| owlConnection.getPropertyValueEnc(indiv, owlConnection.getModel().getOntProperty(toStr)) == null
-							? null
-							: owlConnection.getPropertyValueEnc(indiv, owlConnection.getModel().getOntProperty(toStr))
-									.as(Individual.class);
+					? null
+					: owlConnection.getPropertyValueEnc(indiv, owlConnection.getModel().getOntProperty(toStr))
+					.as(Individual.class);
 
 			if ((from != null || to != null) && from.equals(sourceInd)) {
 
@@ -588,14 +588,14 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 
 	/**
 	 * Read derived measures defined for the schema
-	 * 
+	 *
 	 * @param owlConnection the OWL connection
 	 * @param set           the set of MD relations being built
 	 * @param sourceInd     the fact individual
 	 * @param elem
 	 */
 	public static final void handleDerivedMeasures(Individual sourceInd, OWlConnection owlConnection,
-			Set<MDRelation> set, MDElement elem) {
+												   Set<MDRelation> set, MDElement elem) {
 
 		NodeIterator itr = sourceInd
 				.listPropertyValues(owlConnection.getModel().getObjectProperty(Constants.QB4O_COMPONENT));
@@ -617,14 +617,14 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 
 	/**
 	 * Read derived measures defined for the schema
-	 * 
+	 *
 	 * @param owlConnection the OWL connection
 	 * @param set           the set of MD relations being built
 	 * @param sourceInd     the fact individual
 	 * @param elem
 	 */
 	public static final void handleAggregatedMeasures(Individual sourceInd, OWlConnection owlConnection,
-			Set<MDRelation> set, MDElement elem) {
+													  Set<MDRelation> set, MDElement elem) {
 
 		NodeIterator itr = sourceInd
 				.listPropertyValues(owlConnection.getModel().getObjectProperty(Constants.QB4O_COMPONENT));
@@ -642,6 +642,144 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 			}
 		}
 		handleAggregatedMeasures(msrIndivs, owlConnection, set, elem);
+	}
+
+
+	/**
+	 * Generates {@code Predicate} objects from an input result set. Skips
+	 * conditions displaying errors in reading.
+	 *
+	 * @param res the result set to retrieve data from to build the objects.
+	 * @return a {@code List} of swag.predicates
+	 */
+	public static void buildAggMeasures(MDSchema schema, Model model) {
+
+		Set<MDRelation> set = new HashSet<>();
+
+		String queryString = QUERY_STRINGS.AGG_MEASURES;
+		Query query = QueryFactory.create(queryString);
+		QueryExecution exec = QueryExecutionFactory.create(query, model);
+		ResultSet res = exec.execSelect();
+
+
+		List<MeasureAggregated> measuresAgg = new ArrayList<>();
+
+		boolean firstTime = true;
+		boolean shouldSkip = false;
+
+		String expression = "";
+		List<PredicateInputVar> vars = new ArrayList<>();
+		List<MDElement> elements = new ArrayList<>();
+
+		List<PredicateVariableToMDElementMapping> mappings = new ArrayList<>();
+
+		String predicateURI = "";
+		MeasureAggregated pred = null;
+
+		while (res.hasNext()) {
+
+			QuerySolution sol = res.next();
+
+			if (!predicateURI.equals(sol.get("literalConditionType").toString())) {
+
+				pred = new MeasureAggregated(predicateURI);
+				measuresAgg.add(pred);
+
+				predicateURI = Utils.getStringValueIfNotNull(sol.get("literalConditionType"));
+				pred.setURI(predicateURI);
+
+				String label = Utils.getStringValueIfNotNull(sol.get("label"));
+				pred.setName(label == null ? "" : label);
+				pred.setLabel(label == null ? "" : label);
+
+				String comment = Utils.getStringValueIfNotNull(sol.get("comment"));
+				pred.setComment(comment == null ? "" : comment);
+
+				expression = Utils.getStringValueIfNotNull(sol.get("expression"));
+
+				shouldSkip = false;
+
+			}
+
+			if (!shouldSkip) {
+
+				firstTime = false;
+
+
+				String positionVar = sol.get("positionVar") != null ? sol.get("positionVar").toString() : null;
+				String positionVarType = sol.get("positionVarType") != null ? sol.get("positionVarType").toString()
+						: null;
+				String positionVarName = sol.get("positionVarName") != null ? sol.get("positionVarName").toString()
+						: null;
+
+				PredicateInputVar var;
+				if (positionVar != null && positionVarName != null) {
+					var = new PredicateInputVar(positionVarType, positionVar, positionVarName);
+					vars.add(var);
+				} else {
+					logger.warn("Cannot read a position for condition type " + predicateURI);
+					shouldSkip = true;
+					continue;
+				}
+
+				try {
+					for (MDElement elem : FileBasedPredicateFunction.getMDElementFormSolution(sol, schema)) {
+						elements.add(elem);
+						mappings.add(new PredicateVariableToMDElementMapping(var, elem, null));
+					}
+				} catch (Exception ex) {
+					logger.warn("Cannot read position for condition type" + predicateURI);
+					shouldSkip = true;
+					continue;
+				}
+			}
+
+			Map<String, String> funcs = getAggFunctionsFromExpression(expression, vars.stream().map(v -> v.getVariable()).collect(Collectors.toList()));
+
+			String key = funcs.keySet().stream().findAny().orElse("");
+			String str = funcs.get(key);
+			AggregationFunction aggFunction = AggregationFunction.valueOf(str);
+
+			pred.setAgg(aggFunction);
+			MDElement baseMeasure = mappings.get(0).getElem();
+			MeasureDerived derivedMeasure = new MeasureDerived(baseMeasure.getURI(), baseMeasure.getName(),
+					baseMeasure.getLabel(), "?" + baseMeasure.getName(), baseMeasure.getLabel(), baseMeasure.getMapping());
+			pred.setMeasure(derivedMeasure);
+
+			MDRelation rel;
+			MDElement relElm;
+
+			relElm = new MDElement(pred.getURI(), pred.getName(), new Mapping(),
+					pred.getLabel());
+			rel = MappableRelationFactory.createMappableRelation(Constants.HAS_MEASURE, relElm, schema.getFactOfSchema(),
+					pred);
+			set.add(rel);
+
+		}
+		set.stream().forEach(e -> {
+			schema.addEdge(e);
+			schema.addNode(e.getTarget());
+		});
+
+	}
+
+	private static Map<String, String> getAggFunctionsFromExpression(String expr, List<String> positions){
+
+		Map<String, String> funcs = new HashMap<>();
+
+		List<String> funcNames = Arrays.asList("SUM", "COUNT", "AVG", "MIN", "MAX" , "COUNT DISTINCT");
+
+		for (String funcName : funcNames){
+			for (String pos :  positions) {
+				String strToCheck = funcName + " (" + pos + ")";
+				if (expr.contains(strToCheck)) {
+					funcs.put(pos, funcName);
+					break;
+				}
+			}
+		}
+
+		return funcs;
 	}
 
 }

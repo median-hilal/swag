@@ -1,11 +1,6 @@
 package swag.predicates;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
@@ -18,16 +13,11 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.log4j.Logger;
 
-import swag.analysis_graphs.execution_engine.analysis_situations.PredicateVariableToMDElementMapping;
-import swag.analysis_graphs.execution_engine.analysis_situations.asUtilities;
+import swag.analysis_graphs.execution_engine.analysis_situations.*;
 import swag.data_handler.Constants;
 import swag.data_handler.connection_to_rdf.SPARQLEndpointConnection;
 import swag.data_handler.connection_to_rdf.exceptions.RemoteSPARQLQueryExecutionException;
-import swag.md_elements.Descriptor;
-import swag.md_elements.Level;
-import swag.md_elements.MDElement;
-import swag.md_elements.MDSchema;
-import swag.md_elements.Measure;
+import swag.md_elements.*;
 
 public class FileBasedPredicateFunction implements IPredicateFunctions {
 
@@ -72,6 +62,8 @@ public class FileBasedPredicateFunction implements IPredicateFunctions {
 
     @Override
     public List<LiteralCondition> getAllConditions(MDSchema schema) {
+
+
 
 	ResultSet res = queryLiteralConditions(model);
 	List<LiteralConditionType> condTypes = new ArrayList<>();
@@ -315,7 +307,30 @@ public class FileBasedPredicateFunction implements IPredicateFunctions {
 	return predicates;
     }
 
-    /**
+
+
+
+	private static Map<String, String> getAggFunctionsFromExpression(String expr, List<String> positions){
+
+		Map<String, String> funcs = new HashMap<>();
+
+		List<String> funcNames = Arrays.asList("SUM", "COUNT", "AVG", "MIN", "MAX" , "COUNT DISTINCT");
+
+		for (String funcName : funcNames){
+			for (String pos :  positions) {
+				String strToCheck = funcName + " (" + pos + ")";
+				if (expr.contains(strToCheck)) {
+					funcs.put(pos, funcName);
+					break;
+				}
+			}
+		}
+
+		return funcs;
+	}
+
+
+	/**
      * 
      * Generates {@code Predicate} objects from an input result set. Skips
      * conditions displaying errors in reading.
@@ -781,7 +796,7 @@ public class FileBasedPredicateFunction implements IPredicateFunctions {
      * @return
      * @throws Exception
      */
-    private static Set<MDElement> getMDElementFormSolution(QuerySolution sol, MDSchema schema) throws Exception {
+    public static Set<MDElement> getMDElementFormSolution(QuerySolution sol, MDSchema schema) throws Exception {
 
 	Set<MDElement> elems = new HashSet<>();
 

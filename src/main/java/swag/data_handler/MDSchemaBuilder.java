@@ -144,6 +144,9 @@ public class MDSchemaBuilder extends MDSchemaBuilderAbstract {
             } catch (Exception ex) {
               logger.error("Exception building MD schema.", ex);
             }
+
+
+
             return graph;
           }
         }

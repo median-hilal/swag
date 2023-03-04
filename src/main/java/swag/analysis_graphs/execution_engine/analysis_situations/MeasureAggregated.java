@@ -25,6 +25,11 @@ public class MeasureAggregated extends Measure implements IMeasure {
   private MeasureDerived measure;
   private AggregationFunction agg;
 
+  public MeasureAggregated(String uri) {
+
+    super(uri, "", new Mapping(), "");
+  }
+
   public MeasureAggregated(String uri, String name, String comment, MeasureDerived measure,
       AggregationFunction agg, String label) {
 
