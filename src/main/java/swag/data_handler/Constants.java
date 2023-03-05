@@ -89,7 +89,7 @@ public class Constants {
 	public static final String qbFile = "QB.ttl";
 	public static final String qb4oFile = "QB4OLAP.ttl";
 	public static final String SMDInstanceFile = "films.ttl";
-	public static final String PredicatesFile = "predicates.ttl";
+	public static final String PredicatesFile = "predicates_1.ttl";
 
 	public static final String internalPathToMDSAndAGONtologiesFolder = "resources/newer";
 	public static final String internalPathToAGsFolder = "resources";

@@ -1,4 +1,5 @@
 @prefix : <http://www.dke.jku.ac.at/swag/filmsMDSchema#> .
+@prefix ag: <http://www.dke.jku.ac.at/swag/ag#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -8,259 +9,359 @@
 @prefix qb4o: <http://purl.org/qb4olap/cubes#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix films: <http://www.dke.jku.ac.at/swag/filmsMDSchema#> .
-@prefix ag: <http://www.dke.jku.ac.at/swag/ag#> .
-@base <http://www.dke.jku.ac.at/swag/filmsMDSchema> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+[ rdf:type owl:Ontology
+ ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/qb4olap/cubes#aggregateFunction
+qb4o:aggregateFunction rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/qb4olap/cubes#childLevel
+qb4o:childLevel rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/qb4olap/cubes#parentLevel
+qb4o:parentLevel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#aggregatedMeasure
+ag:aggregatedMeasure rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#factClassOfLevel
+smd:factClassOfLevel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#factClassOfMeasure
+smd:factClassOfMeasure rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#hasFactClass
+smd:hasFactClass rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#hasMapping
+smd:hasMapping rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#hasSPARQLService
+smd:hasSPARQLService rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#hasString
+smd:hasString rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#hierInDimension
+smd:hierInDimension rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#inDimension
+smd:inDimension rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#inHierarchy
+smd:inHierarchy rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#propMapping
+smd:propMapping rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#rollsUpTo
+smd:rollsUpTo rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#toLevel
+smd:toLevel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#toMeasure
+smd:toMeasure rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.dke.jku.ac.at/swag/ag#AggregatedMeasure
+ag:AggregatedMeasure rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#Dimension
+smd:Dimension rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#FactClass
+smd:FactClass rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#HasLevel
+smd:HasLevel rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#HasMeasure
+smd:HasMeasure rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#Hierarchy
+smd:Hierarchy rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#HierarchyStep
+smd:HierarchyStep rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#Level
+smd:Level rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#MDSchema
+smd:MDSchema rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#Mapping
+smd:Mapping rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#Measure
+smd:Measure rdf:type owl:Class .
+
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#All
-films:All rdf:type smd:Level .
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#All
+films:All rdf:type owl:NamedIndividual ,
+                   smd:Level .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Content
-films:ContentDim rdf:type smd:Dimension ;
-				 rdfs:label "Content"@en.
-
-films:ContentHier rdf:type smd:Hierarchy ;
-				  smd:hierInDimension films:ContentDim;
-				  rdfs:label "Content"@en.
-
-films:SumOfBoxOffice rdf:type 		  		  ag:AggregatedMeasure.
-films:SumOfBoxOffice rdfs:label 		  	  "Sum of Box Office"@en .
-films:SumOfBoxOffice qb4o:aggregateFunction   qb4o:sum.
-films:SumOfBoxOffice ag:aggregatedMeasure     films:BoxOffice.
-films:SumOfBoxOffice rdfs:comment     	      "Sum of Box Office"@en.
-
-films:NumOfNominations rdf:type 		  		 ag:AggregatedMeasure.
-films:NumOfNominations rdfs:label 		  	    "Number of Nominations"@en .
-films:NumOfNominations qb4o:aggregateFunction   qb4o:sum.
-films:NumOfNominations ag:aggregatedMeasure     films:Nominations.
-films:NumOfNominations rdfs:comment     	    "Number of Nominations"@en.
-
-###  http://www.dke.jku.at/swag/filmsMDSchema#Continent
-films:Continent rdf:type smd:Level ;
-                smd:hasMapping films:ContinentMapping ;
-				smd:inHierarchy films:OriginHier ;
-                smd:inDimension films:OriginDim ;
-				rdfs:label "Continent"@en.
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#BoxOffice
+films:BoxOffice rdf:type owl:NamedIndividual ,
+                         smd:Measure ;
+                smd:hasMapping films:BoxOfficeMapping ;
+                rdfs:label "Box Office"@en .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#ContinentMapping
-films:ContinentMapping rdf:type smd:Mapping ;
-                       smd:hasString """select ?continent
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#BoxOfficeMapping
+films:BoxOfficeMapping rdf:type owl:NamedIndividual ,
+                                smd:Mapping ;
+                       smd:hasString """SELECT ?boxOffice
 {
-
+    
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Country
-films:Country rdf:type smd:Level ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#ContentDim
+films:ContentDim rdf:type owl:NamedIndividual ,
+                          smd:Dimension ;
+                 rdfs:label "Content"@en .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#ContentHier
+films:ContentHier rdf:type owl:NamedIndividual ,
+                           smd:Hierarchy ;
+                  smd:hierInDimension films:ContentDim ;
+                  rdfs:label "Content"@en .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#Continent
+films:Continent rdf:type owl:NamedIndividual ,
+                         smd:Level ;
+                smd:hasMapping films:ContinentMapping ;
+                smd:inDimension films:OriginDim ;
+                smd:inHierarchy films:OriginHier ;
+                rdfs:label "Continent"@en .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#ContinentMapping
+films:ContinentMapping rdf:type owl:NamedIndividual ,
+                                smd:Mapping ;
+                       smd:hasString """select ?continent
+{
+ ?continent <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q5107> .
+}""" .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#Country
+films:Country rdf:type owl:NamedIndividual ,
+                       smd:Level ;
               smd:hasMapping films:CountryMapping ;
-			  smd:inHierarchy films:OriginHier ;
               smd:inDimension films:OriginDim ;
+              smd:inHierarchy films:OriginHier ;
               smd:rollsUpTo films:Continent ;
-			  rdfs:label "Country"@en.
+              rdfs:label "Country"@en .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#CountryMapping
-films:CountryMapping rdf:type smd:Mapping ;
-                     smd:hasString """SELECT  ?cntry
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#CountryMapping
+films:CountryMapping rdf:type owl:NamedIndividual ,
+                              smd:Mapping ;
+                     smd:hasString """SELECT  ?country
 {?country <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q6256>}""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#CountryRollsUpToContinent
-films:CountryRollsUpToContinent rdf:type smd:HierarchyStep ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#CountryRollsUpToContinent
+films:CountryRollsUpToContinent rdf:type owl:NamedIndividual ,
+                                         smd:HierarchyStep ;
                                 qb4o:childLevel films:Country ;
                                 qb4o:parentLevel films:Continent ;
                                 smd:propMapping films:CountryRollsUpToContinentMapping .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#CountryRollsUpToContinentMapping
-films:CountryRollsUpToContinentMapping rdf:type smd:Mapping ;
-                                       smd:hasString """select ?cntry ?continent where
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#CountryRollsUpToContinentMapping
+films:CountryRollsUpToContinentMapping rdf:type owl:NamedIndividual ,
+                                                smd:Mapping ;
+                                       smd:hasString """select ?country ?continent where
 {
-?cntry <http://www.wikidata.org/prop/direct/P30> ?continent.
+?country <http://www.wikidata.org/prop/direct/P30> ?continent.
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Date
-films:Date rdf:type smd:Level ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#Date
+films:Date rdf:type owl:NamedIndividual ,
+                    smd:Level ;
            smd:hasMapping films:DateMapping ;
-		   smd:inHierarchy films:TimeHier ;
            smd:inDimension films:TimeDim ;
-           smd:rollsUpTo films:Month ;
-		   rdfs:label "Date"@en.
-		   
+           smd:inHierarchy films:TimeHier ;
+           rdfs:label "Date"@en .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#DateMapping
-films:DateMapping rdf:type smd:Mapping ;
-                  smd:hasString """SELECT ?date
- where {
-
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#DateMapping
+films:DateMapping rdf:type owl:NamedIndividual ,
+                           smd:Mapping ;
+                  smd:hasString """SELECT ?date where
+{   
+ {SELECT ?film1 (MIN (?pubDate1) AS ?date) WHERE {?film1 <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q11424>.
+?film1 <http://www.wikidata.org/prop/direct/P2142> ?boxOffice3. ?film1 <http://www.wikidata.org/prop/direct/P577> ?pubDate1. } GROUP BY ?film1 }. 
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#DateRollsUpToMonth
-films:DateRollsUpToMonth rdf:type smd:HierarchyStep ;
-                         qb4o:childLevel films:Date ;
-                         qb4o:parentLevel films:Month ;
-                         smd:propMapping films:DateRollsUpToMonthMapping .
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#DateRollsUpToYear
+films:DateRollsUpToYear rdf:type owl:NamedIndividual ,
+                                 smd:HierarchyStep ;
+                        qb4o:childLevel films:Date ;
+                        qb4o:parentLevel films:Year ;
+                        smd:propMapping films:DateRollsUpToMonthMapping .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#DateRollsUpToMonthMapping
-films:DateRollsUpToMonthMapping rdf:type smd:Mapping ;
-                                smd:hasString """select ?date ?month
-{
-
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#DateRollsUpToYearMapping
+films:DateRollsUpToYearMapping rdf:type owl:NamedIndividual ,
+                                        smd:Mapping ;
+                               smd:hasString """select ?date ?year
+where{      
+      ?dateUri wdt:P585 ?date. 
+      ?dateUri wdt:P31 wd:Q47150325. 
+      ?dateUri wdt:P361 ?month. 
+      ?month wdt:P361 ?year. 
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Direction
-films:DirectionDim rdf:type smd:Dimension ;
-				   rdfs:label "Direction"@en.
-
-films:DirectionHier rdf:type smd:Hierarchy ;
-				  smd:hierInDimension films:DirectionDim;
-				  rdfs:label "Direction"@en.
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#DirectionDim
+films:DirectionDim rdf:type owl:NamedIndividual ,
+                            smd:Dimension ;
+                   rdfs:label "Direction"@en .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Director
-films:Director rdf:type smd:Level ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#DirectionHier
+films:DirectionHier rdf:type owl:NamedIndividual ,
+                             smd:Hierarchy ;
+                    smd:hierInDimension films:DirectionDim ;
+                    rdfs:label "Direction"@en .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#Director
+films:Director rdf:type owl:NamedIndividual ,
+                        smd:Level ;
                smd:hasMapping films:DirectorMapping ;
-			   smd:inHierarchy films:DirectionHier ;
                smd:inDimension films:DirectionDim ;
+               smd:inHierarchy films:DirectionHier ;
                smd:rollsUpTo films:Gender ;
-			   rdfs:label "Director"@en.
+               rdfs:label "Director"@en .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#DirectorMapping
-films:DirectorMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#DirectorMapping
+films:DirectorMapping rdf:type owl:NamedIndividual ,
+                               smd:Mapping ;
                       smd:hasString """select ?director where {
-?film <http://www.wikidata.org/prop/direct/P57> ?director.
 ?director <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q5>.
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#DirectorRollsUpToGender
-films:DirectorRollsUpToGender rdf:type smd:HierarchyStep ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#DirectorRollsUpToGender
+films:DirectorRollsUpToGender rdf:type owl:NamedIndividual ,
+                                       smd:HierarchyStep ;
                               qb4o:childLevel films:Director ;
                               qb4o:parentLevel films:Gender ;
                               smd:propMapping films:DirectorRollsUpToGenderMapping .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#DirectorRollsUpToGenderMapping
-films:DirectorRollsUpToGenderMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#DirectorRollsUpToGenderMapping
+films:DirectorRollsUpToGenderMapping rdf:type owl:NamedIndividual ,
+                                              smd:Mapping ;
                                      smd:hasString """select ?director ?gender
 where{
 ?director <http://www.wikidata.org/prop/direct/P21> ?gender.
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Duration
-films:Duration rdf:type smd:Measure ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#Duration
+films:Duration rdf:type owl:NamedIndividual ,
+                        smd:Measure ;
                smd:hasMapping films:DurationMapping ;
-			   rdfs:label "Duration"@en.
-			   
-###  http://www.dke.jku.at/swag/filmsMDSchema#DurationMapping
-films:DurationMapping rdf:type smd:Mapping ;
+               rdfs:label "Duration"@en .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#DurationMapping
+films:DurationMapping rdf:type owl:NamedIndividual ,
+                               smd:Mapping ;
                       smd:hasString """SELECT ?duration
 {
     
 }""" .
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Duration
-films:Nominations rdf:type smd:Measure ;
-						smd:hasMapping films:NomsMapping ;
-						rdfs:label "Nomination"@en.
-			   
-###  http://www.dke.jku.at/swag/filmsMDSchema#DurationMapping
-films:NomsMapping rdf:type smd:Mapping ;
-                      smd:hasString """SELECT ?numOfNoms
-{
-    
-}""" .
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmToDuration
-films:FilmToNoms rdf:type smd:HasMeasure ;
-                     smd:factClassOfMeasure films:Film ;
-                     smd:propMapping films:FilmToNomsMapping ;
-                     smd:toMeasure films:Nominations .
-					 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmToSumOfBoxOffice
-films:FilmToSumOfNoms rdf:type smd:HasMeasure ;
-                     smd:factClassOfMeasure films:Film ;
-                     smd:propMapping films:FilmToSumOfNoms ;
-                     smd:toMeasure films:NumOfNominations .					 
-
-					 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmToDurationMapping
-films:FilmToNomsMapping rdf:type smd:Mapping ;
-                            smd:hasString """select ?film ?numOfNoms Where {
-{ select (COUNT(distinct ?nomination) as ?numOfNoms) WHERE{
-?film <http://www.wikidata.org/prop/direct/P1411> ?nomination.
-}GROUP BY ?film}} """ .
-
-			   
-films:BoxOffice rdf:type smd:Measure ;
-               smd:hasMapping films:BoxOfficeMapping ;
-			   rdfs:label "Box Office"@en.
-
-
-films:BoxOfficeMapping rdf:type smd:Mapping ;
-                      smd:hasString """SELECT ?boxOffice
-{
-    
-}""" .
-
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmToDuration
-films:FilmToBoxOffice rdf:type smd:HasMeasure ;
-                     smd:factClassOfMeasure films:Film ;
-                     smd:propMapping films:FilmToBoxOfficeMapping ;
-                     smd:toMeasure films:BoxOffice .
-
-
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmToDurationMapping
-films:FilmToBoxOfficeMapping rdf:type smd:Mapping ;
-                            smd:hasString """SELECT ?film ?boxOoffice WHERE {
-?film <http://www.wikidata.org/prop/P2142> ?boxOfficeNode. ?boxOfficeNode <http://www.wikidata.org/prop/statement/value/P2142> ?value.
-?value <http://wikiba.se/ontology#quantityAmount> ?boxOffice. ?value <http://wikiba.se/ontology#quantityUnit> <http://www.wikidata.org/entity/Q4917>.
-?boxOfficeNode <http://www.wikidata.org/prop/qualifier/P3005> <http://www.wikidata.org/entity/Q13780930>.}""" .
-
-
-
-###  http://www.dke.jku.at/swag/filmsMDSchema#Film
-films:Film rdf:type smd:FactClass ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#Film
+films:Film rdf:type owl:NamedIndividual ,
+                    smd:FactClass ;
            smd:hasMapping films:FilmMapping ;
-		   rdfs:label "Film"@en.
+           rdfs:label "Film"@en .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmHasLevelCountry
-films:FilmHasLevelCountry rdf:type smd:HasLevel ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmHasLevelCountry
+films:FilmHasLevelCountry rdf:type owl:NamedIndividual ,
+                                   smd:HasLevel ;
                           smd:factClassOfLevel films:Film ;
                           smd:propMapping films:FilmHasLevelCountryMapping ;
                           smd:toLevel films:Country .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmHasLevelCountryMapping
-films:FilmHasLevelCountryMapping rdf:type smd:Mapping ;
-                                 smd:hasString """SELECT ?film ?cntry where 
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmHasLevelCountryMapping
+films:FilmHasLevelCountryMapping rdf:type owl:NamedIndividual ,
+                                          smd:Mapping ;
+                                 smd:hasString """SELECT ?film ?country where
 {
-    ?film <http://www.wikidata.org/prop/direct/P495> ?cntry.
+    ?film <http://www.wikidata.org/prop/direct/P495> ?country.
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmHasLevelDate
-films:FilmHasLevelDate rdf:type smd:HasLevel ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmHasLevelDate
+films:FilmHasLevelDate rdf:type owl:NamedIndividual ,
+                                smd:HasLevel ;
                        smd:factClassOfLevel films:Film ;
                        smd:propMapping films:FilmHasLevelDateMapping ;
                        smd:toLevel films:Date .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmHasLevelDateMapping
-films:FilmHasLevelDateMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmHasLevelDateMapping
+films:FilmHasLevelDateMapping rdf:type owl:NamedIndividual ,
+                                       smd:Mapping ;
                               smd:hasString """SELECT DISTINCT ?film ?date where
 {   
  {SELECT ?film (MIN (?pubDate) AS ?date) WHERE {?film <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q11424>.
@@ -268,37 +369,42 @@ films:FilmHasLevelDateMapping rdf:type smd:Mapping ;
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmHasLevelDirector
-films:FilmHasLevelDirector rdf:type smd:HasLevel ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmHasLevelDirector
+films:FilmHasLevelDirector rdf:type owl:NamedIndividual ,
+                                    smd:HasLevel ;
                            smd:factClassOfLevel films:Film ;
                            smd:propMapping films:FilmHasLevelDirectorMapping ;
                            smd:toLevel films:Director .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmHasLevelDirectorMapping
-films:FilmHasLevelDirectorMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmHasLevelDirectorMapping
+films:FilmHasLevelDirectorMapping rdf:type owl:NamedIndividual ,
+                                           smd:Mapping ;
                                   smd:hasString """select ?film ?director where {
 ?film <http://www.wikidata.org/prop/direct/P57> ?director.
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmHasLevelGenre
-films:FilmHasLevelGenre rdf:type smd:HasLevel ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmHasLevelGenre
+films:FilmHasLevelGenre rdf:type owl:NamedIndividual ,
+                                 smd:HasLevel ;
                         smd:factClassOfLevel films:Film ;
                         smd:propMapping films:FilmHasLevelGenreMapping ;
                         smd:toLevel films:Genre .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmHasLevelGenreMapping
-films:FilmHasLevelGenreMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmHasLevelGenreMapping
+films:FilmHasLevelGenreMapping rdf:type owl:NamedIndividual ,
+                                        smd:Mapping ;
                                smd:hasString """SELECT ?film ?genre where
 {
     ?film <http://www.wikidata.org/prop/direct/P136> ?genre.
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmMapping
-films:FilmMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmMapping
+films:FilmMapping rdf:type owl:NamedIndividual ,
+                           smd:Mapping ;
                   smd:hasString """PREFIX wikibase: <http://wikiba.se/ontology#>
 PREFIX bd: <http://www.bigdata.com/rdf#>
 PREFIX wd: <http://www.wikidata.org/entity/>
@@ -310,157 +416,242 @@ SELECT  ?film
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmToDuration
-films:FilmToDuration rdf:type smd:HasMeasure ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmToBoxOffice
+films:FilmToBoxOffice rdf:type owl:NamedIndividual ,
+                               smd:HasMeasure ;
+                      smd:factClassOfMeasure films:Film ;
+                      smd:propMapping films:FilmToBoxOfficeMapping ;
+                      smd:toMeasure films:BoxOffice .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmToBoxOfficeMapping
+films:FilmToBoxOfficeMapping rdf:type owl:NamedIndividual ,
+                                      smd:Mapping ;
+                             smd:hasString """SELECT ?film ?boxOoffice WHERE {
+?film <http://www.wikidata.org/prop/P2142> ?boxOfficeNode. ?boxOfficeNode <http://www.wikidata.org/prop/statement/value/P2142> ?value.
+?value <http://wikiba.se/ontology#quantityAmount> ?boxOffice. ?value <http://wikiba.se/ontology#quantityUnit> <http://www.wikidata.org/entity/Q4917>.
+?boxOfficeNode <http://www.wikidata.org/prop/qualifier/P3005> <http://www.wikidata.org/entity/Q13780930>.}""" .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmToDuration
+films:FilmToDuration rdf:type owl:NamedIndividual ,
+                              smd:HasMeasure ;
                      smd:factClassOfMeasure films:Film ;
                      smd:propMapping films:FilmToDurationMapping ;
                      smd:toMeasure films:Duration .
-					 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmToSumOfBoxOffice
-films:FilmToSumOfBoxOffice rdf:type smd:HasMeasure ;
-                     smd:factClassOfMeasure films:Film ;
-                     smd:propMapping films:FilmToSumOfBoxOffice ;
-                     smd:toMeasure films:SumOfBoxOffice .					 
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmToDurationMapping
-films:FilmToDurationMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmToDurationMapping
+films:FilmToDurationMapping rdf:type owl:NamedIndividual ,
+                                     smd:Mapping ;
                             smd:hasString """select ?film ?duration Where {
 ?film <http://www.wikidata.org/prop/direct/P2047> ?duration.
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmToNumOfFilms
-films:FilmToNumOfFilms rdf:type smd:HasMeasure ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmToNoms
+films:FilmToNoms rdf:type owl:NamedIndividual ,
+                          smd:HasMeasure ;
+                 smd:factClassOfMeasure films:Film ;
+                 smd:propMapping films:FilmToNomsMapping ;
+                 smd:toMeasure films:Nominations .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmToNomsMapping
+films:FilmToNomsMapping rdf:type owl:NamedIndividual ,
+                                 smd:Mapping ;
+                        smd:hasString """select ?film ?numOfNoms Where {
+{ select (COUNT(distinct ?nomination) as ?numOfNoms) WHERE{
+?film <http://www.wikidata.org/prop/direct/P1411> ?nomination.
+}GROUP BY ?film}} """ .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmToNumOfFilms
+films:FilmToNumOfFilms rdf:type owl:NamedIndividual ,
+                                smd:HasMeasure ;
                        smd:factClassOfMeasure films:Film ;
                        smd:propMapping films:FilmToNumOfFilmsMapping ;
                        smd:toMeasure films:NumOfFilms .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#FilmToNumOfFilmsMapping
-films:FilmToNumOfFilmsMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmToNumOfFilmsMapping
+films:FilmToNumOfFilmsMapping rdf:type owl:NamedIndividual ,
+                                       smd:Mapping ;
                               smd:hasString """SELECT ?film ?film
 {
     
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Gender
-films:Gender rdf:type smd:Level ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmToSumOfBoxOffice
+films:FilmToSumOfBoxOffice rdf:type owl:NamedIndividual ,
+                                    smd:HasMeasure ;
+                           smd:factClassOfMeasure films:Film ;
+                           smd:propMapping films:FilmToSumOfBoxOffice ;
+                           smd:toMeasure films:SumOfBoxOffice .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmToSumOfNoms
+films:FilmToSumOfNoms rdf:type owl:NamedIndividual ,
+                               smd:HasMeasure ;
+                      smd:factClassOfMeasure films:Film ;
+                      smd:propMapping films:FilmToSumOfNoms ;
+                      smd:toMeasure films:NumOfNominations .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#Gender
+films:Gender rdf:type owl:NamedIndividual ,
+                      smd:Level ;
              smd:hasMapping films:GenderMapping ;
-			 smd:inHierarchy films:DirectionHier ;
              smd:inDimension films:DirectionDim ;
-			 rdfs:label "Gender"@en.
+             smd:inHierarchy films:DirectionHier ;
+             rdfs:label "Gender"@en .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#GenderMapping
-films:GenderMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#GenderMapping
+films:GenderMapping rdf:type owl:NamedIndividual ,
+                             smd:Mapping ;
                     smd:hasString """select ?gender
 {
 ?gender <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q48277>.
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Genre
-films:Genre rdf:type smd:Level ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#Genre
+films:Genre rdf:type owl:NamedIndividual ,
+                     smd:Level ;
             smd:hasMapping films:GenreMapping ;
-			smd:inHierarchy films:ContentHier ;
             smd:inDimension films:ContentDim ;
-			rdfs:label "Genre"@en.
+            smd:inHierarchy films:ContentHier ;
+            rdfs:label "Genre"@en .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#GenreMapping
-films:GenreMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#GenreMapping
+films:GenreMapping rdf:type owl:NamedIndividual ,
+                            smd:Mapping ;
                    smd:hasString """Select ?genre
 {
-
+?genre <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q201658> 
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Month
-films:Month rdf:type smd:Level ;
-            smd:hasMapping films:MonthMapping ;
-			smd:inHierarchy films:TimeHier ;
-            smd:inDimension films:TimeDim ;
-            smd:rollsUpTo films:Year ;
-			rdfs:label "Month"@en.
-
-
-###  http://www.dke.jku.at/swag/filmsMDSchema#MonthMapping
-films:MonthMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#MonthMapping
+films:MonthMapping rdf:type owl:NamedIndividual ,
+                            smd:Mapping ;
                    smd:hasString """SELECT ?month
  {
   BIND (substr(str(?date), 1, 7) as ?month)            
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#MonthRollsUpToYear
-films:MonthRollsUpToYear rdf:type smd:HierarchyStep ;
-                         qb4o:childLevel films:Month ;
-                         qb4o:parentLevel films:Year ;
-                         smd:propMapping films:MonthRollsUpToYearMapping .
-
-
-###  http://www.dke.jku.at/swag/filmsMDSchema#MonthRollsUpToYearMapping
-films:MonthRollsUpToYearMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#MonthRollsUpToYearMapping
+films:MonthRollsUpToYearMapping rdf:type owl:NamedIndividual ,
+                                         smd:Mapping ;
                                 smd:hasString """select ?month ?year
 {
 
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#NumOfFilms
-films:NumOfFilms rdf:type smd:Measure ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#Nominations
+films:Nominations rdf:type owl:NamedIndividual ,
+                           smd:Measure ;
+                  smd:hasMapping films:NomsMapping ;
+                  rdfs:label "Nomination"@en .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#NomsMapping
+films:NomsMapping rdf:type owl:NamedIndividual ,
+                           smd:Mapping ;
+                  smd:hasString """SELECT ?numOfNoms
+{
+    
+}""" .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#NumOfFilms
+films:NumOfFilms rdf:type owl:NamedIndividual ,
+                          smd:Measure ;
                  smd:hasMapping films:NumOfFilmsMapping ;
-				 rdfs:label "Number of Films"@en.
+                 rdfs:label "Number of Films"@en .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#NumOfFilmsMapping
-films:NumOfFilmsMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#NumOfFilmsMapping
+films:NumOfFilmsMapping rdf:type owl:NamedIndividual ,
+                                 smd:Mapping ;
                         smd:hasString """SELECT ?film
 {
     
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Origin
-films:OriginDim rdf:type smd:Dimension ;
-				rdfs:label "Origin"@en.
-
-films:OriginHier rdf:type smd:Hierarchy  ;
-				  smd:hierInDimension films:OriginDim;
-				  rdfs:label "Origin"@en.
-
-
-###  http://www.dke.jku.at/swag/filmsMDSchema#:TimeDim
-films:TimeDim rdf:type smd:Dimension ;
-			  rdfs:label "Time"@en.
-
-films:TimeHier rdf:type smd:Hierarchy ;
-				  smd:hierInDimension films:TimeDim;
-				  rdfs:label "Time"@en.
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#NumOfNominations
+films:NumOfNominations rdf:type owl:NamedIndividual ,
+                                ag:AggregatedMeasure ;
+                       qb4o:aggregateFunction qb4o:sum ;
+                       ag:aggregatedMeasure films:Nominations ;
+                       rdfs:comment "Number of Nominations"@en ;
+                       rdfs:label "Number of Nominations"@en .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#Year
-films:Year rdf:type smd:Level ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#OriginDim
+films:OriginDim rdf:type owl:NamedIndividual ,
+                         smd:Dimension ;
+                rdfs:label "Origin"@en .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#OriginHier
+films:OriginHier rdf:type owl:NamedIndividual ,
+                          smd:Hierarchy ;
+                 smd:hierInDimension films:OriginDim ;
+                 rdfs:label "Origin"@en .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#SumOfBoxOffice
+films:SumOfBoxOffice rdf:type owl:NamedIndividual ,
+                              ag:AggregatedMeasure ;
+                     qb4o:aggregateFunction qb4o:sum ;
+                     ag:aggregatedMeasure films:BoxOffice ;
+                     rdfs:comment "Sum of Box Office"@en ;
+                     rdfs:label "Sum of Box Office"@en .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#TimeDim
+films:TimeDim rdf:type owl:NamedIndividual ,
+                       smd:Dimension ;
+              rdfs:label "Time"@en .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#TimeHier
+films:TimeHier rdf:type owl:NamedIndividual ,
+                        smd:Hierarchy ;
+               smd:hierInDimension films:TimeDim ;
+               rdfs:label "Time"@en .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#Year
+films:Year rdf:type owl:NamedIndividual ,
+                    smd:Level ;
            smd:hasMapping films:YearMapping ;
-		   smd:inHierarchy films:TimeHier ;
            smd:inDimension films:TimeDim ;
-		   rdfs:label "Year"@en.
+           smd:inHierarchy films:TimeHier ;
+           rdfs:label "Year"@en .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#YearMapping
-films:YearMapping rdf:type smd:Mapping ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#YearMapping
+films:YearMapping rdf:type owl:NamedIndividual ,
+                           smd:Mapping ;
                   smd:hasString """select ?year {
-  BIND(year(?date) AS ?year)
-  FILTER (?year > 0)
+?year <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q3186692> 
 }""" .
 
 
-###  http://www.dke.jku.at/swag/filmsMDSchema#films
-films:films rdf:type smd:MDSchema ;
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#films
+films:films rdf:type owl:NamedIndividual ,
+                     smd:MDSchema ;
             smd:hasFactClass films:Film ;
-            rdfs:label "films" ;
-			smd:hasSPARQLService "https://query.wikidata.org/sparql" .
-            #smd:hasSPARQLService "http://localhost:7200/repositories/Wikidata_JoDS" .
+            smd:hasSPARQLService "https://query.wikidata.org/sparql" ;
+            rdfs:label "films" .
 
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

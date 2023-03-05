@@ -139,6 +139,7 @@ public class MDSchemaBuilder extends MDSchemaBuilderAbstract {
                 propagate(owlConnection, graph, outEdges);
                 handleDerivedMeasures(ind, owlConnection, fact, graph, outEdges);
                 handleAggregatedMeasures(ind, owlConnection, fact, graph, outEdges);
+                buildAggMeasures(graph, owlConnection.getModel());
 
               }
             } catch (Exception ex) {

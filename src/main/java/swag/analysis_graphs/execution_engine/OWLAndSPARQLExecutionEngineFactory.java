@@ -65,7 +65,7 @@ public class OWLAndSPARQLExecutionEngineFactory implements IExecutionEngineFacto
 		if (schema != null) {
 			IPredicateGraphBuilder builder = new PredicateGraphBuilder(schema);
 			IPredicateGraph predicateGraph = builder.buildPredicatesGraphWitoutRemoteAccess(
-					OWlConnection.convertPathToURI(pathToSourceOntologies, "predicates.ttl"));
+					OWlConnection.convertPathToURI(pathToSourceOntologies, Constants.PredicatesFile));
 			sparqlEndpointConn.setSparqlEndpointURI(schema.getEndpoint());
 			IDataDAO dataRep = new DataRepImpl(sparqlEndpointConn, schema);
 			IAnalysisGraphDAO owlInterface = new OWLRepsAccessImpl(owlConn, schema, predicateGraph);

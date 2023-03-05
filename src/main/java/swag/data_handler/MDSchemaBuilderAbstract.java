@@ -1,24 +1,27 @@
 package swag.data_handler;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import org.apache.jena.ontology.Individual;
+import org.apache.jena.query.*;
+import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.NodeIterator;
 
 import swag.analysis_graphs.dao.IMDSchemaDAO;
 import swag.analysis_graphs.execution_engine.analysis_situations.AggregationFunction;
 import swag.analysis_graphs.execution_engine.analysis_situations.MeasureAggregated;
 import swag.analysis_graphs.execution_engine.analysis_situations.MeasureDerived;
-import swag.md_elements.MDElement;
-import swag.md_elements.MDRelation;
-import swag.md_elements.MappableRelationFactory;
-import swag.md_elements.Mapping;
-import swag.md_elements.Measure;
+import swag.analysis_graphs.execution_engine.analysis_situations.PredicateVariableToMDElementMapping;
+import swag.md_elements.*;
+import swag.predicates.FileBasedPredicateFunction;
+import swag.predicates.PredicateInputVar;
+import swag.predicates.QUERY_STRINGS;
+import swag.predicates.Utils;
 
 public abstract class MDSchemaBuilderAbstract implements IMDSchemaDAO {
 
+	private static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(MDSchemaBuilderAbstract.class);
     /**
      * Read derived measures defined for the schema
      * 
@@ -190,5 +193,143 @@ public abstract class MDSchemaBuilderAbstract implements IMDSchemaDAO {
 	}
 	return null;
     }
+
+	/**
+	 * Generates {@code Predicate} objects from an input result set. Skips
+	 * conditions displaying errors in reading.
+	 *
+	 * @param res the result set to retrieve data from to build the objects.
+	 * @return a {@code List} of swag.predicates
+	 */
+	public static void buildAggMeasures(MDSchema schema, Model model) {
+
+		Set<MDRelation> set = new HashSet<>();
+
+		String queryString = QUERY_STRINGS.AGG_MEASURES;
+		Query query = QueryFactory.create(queryString);
+		QueryExecution exec = QueryExecutionFactory.create(query, model);
+		ResultSet res = exec.execSelect();
+
+
+		List<MeasureAggregated> measuresAgg = new ArrayList<>();
+
+		boolean firstTime = true;
+		boolean shouldSkip = false;
+
+		String expression = "";
+		List<PredicateInputVar> vars = new ArrayList<>();
+		List<MDElement> elements = new ArrayList<>();
+
+		List<PredicateVariableToMDElementMapping> mappings = new ArrayList<>();
+
+		String predicateURI = "";
+		MeasureAggregated pred = null;
+
+		while (res.hasNext()) {
+
+			QuerySolution sol = res.next();
+
+			if (!predicateURI.equals(sol.get("literalConditionType").toString())) {
+
+				pred = new MeasureAggregated(predicateURI);
+				measuresAgg.add(pred);
+
+				predicateURI = Utils.getStringValueIfNotNull(sol.get("literalConditionType"));
+				pred.setURI(predicateURI);
+
+				String label = Utils.getStringValueIfNotNull(sol.get("label"));
+				pred.setName(label == null ? "" : label);
+				pred.setLabel(label == null ? "" : label);
+
+				String comment = Utils.getStringValueIfNotNull(sol.get("comment"));
+				pred.setComment(comment == null ? "" : comment);
+
+				expression = Utils.getStringValueIfNotNull(sol.get("expression"));
+
+				shouldSkip = false;
+
+			}
+
+			if (!shouldSkip) {
+
+				firstTime = false;
+
+
+				String positionVar = sol.get("positionVar") != null ? sol.get("positionVar").toString() : null;
+				String positionVarType = sol.get("positionVarType") != null ? sol.get("positionVarType").toString()
+						: null;
+				String positionVarName = sol.get("positionVarName") != null ? sol.get("positionVarName").toString()
+						: null;
+
+				PredicateInputVar var;
+				if (positionVar != null && positionVarName != null) {
+					var = new PredicateInputVar(positionVarType, positionVar, positionVarName);
+					vars.add(var);
+				} else {
+					logger.warn("Cannot read a position for condition type " + predicateURI);
+					shouldSkip = true;
+					continue;
+				}
+
+				try {
+					for (MDElement elem : FileBasedPredicateFunction.getMDElementFormSolution(sol, schema)) {
+						elements.add(elem);
+						mappings.add(new PredicateVariableToMDElementMapping(var, elem, null));
+					}
+				} catch (Exception ex) {
+					logger.warn("Cannot read position for condition type" + predicateURI);
+					shouldSkip = true;
+					continue;
+				}
+			}
+
+			Map<String, String> funcs = getAggFunctionsFromExpression(expression, vars.stream().map(v -> v.getVariable()).collect(Collectors.toList()));
+
+			String key = funcs.keySet().stream().findAny().orElse("");
+			String str = funcs.get(key);
+			AggregationFunction aggFunction = AggregationFunction.valueOf(str);
+
+			pred.setAgg(aggFunction);
+			MDElement baseMeasure = mappings.get(0).getElem();
+			MeasureDerived derivedMeasure = new MeasureDerived(baseMeasure.getURI(), baseMeasure.getName(),
+					baseMeasure.getLabel(), "?" + baseMeasure.getName(), baseMeasure.getLabel(), baseMeasure.getMapping());
+			pred.setMeasure(derivedMeasure);
+
+			MDRelation rel;
+			MDElement relElm;
+
+			relElm = new MDElement(pred.getURI(), pred.getName(), new Mapping(),
+					pred.getLabel());
+			rel = MappableRelationFactory.createMappableRelation(Constants.HAS_MEASURE, relElm, schema.getFactOfSchema(),
+					pred);
+			set.add(rel);
+
+		}
+		set.stream().forEach(e -> {
+			schema.addEdge(e);
+			schema.addNode(e.getTarget());
+		});
+
+	}
+
+	private static Map<String, String> getAggFunctionsFromExpression(String expr, List<String> positions){
+
+		Map<String, String> funcs = new HashMap<>();
+
+		List<String> funcNames = Arrays.asList("SUM", "COUNT", "AVG", "MIN", "MAX" , "COUNT DISTINCT");
+
+		for (String funcName : funcNames){
+			for (String pos :  positions) {
+				String strToCheck = funcName + " (" + pos + ")";
+				if (expr.contains(strToCheck)) {
+					funcs.put(pos, funcName);
+					break;
+				}
+			}
+		}
+
+		return funcs;
+	}
+
 
 }
