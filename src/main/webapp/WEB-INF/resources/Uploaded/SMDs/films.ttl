@@ -248,7 +248,7 @@ films:DateRollsUpToYear rdf:type owl:NamedIndividual ,
                                  smd:HierarchyStep ;
                         qb4o:childLevel films:Date ;
                         qb4o:parentLevel films:Year ;
-                        smd:propMapping films:DateRollsUpToMonthMapping .
+                        smd:propMapping films:DateRollsUpToYearMapping .
 
 
 ###  http://www.dke.jku.ac.at/swag/filmsMDSchema#DateRollsUpToYearMapping
@@ -256,10 +256,10 @@ films:DateRollsUpToYearMapping rdf:type owl:NamedIndividual ,
                                         smd:Mapping ;
                                smd:hasString """select ?date ?year
 where{      
-      ?dateUri wdt:P585 ?date. 
-      ?dateUri wdt:P31 wd:Q47150325. 
-      ?dateUri wdt:P361 ?month. 
-      ?month wdt:P361 ?year. 
+      ?dateUri  <http://www.wikidata.org/prop/direct/P585> ?date. 
+      ?dateUri <http://www.wikidata.org/prop/direct/P31>  <http://www.wikidata.org/entity/Q47150325> . 
+      ?dateUri <http://www.wikidata.org/prop/direct/P361> ?month. 
+      ?month <http://www.wikidata.org/prop/direct/P361> ?year. 
 }""" .
 
 
@@ -513,7 +513,7 @@ films:GenderMapping rdf:type owl:NamedIndividual ,
                              smd:Mapping ;
                     smd:hasString """select ?gender
 {
-?gender <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q48277>.
+?gender <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q48264>.
 }""" .
 
 

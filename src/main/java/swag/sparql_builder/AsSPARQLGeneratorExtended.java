@@ -323,8 +323,8 @@ public class AsSPARQLGeneratorExtended implements IAnalysisSituationToSPARQL {
 			}
 			addFactVariable(measToAS, factVariable, subQuery);
 			subQuery.removeQueryPatternDuplications();
+			SPARQLUtilities.insertDistinctToHeadedQuery(subQuery);
 			appendSubQueryToMainQuery(copyQuery, subQuery);
-
 			for (IMeasureReoprter reporter : generator.getReporter()) {
 				copyQuery = reporter.appendBindStatementVariablesAndExpressions(copyQuery);
 			}

@@ -1,0 +1,465 @@
+@prefix : <http://www.dke.jku.ac.at/swag/myAG#> .
+@prefix ag: <http://www.dke.jku.ac.at/swag/ag#> .
+@prefix pr: <http://www.dke.jku.ac.at/swag/pr#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix smd: <http://www.dke.jku.ac.at/swag/smd#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix myAG: <http://www.dke.jku.ac.at/swag/myAG#> .
+@prefix qb4o: <http://purl.org/qb4olap/cubes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix films: <http://www.dke.jku.ac.at/swag/filmsMDSchema#> .
+@prefix schema: <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#> .
+@prefix property: <http://eurostat.linked-statistics.org/property#> .
+@prefix myMDSchema: <http://www.fing.edu.uy/inco/cubes/schemas/myMDSchema#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+[ rdf:type owl:Ontology ;
+   owl:imports <http://www.dke.jku.ac.at/swag/ag>
+ ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.dke.jku.ac.at/swag/ag#analysisSituation
+ag:analysisSituation rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#cube
+ag:cube rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#derivedFrom
+ag:derivedFrom rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#dice
+ag:dice rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#diceLevelInAG
+ag:diceLevelInAG rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#diceNodeInAG
+ag:diceNodeInAG rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#dimension
+ag:dimension rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#dimensionPredicateInAG
+ag:dimensionPredicateInAG rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#dimensionSelection
+ag:dimensionSelection rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#dimensionSummarizability
+ag:dimensionSummarizability rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#domain
+ag:domain rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#granularity
+ag:granularity rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#granularityLevelInAG
+ag:granularityLevelInAG rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#hierarchy
+ag:hierarchy rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#incomplete
+ag:incomplete rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#instanceOf
+ag:instanceOf rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#measure
+ag:measure rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#measureSummarizability
+ag:measureSummarizability rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#mode
+ag:mode rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#navigationStep
+ag:navigationStep rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#nonStrict
+ag:nonStrict rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#onSchema
+ag:onSchema rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#opDiceLevel
+ag:opDiceLevel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#opDiceNode
+ag:opDiceNode rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#opDimension
+ag:opDimension rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#opDimensionPredicate
+ag:opDimensionPredicate rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#opGranularityLevel
+ag:opGranularityLevel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#opHierarchy
+ag:opHierarchy rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#operation
+ag:operation rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#parameter
+ag:parameter rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#resultMeasureInAG
+ag:resultMeasureInAG rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#resultPredicateInAG
+ag:resultPredicateInAG rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#source
+ag:source rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#target
+ag:target rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#val
+ag:val rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#hasFactClass
+smd:hasFactClass rdf:type owl:AnnotationProperty .
+
+
+###  http://www.dke.jku.ac.at/swag/smd#hasSPARQLService
+smd:hasSPARQLService rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.dke.jku.ac.at/swag/ag#DiceSpecification
+ag:DiceSpecification rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#DimensionGroundPredicate
+ag:DimensionGroundPredicate rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#DimensionPredicate
+ag:DimensionPredicate rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#DrillDownToLevel
+ag:DrillDownToLevel rdf:type owl:Class .
+
+
+###  http://www.dke.jku.ac.at/swag/ag#MoveToDiceNode
+ag:MoveToDiceNode rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.dke.jku.ac.at/swag/ag#InternalAgg
+ag:InternalAgg rdf:type owl:NamedIndividual .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#ContentDim
+films:ContentDim rdf:type owl:NamedIndividual .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#ContentHier
+films:ContentHier rdf:type owl:NamedIndividual .
+
+
+###  http://www.dke.jku.ac.at/swag/filmsMDSchema#films
+films:films rdf:type owl:NamedIndividual ,
+                     smd:MDSchema ;
+            smd:hasFactClass films:Film ;
+            smd:hasSPARQLService "https://query.wikidata.org/sparql" ;
+            rdfs:isDefinedBy <https://raw.githubusercontent.com/median-hi/SWAG/master/films.ttl> ;
+            rdfs:label "films" .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#AG1
+myAG:AG1 rdf:type owl:NamedIndividual ,
+                  ag:AnalysisSituation ;
+         ag:measureSummarizability _:genid2 ;
+         ag:cube films:Film ;
+         ag:granularity myAG:genreGran ;
+         ag:granularity myAG:directionGran ;
+         ag:resultMeasureInAG films:SumOfBoxOffice ;
+         rdfs:label "AS1"@en ;
+         rdfs:comment "The sum of the number of the asylum applications to a specific continent grouped by continent."@en .
+
+myAG:genreGran rdf:type owl:NamedIndividual ,
+                        ag:Granularity ;
+               ag:dimension films:ContentDim ;
+               ag:granularityLevelInAG films:Genre ;
+               ag:hierarchy films:ContentHier .
+
+myAG:directionGran rdf:type owl:NamedIndividual ,
+                        ag:Granularity ;
+               ag:dimension films:DirectionDim ;
+               ag:granularityLevelInAG films:Gender ;
+               ag:hierarchy films:DirectionHier .
+
+
+_:genid2 ag:nonStrict _:genid3 ;
+          ag:measure films:SumOfBoxOffice .
+
+_:genid3 ag:mode ag:InternalAgg ;
+          ag:val qb4o:AVG .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#DiceSpecOnCountry
+myAG:DiceSpecOnCountry rdf:type owl:NamedIndividual ,
+                                ag:DiceSpecification ;
+                       ag:diceLevelInAG films:Country ;
+                       ag:diceNodeInAG myAG:varDiceNode1 ;
+                       ag:dimension films:OriginDim ;
+                       ag:hierarchy films:OriginHier .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#DiceSpecOnGenre
+myAG:DiceSpecOnGenre rdf:type owl:NamedIndividual ,
+                              ag:DiceSpecification ;
+                     ag:diceLevelInAG films:Genre ;
+                     ag:diceNodeInAG myAG:varDiceNode2 ;
+                     ag:dimension films:ContentDim ;
+                     ag:hierarchy films:ContentHier .
+
+
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#SliceSpecOnYear
+myAG:SliceSpecOnYear rdf:type owl:NamedIndividual ,
+                              ag:DimensionSelection ;
+                     ag:dimension films:TimeDim ;
+                     ag:dimensionPredicateInAG myAG:SliceSpecOnYear4 ;
+                     ag:hierarchy films:TimeHier .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#SliceSpecOnYear4
+myAG:SliceSpecOnYear4 rdf:type owl:NamedIndividual ,
+                               ag:GroundDimensionPredicatePair ,
+                               ag:Pair ;
+                               ag:parameter :dPred .
+
+:dPred rdf:type owl:NamedIndividual ,
+                ag:Parameter ;
+       ag:domain [ ag:derivedFrom :yearAfter
+                 ] .
+
+
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#continentNode
+myAG:continentNode rdf:type owl:NamedIndividual ,
+                            ag:Parameter .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#continentNodePair
+myAG:continentNodePair rdf:type owl:NamedIndividual ,
+                                ag:LevelMemberPair ;
+                       ag:parameter myAG:continentNode .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#dPred
+myAG:dPred rdf:type owl:NamedIndividual ,
+                    ag:Parameter ;
+           ag:domain _:genid17 .
+
+_:genid17 ag:derivedFrom myAG:yearAfter .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#dPredPair
+myAG:dPredPair rdf:type owl:NamedIndividual ,
+                        ag:GroundDimensionPredicatePair ,
+                        ag:Pair ;
+               ag:parameter myAG:dPred .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#directorGran
+myAG:directorGran rdf:type owl:NamedIndividual ,
+                           ag:Granularity ;
+                  ag:dimension films:DirectionDim ;
+                  ag:granularityLevelInAG films:Director ;
+                  ag:hierarchy films:DirectionHier .
+
+
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#filmsAG
+myAG:filmsAG rdf:type owl:NamedIndividual ,
+                      ag:AnalysisGraph ;
+             ag:analysisSituation myAG:AG1 ;
+             ag:onSchema films:films ;
+             rdfs:comment "This analysis graphs tracks the number of asylum applications submited." .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#genreGran
+myAG:genreGran rdf:type owl:NamedIndividual ,
+                        ag:Granularity ;
+               ag:dimension films:ContentDim ;
+               ag:granularityLevelInAG films:Genre ;
+               ag:hierarchy films:ContentHier .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNode
+myAG:geoNode rdf:type owl:NamedIndividual ,
+                      ag:Parameter .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNodePair
+myAG:geoNodePair rdf:type owl:NamedIndividual ,
+                          ag:LevelMemberPair ;
+                 ag:parameter myAG:geoNode .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#mPred
+myAG:mPred rdf:type owl:NamedIndividual ,
+                    ag:Parameter ;
+           ag:domain _:genid18 .
+
+_:genid18 ag:derivedFrom myAG:sumOfNumOfAppsGreaterThan .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#mPredPair
+myAG:mPredPair rdf:type owl:NamedIndividual ,
+                        ag:GroundPredicate ,
+                        ag:GroundResultPredicatePair ,
+                        ag:Predicate ;
+               ag:parameter myAG:mPred .
+
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#sumOfNumOfAppsGreaterThan
+myAG:sumOfNumOfAppsGreaterThan rdf:type owl:NamedIndividual .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#varDiceNode
+myAG:varDiceNode rdf:type owl:NamedIndividual ,
+                          ag:Variable .
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNode
+myAG:diceNode1 rdf:type owl:NamedIndividual ,
+                 ag:Parameter .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNodePair
+myAG:varDiceNode1 rdf:type owl:NamedIndividual ,
+                     ag:LevelMemberPair ;
+            ag:parameter :diceNode1 .
+
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNode
+myAG:diceNode2 rdf:type owl:NamedIndividual ,
+                 ag:Parameter .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNodePair
+myAG:varDiceNode2 rdf:type owl:NamedIndividual ,
+                     ag:LevelMemberPair ;
+            ag:parameter :diceNode2 .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNode
+myAG:diceNode3 rdf:type owl:NamedIndividual ,
+                 ag:Parameter .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNodePair
+myAG:varDiceNode3 rdf:type owl:NamedIndividual ,
+                     ag:LevelMemberPair ;
+            ag:parameter :diceNode3 .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNode
+myAG:diceNode4 rdf:type owl:NamedIndividual ,
+                 ag:Parameter .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNodePair
+myAG:varDiceNode4 rdf:type owl:NamedIndividual ,
+                     ag:LevelMemberPair ;
+            ag:parameter :diceNode4 .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNode
+myAG:diceNode5 rdf:type owl:NamedIndividual ,
+                 ag:Parameter .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNodePair
+myAG:varDiceNode5 rdf:type owl:NamedIndividual ,
+                     ag:LevelMemberPair ;
+            ag:parameter :diceNode5 .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNode
+myAG:diceNode6 rdf:type owl:NamedIndividual ,
+                 ag:Parameter .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#geoNodePair
+myAG:varDiceNode6 rdf:type owl:NamedIndividual ,
+                     ag:LevelMemberPair ;
+            ag:parameter :diceNode6 .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#yearAfter
+myAG:yearAfter rdf:type owl:NamedIndividual .
+
+
+###  http://www.dke.jku.ac.at/swag/myAG#yearGran
+myAG:yearGran rdf:type owl:NamedIndividual ,
+                       ag:Granularity ;
+              ag:dimension films:TimeDim ;
+              ag:granularityLevelInAG films:Year ;
+              ag:hierarchy films:TimeHier .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
