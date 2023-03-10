@@ -203,7 +203,7 @@ films:Country rdf:type owl:NamedIndividual ,
 ###  http://www.dke.jku.ac.at/swag/filmsMDSchema#CountryMapping
 films:CountryMapping rdf:type owl:NamedIndividual ,
                               smd:Mapping ;
-                     smd:hasString """SELECT  ?country
+                     smd:hasString """SELECT  ?country where
 {?country <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q6256>}""" .
 
 
@@ -362,7 +362,7 @@ films:FilmHasLevelDate rdf:type owl:NamedIndividual ,
 ###  http://www.dke.jku.ac.at/swag/filmsMDSchema#FilmHasLevelDateMapping
 films:FilmHasLevelDateMapping rdf:type owl:NamedIndividual ,
                                        smd:Mapping ;
-                              smd:hasString """SELECT DISTINCT ?film ?date where
+                              smd:hasString """SELECT ?film ?date where
 {   
  {SELECT ?film (MIN (?pubDate) AS ?date) WHERE {?film <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q11424>.
 ?film <http://www.wikidata.org/prop/direct/P2142> ?boxOffice2. ?film <http://www.wikidata.org/prop/direct/P577> ?pubDate. } GROUP BY ?film }. 
@@ -412,7 +412,7 @@ PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 
 SELECT  ?film
  {
-?film <http://www.wikidata.org/prop/direct/P31> wd:Q11424. ?film <http://www.wikidata.org/prop/direct/P2142> ?boxOffice1.
+?film <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q11424>. ?film <http://www.wikidata.org/prop/direct/P2142> ?boxOffice1.
 }""" .
 
 
