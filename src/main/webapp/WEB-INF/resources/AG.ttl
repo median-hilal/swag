@@ -617,8 +617,8 @@ qb4o:LevelProperty rdf:type owl:Class ;
                                    :LevelInAG .
 
 
-###  http://purl.org/qb4olap/cubes#ResetDiceNode
-qb4o:ResetDiceNode rdf:type owl:Class ;
+### http://www.dke.jku.ac.at/swag/ag#ResetDiceNode
+:ResetDiceNode rdf:type owl:Class ;
                    rdfs:subClassOf :MoveToNode .
 
 
