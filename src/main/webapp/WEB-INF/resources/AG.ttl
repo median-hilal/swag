@@ -44,6 +44,13 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+###  http://purl.org/qb4olap/cubes#opDiceNode
+qb4o:opDiceNode rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :opDiceNodeInAG ;
+                rdfs:domain :MoveAsideToNode ;
+                rdfs:range qb4o:LevelMember .
+
+
 ###  http://purl.org/qb4olap/cubes#resultMeasureMDElement
 qb4o:resultMeasureMDElement rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf :predicateOrResultMeasureProperty ;
@@ -339,7 +346,7 @@ qb4o:resultMeasureMDElement rdf:type owl:ObjectProperty ;
 :opGranularityLevel rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf :opArgument ,
                                        :opGranularityLevelInAG ;
-                    rdfs:domain :ChangeGranularityTo ;
+                    rdfs:domain :SetGranularity ;
                     rdfs:range qb4o:LevelProperty ;
                     rdfs:comment "Specifies a level in a navigation operation to be a level in the navigation target analysis situation (e.g., a dice level or a granularity)."@en .
 
@@ -347,7 +354,7 @@ qb4o:resultMeasureMDElement rdf:type owl:ObjectProperty ;
 ###  http://www.dke.jku.ac.at/swag/ag#opGranularityLevelInAG
 :opGranularityLevelInAG rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf :opArgument ;
-                        rdfs:domain :SetGranularity ;
+                        rdfs:domain :ResetGranularity ;
                         rdfs:range :LevelInAG .
 
 
@@ -610,6 +617,11 @@ qb4o:LevelProperty rdf:type owl:Class ;
                                    :LevelInAG .
 
 
+###  http://purl.org/qb4olap/cubes#ResetDiceNode
+qb4o:ResetDiceNode rdf:type owl:Class ;
+                   rdfs:subClassOf :MoveToNode .
+
+
 ###  http://purl.org/vocommons/voaf#Vocabulary
 voaf:Vocabulary rdf:type owl:Class .
 
@@ -691,12 +703,6 @@ voaf:Vocabulary rdf:type owl:Class .
                         rdfs:subClassOf :ReplaceResultPredicate .
 
 
-###  http://www.dke.jku.ac.at/swag/ag#ChangeGranularityTo
-:ChangeGranularityTo rdf:type owl:Class ;
-                     rdfs:subClassOf :GranularityOperation ;
-                     rdfs:comment "Abstract Navigation Operation for the operations that change a granularity level of an analysis situation up or down the hierarchy." .
-
-
 ###  http://www.dke.jku.ac.at/swag/ag#Clause
 :Clause rdf:type owl:Class ;
         rdfs:subClassOf :PredicateOrResultMeasureElement ;
@@ -772,7 +778,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#DrillDownTo
 :DrillDownTo rdf:type owl:Class ;
-             rdfs:subClassOf :ChangeGranularityTo ;
+             rdfs:subClassOf :SetGranularity ;
              rdfs:comment "A drill down to a specific level navigation operation that changes the granularity level on a dimenions/hierarchy  to a specific level that is lower it in the hierarchy."@en .
 
 
@@ -978,7 +984,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#MoveAsideToNode
 :MoveAsideToNode rdf:type owl:Class ;
-                 rdfs:subClassOf :MoveToNode .
+                 rdfs:subClassOf :DiceOperation .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#MoveDownToNode
@@ -1168,6 +1174,11 @@ voaf:Vocabulary rdf:type owl:Class .
                                         :ResultPredicateOperation .
 
 
+###  http://www.dke.jku.ac.at/swag/ag#ResetGranularity
+:ResetGranularity rdf:type owl:Class ;
+                  rdfs:subClassOf :GranularityOperation .
+
+
 ###  http://www.dke.jku.ac.at/swag/ag#ResultMeasure
 :ResultMeasure rdf:type owl:Class ;
                rdfs:subClassOf :Constant ,
@@ -1216,13 +1227,14 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#RollUpTo
 :RollUpTo rdf:type owl:Class ;
-          rdfs:subClassOf :ChangeGranularityTo ;
+          rdfs:subClassOf :SetGranularity ;
           rdfs:comment "A roll up to a specific level navigation operator that changes the granularity level on a dimenions/hierarchy  to a specific level that is higher it in the hierarchy."@en .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#SetGranularity
 :SetGranularity rdf:type owl:Class ;
-                rdfs:subClassOf :GranularityOperation .
+                rdfs:subClassOf :GranularityOperation ;
+                rdfs:comment "Abstract Navigation Operation for the operations that change a granularity level of an analysis situation up or down the hierarchy." .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#Specification

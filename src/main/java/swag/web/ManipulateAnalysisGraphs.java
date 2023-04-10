@@ -404,11 +404,12 @@ public class ManipulateAnalysisGraphs extends HttpServlet {
 	    List<AnalysisSituation> asListForSerialize = (List<AnalysisSituation>) session.getAttribute("asList");
 	    List<NavigationStep> nvListForSerialize = (List<NavigationStep>) session.getAttribute("nvList");
 
+		/*
 	    String serializedAsList = ServletSerializationHelper.serialize(asListForSerialize);
 	    String serializedNvList = ServletSerializationHelper.serialize(nvListForSerialize);
 
 	    session.setAttribute("serializedAsList", serializedAsList);
-	    session.setAttribute("serializedNvList", serializedNvList);
+	    session.setAttribute("serializedNvList", serializedNvList);*/
 
 	} catch (Exception ex) {
 	    logger.error("failed to read the analysis graph and/or the multidimensional schema.\nRoot cause: ", ex);
@@ -538,11 +539,12 @@ public class ManipulateAnalysisGraphs extends HttpServlet {
 	List<AnalysisSituation> asListForSerialize = (List<AnalysisSituation>) session.getAttribute("asList");
 	List<NavigationStep> nvListForSerialize = (List<NavigationStep>) session.getAttribute("nvList");
 
+	/*
 	String serializedAsList = ServletSerializationHelper.serialize(asListForSerialize);
 	String serializedNvList = ServletSerializationHelper.serialize(nvListForSerialize);
 
 	session.setAttribute("serializedAsList", serializedAsList);
-	session.setAttribute("serializedNvList", serializedNvList);
+	session.setAttribute("serializedNvList", serializedNvList);*/
     }
 
     /**
@@ -656,11 +658,12 @@ public class ManipulateAnalysisGraphs extends HttpServlet {
 	List<AnalysisSituation> asListForSerialize = (List<AnalysisSituation>) session.getAttribute("asList");
 	List<NavigationStep> nvListForSerialize = (List<NavigationStep>) session.getAttribute("nvList");
 
+	/*
 	String serializedAsList = ServletSerializationHelper.serialize(asListForSerialize);
 	String serializedNvList = ServletSerializationHelper.serialize(nvListForSerialize);
 
 	session.setAttribute("serializedAsList", serializedAsList);
-	session.setAttribute("serializedNvList", serializedNvList);
+	session.setAttribute("serializedNvList", serializedNvList);*/
     }
 
     /**
@@ -897,10 +900,12 @@ public class ManipulateAnalysisGraphs extends HttpServlet {
 					    .getAttribute("asList");
 				    List<NavigationStep> nvListForSerialize = (List<NavigationStep>) session
 					    .getAttribute("nvList");
+
+					/*
 				    String serializedAsList = ServletSerializationHelper.serialize(asListForSerialize);
 				    String serializedNvList = ServletSerializationHelper.serialize(nvListForSerialize);
 				    session.setAttribute("serializedAsList", serializedAsList);
-				    session.setAttribute("serializedNvList", serializedNvList);
+				    session.setAttribute("serializedNvList", serializedNvList);*/
 				} else {
 
 				    /*
@@ -942,13 +947,14 @@ public class ManipulateAnalysisGraphs extends HttpServlet {
 					List<NavigationStep> nvListForSerialize = (List<NavigationStep>) session
 						.getAttribute("nvList");
 
+					/*
 					String serializedAsList = ServletSerializationHelper
 						.serialize(asListForSerialize);
 					String serializedNvList = ServletSerializationHelper
 						.serialize(nvListForSerialize);
 
 					session.setAttribute("serializedAsList", serializedAsList);
-					session.setAttribute("serializedNvList", serializedNvList);
+					session.setAttribute("serializedNvList", serializedNvList);*/
 				    }
 				}
 			    } else
