@@ -12,6 +12,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix qb4o: <http://purl.org/qb4olap/cubes#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
 
 
 :sumOfNumOfAppsGreaterThan a owl:NamedIndividual, ag:Predicate, ag:ResultPredicate;
@@ -29,6 +30,47 @@
   ag:predicateVariable :var1;
   ag:expression "FILTER (:1 > :2)" .
 
+:yearAfterAndBefore a owl:NamedIndividual, ag:Predicate, ag:DimensionPredicate, ag:FreeDimensionPredicate;
+  rdfs:comment "Restricts Year values to be greater than a specific value and less than a specific value"@en;
+  rdfs:label "Year greater than and less than"@en;
+  ag:predicateMDElement :pos0;
+  ag:predicateVariable :var1;
+  ag:predicateVariable :var3;
+  ag:expression "FILTER (:1 > :2 && :1 < :3)" .
+
+:yearAfter2013Before2020 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
+  rdfs:comment "Restricts Year values to be greater than 2013 and less than 2020"@en;
+  rdfs:label "2013-2020"@en;
+  ag:predicateMDElement :pos0;
+  ag:expression "FILTER (:1 > 2013 && :1 < 2020)";
+  ag:derivedFrom :yearAfterAndBefore .
+
+ :yearAfterAndMonthBefore a owl:NamedIndividual, ag:Predicate, ag:DimensionPredicate, ag:FreeDimensionPredicate;
+   rdfs:comment "Restricts Year values to be greater than a specific value and month less than a specific value"@en;
+   rdfs:label "Year greater than and month less than"@en;
+   ag:predicateMDElement :pos0;
+   ag:predicateMDElement :pos4;
+   ag:predicateVariable :var1;
+   ag:predicateVariable :var3;
+   ag:expression "FILTER (:1 > :2 && :4 < :3)" .
+
+ :yearAfter2013AndMonthLessThanAugust a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
+   rdfs:comment "Restricts Year values to be greater than 2013 and month less than August"@en;
+   rdfs:label "2013-August"@en;
+   ag:predicateMDElement :pos0;
+   ag:predicateMDElement :pos4;
+   ag:expression "FILTER (:1 > 2013 && :4 < 2020)";
+   ag:derivedFrom :yearAfterAndMonthBefore .
+
+
+:yearAfter2012 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
+  rdfs:comment "Restricts Year values to be greater than 2012"@en;
+  rdfs:label "2012"@en;
+  ag:predicateMDElement :pos0;
+  ag:expression "FILTER (:1 > 2012)";
+  ag:derivedFrom :yearAfter .
+
+
 :yearAfter2013 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
   rdfs:comment "Restricts Year values to be greater than 2013"@en;
   rdfs:label "2013"@en;
@@ -36,12 +78,14 @@
   ag:expression "FILTER (:1 > 2013)";
   ag:derivedFrom :yearAfter .
 
+
 :yearAfter2014 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
   rdfs:comment "Restricts Year values to be greater than 2014"@en;
   rdfs:label "2014"@en;
   ag:predicateMDElement :pos0;
   ag:expression "FILTER (:1 > 2014)";
-  ag:derivedFrom :yearAfter .
+  ag:derivedFrom :yearAfter ;
+  ag:implies :yearAfter2013, :yearAfter2012.
 
 :yearAfter2015 a owl:NamedIndividual, ag:GroundPredicate, ag:GroundDimensionPredicate, ag:PredicateInstanceInAG;
   rdfs:comment "Restricts Year values to be greater than 2015"@en;
@@ -82,17 +126,25 @@
   ag:name ":2";
   ag:dataType xsd:integer .
 
+:var3 a owl:NamedIndividual, ag:PredicateVariable;
+  ag:name ":3";
+  ag:dataType xsd:integer .
+
 :pos0 a owl:NamedIndividual;
   ag:mdElement schema:yearNum;
   ag:name ":1" .
+
+:pos4 a owl:NamedIndividual;
+        ag:mdElement sdmx-dimension:refPeriod;
+        ag:name ":4" .
 
 :var1 a owl:NamedIndividual, ag:PredicateVariable;
   ag:name ":2";
   ag:dataType xsd:integer .
 
 schema:sumOfNumOfApps  a owl:NamedIndividual, ag:AggregatedMeasure;
-  rdfs:comment "Sum of Number of Asylum Applications"@en;
-  rdfs:label "Sum of Number of Asylum Applications"@en;
+  rdfs:comment "Sum of Number of Asylum Applications bla"@en;
+  rdfs:label "Sum of Number of Asylum Applications bla"@en;
   ag:resultMeasureMDElement :pos3;
   ag:expression "SUM (:1)".
 

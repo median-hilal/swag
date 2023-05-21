@@ -304,9 +304,21 @@ public class MDElementParameterCreator {
         Property instanceOf = owlConnection.getModel()
                 .getProperty(OWLConnectionFactory.getAGNamespace(owlConnection) + Constants.INSTANCE_OF);
 
+        Property impliedBy = owlConnection.getModel()
+                .getProperty(OWLConnectionFactory.getAGNamespace(owlConnection) + Constants.IMPLIED_BY);
+
+
+        Individual pred = null;
         if (typeInd != null && typeInd.hasProperty(instanceOf)) {
-            Individual pred = owlConnection.getPropertyValueEncAsIndividual(typeInd, instanceOf);
-            return pred.getURI();
+            if (instanceOf != null) {
+                pred = owlConnection.getPropertyValueEncAsIndividual(typeInd, instanceOf);
+                return pred.getURI();
+            }
+        }else {
+            if (impliedBy != null) {
+                pred = owlConnection.getPropertyValueEncAsIndividual(typeInd, impliedBy);
+                return pred.getURI();
+            }
         }
         return null;
     }

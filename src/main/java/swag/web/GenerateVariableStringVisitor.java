@@ -319,8 +319,18 @@ public class GenerateVariableStringVisitor implements VariableStringVisitor {
 
 	String str = "";
 	String val = getValStr(conditoin);
-	String typeName = graph.getDefinedAGConditionTypes().getConditoinTypeByIdentifyingName(conditoin.getType())
-		.getName();
+	String typeName = "";
+	try {
+		typeName = graph.getDefinedAGConditionTypes().getConditoinTypeByIdentifyingName(conditoin.getType())
+				.getName();
+	}catch(Exception ex){
+
+	}
+
+	if (typeName.equals("")){
+		typeName = graph.getDefinedAGConditions().getConditoinByIdentifyingName(conditoin.getType()).getName();
+	}
+
 	String containingObjectStr = getContainingObjectStr(conditoin);
 
 	str = " " + typeName + "</br> " + "<input class='variable'"

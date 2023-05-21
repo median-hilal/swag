@@ -132,6 +132,7 @@ public class AsSPARQLGeneratorSimple extends AsSPARQLGeneratorExtended {
 		try {
 			collect(as);
 		} catch (Exception e) {
+			logger.error(e);
 			throw new RuntimeException(e);
 		}
 		logger.info("generating SPARQL query for Analysis Situation " + as.getName());

@@ -221,7 +221,15 @@ public class VariableVisitorProcessParameter implements IVariableProcessVisitor 
 			cond.getMdElems().stream().findAny().orElse(null), cond.getExpression(), cond.getURI(),
 			dnInitial.getType()));
 		initialVariables.put(dnInitial, dn);
-	    }
+	    }else {
+			if (preds.getConditoinByIdentifyingName(dnInitial.getType()) != null) {
+				LiteralCondition cond = preds.getConditoinByIdentifyingName(value);
+				dn.bind(SliceConditionFactory.createSliceConditionTypedOfSignature(dn,
+						cond.getMdElems().stream().findAny().orElse(null), cond.getExpression(), cond.getURI(),
+						dnInitial.getType()));
+				initialVariables.put(dnInitial, dn);
+			}
+		}
 
 	    // The case of clearing the variable value
 	} else {

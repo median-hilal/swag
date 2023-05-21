@@ -64,6 +64,8 @@ public class Constants {
 	public final static String VARIABLE_DOMAIN = "domain";
 	public final static String INSTANCE_OF = "derivedFrom";
 
+	public final static String IMPLIED_BY = "impliedBy";
+
 	public final static String ELEM_ON_LEVEL_E = "ofLevel";
 	public final static String ELEM_ON_ATTRIBUTE_E = "ofAttribute";
 	public final static String ELEM_IN_LEVEL_E = "inLevel";
@@ -89,7 +91,7 @@ public class Constants {
 	public static final String qbFile = "QB.ttl";
 	public static final String qb4oFile = "QB4OLAP.ttl";
 	public static final String SMDInstanceFile = "films.ttl";
-	public static final String PredicatesFile = "predicates_1.ttl";
+	public static final String PredicatesFile = "predicates.ttl";
 
 	public static final String internalPathToMDSAndAGONtologiesFolder = "resources/newer";
 	public static final String internalPathToAGsFolder = "resources";

@@ -75,7 +75,7 @@ public class QUERY_STRINGS {
           + "?conditinPositoinAttribute ?levelOnHierAndDim ?hierAttribute ?dimAttribute"
           + "?conditinPositoinMeasure"
           + "?expression ?label ?comment ?sType"
-          + "?conditionType "
+          + "?conditionType ?implying"
           + "?hierOfCond ?dimOfCond "
           + "WHERE "
           + " {"
@@ -111,6 +111,7 @@ public class QUERY_STRINGS {
           + " OPTIONAL { ?literalConditionType rdfs:comment ?comment } "
           + " OPTIONAL { ?literalConditionType ag:clause ?sType } "
           + " OPTIONAL { ?literalConditionType ag:derivedFrom ?conditionType } "
+          + " OPTIONAL { ?implying ag:implies ?literalConditionType } "
           + "}"
           + "ORDER BY ?literalConditionType";
 

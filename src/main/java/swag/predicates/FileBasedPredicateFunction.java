@@ -81,6 +81,9 @@ public class FileBasedPredicateFunction implements IPredicateFunctions {
 
 	    for (String type : c.getTypes()) {
 		if (type != null) {
+			if(graph.getNode(type) == null){
+				graph.addNode(conditoins.stream().filter(cond -> cond.getURI().equals(type)).findAny().orElse(null));
+			}
 		    graph.createEdgeAndAddSourceEdgeTargetTriple(graph.getNode(type), EPredicateEdgeType.INSTANCE_OF,
 			    c);
 		} else {
@@ -392,6 +395,12 @@ public class FileBasedPredicateFunction implements IPredicateFunctions {
 
 		if (conditoinType != null) {
 		    pred.addToTypes(conditoinType);
+		}
+
+		String implying = sol.get("implying") != null ? sol.get("implying").toString() : null;
+
+		if (implying != null) {
+			pred.addToTypes(implying);
 		}
 
 		String positionVar = sol.get("positionVar") != null ? sol.get("positionVar").toString() : null;
