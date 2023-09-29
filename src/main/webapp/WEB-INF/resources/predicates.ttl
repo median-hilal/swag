@@ -143,8 +143,8 @@
   ag:dataType xsd:integer .
 
 schema:sumOfNumOfApps  a owl:NamedIndividual, ag:AggregatedMeasure;
-  rdfs:comment "Sum of Number of Asylum Applications bla"@en;
-  rdfs:label "Sum of Number of Asylum Applications bla"@en;
+  rdfs:comment "Sum of Number of Asylum Applications"@en;
+  rdfs:label "Sum of Number of Asylum Applications"@en;
   ag:resultMeasureMDElement :pos3;
   ag:expression "SUM (:1)".
 
