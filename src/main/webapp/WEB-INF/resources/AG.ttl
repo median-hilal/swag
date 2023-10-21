@@ -417,8 +417,8 @@ qb4o:resultMeasureMDElement rdf:type owl:ObjectProperty ;
                        rdfs:range :GroundDimensionPredicateInAG .
 
 
-###  http://www.dke.jku.ac.at/swag/ag#opOldDimPredicatePair
-:opOldDimPredicatePair rdf:type owl:ObjectProperty ;
+###  http://www.dke.jku.ac.at/swag/ag#opNewDimPredicatePair
+:opNewDimPredicatePair rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :opOldDimPredicateInAG ;
                        rdfs:domain :RebindDimPredicate ;
                        rdfs:range :GroundDimensionPredicatePair .
@@ -431,8 +431,8 @@ qb4o:resultMeasureMDElement rdf:type owl:ObjectProperty ;
                         rdfs:range :ResultMeasureInAG .
 
 
-###  http://www.dke.jku.ac.at/swag/ag#opOldResultMeasurePair
-:opOldResultMeasurePair rdf:type owl:ObjectProperty ;
+###  http://www.dke.jku.ac.at/swag/ag#opNewResultMeasurePair
+:opNewResultMeasurePair rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf :opOldResultMeasureInAG ;
                         rdfs:domain :RebindResultMeasure ;
                         rdfs:range :ResultMeasurePair .
@@ -445,8 +445,8 @@ qb4o:resultMeasureMDElement rdf:type owl:ObjectProperty ;
                           rdfs:range :GroundResultPredicateInAG .
 
 
-###  http://www.dke.jku.ac.at/swag/ag#opOldResultPredicatePair
-:opOldResultPredicatePair rdf:type owl:ObjectProperty ;
+###  http://www.dke.jku.ac.at/swag/ag#opNewResultPredicatePair
+:opNewResultPredicatePair rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf :opOldResultPredicateInAG ;
                           rdfs:domain :RebindResultPredicate ;
                           rdfs:range :GroundResultPredicatePair .
