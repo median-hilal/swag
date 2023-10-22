@@ -365,27 +365,11 @@ qb4o:resultMeasureMDElement rdf:type owl:ObjectProperty ;
              rdfs:range qb4o:Hierarchy ;
              rdfs:comment "Specifies the dimension on which a navigation is to be performed."@en .
 
-
-###  http://www.dke.jku.ac.at/swag/ag#opNewDimPredicate
-:opNewDimPredicate rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf :opNewDimPredicateInAG ;
-                   rdfs:domain :RebindDimPredicate ;
-                   rdfs:range :GroundDimensionPredicate .
-
-
 ###  http://www.dke.jku.ac.at/swag/ag#opNewDimPredicateInAG
 :opNewDimPredicateInAG rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :opArgument ;
                        rdfs:domain :AddDimPredicate ;
                        rdfs:range :GroundDimensionPredicateInAG .
-
-
-###  http://www.dke.jku.ac.at/swag/ag#opNewResultMeasure
-:opNewResultMeasure rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :opNewResultMeasureInAG ;
-                    rdfs:domain :RebindResultMeasure ;
-                    rdfs:range :ResultMeasure .
-
 
 ###  http://www.dke.jku.ac.at/swag/ag#opNewResultMeasureInAG
 :opNewResultMeasureInAG rdf:type owl:ObjectProperty ;
@@ -393,14 +377,6 @@ qb4o:resultMeasureMDElement rdf:type owl:ObjectProperty ;
                         rdfs:domain :AddResultMeasure ;
                         rdfs:range :ResultMeasureInAG ;
                         rdfs:comment "Specifies a measure speicification for the operation."@en .
-
-
-###  http://www.dke.jku.ac.at/swag/ag#opNewResultPredicate
-:opNewResultPredicate rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf :opNewResultPredicateInAG ;
-                      rdfs:domain :RebindResultPredicate ;
-                      rdfs:range :GroundResultPredicate .
-
 
 ###  http://www.dke.jku.ac.at/swag/ag#opNewResultPredicateInAG
 :opNewResultPredicateInAG rdf:type owl:ObjectProperty ;
