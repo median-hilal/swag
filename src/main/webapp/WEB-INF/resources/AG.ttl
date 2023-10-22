@@ -346,7 +346,7 @@ qb4o:resultMeasureMDElement rdf:type owl:ObjectProperty ;
 :opGranularityLevel rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf :opArgument ,
                                        :opGranularityLevelInAG ;
-                    rdfs:domain :SetGranularity ;
+                    rdfs:domain :ChangeGranularityTo ;
                     rdfs:range qb4o:LevelProperty ;
                     rdfs:comment "Specifies a level in a navigation operation to be a level in the navigation target analysis situation (e.g., a dice level or a granularity)."@en .
 
@@ -778,7 +778,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#DrillDownTo
 :DrillDownTo rdf:type owl:Class ;
-             rdfs:subClassOf :SetGranularity ;
+             rdfs:subClassOf :ChangeGranularityTo ;
              rdfs:comment "A drill down to a specific level navigation operation that changes the granularity level on a dimenions/hierarchy  to a specific level that is lower it in the hierarchy."@en .
 
 
@@ -1227,14 +1227,19 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#RollUpTo
 :RollUpTo rdf:type owl:Class ;
-          rdfs:subClassOf :SetGranularity ;
+          rdfs:subClassOf :ChangeGranularityTo ;
           rdfs:comment "A roll up to a specific level navigation operator that changes the granularity level on a dimenions/hierarchy  to a specific level that is higher it in the hierarchy."@en .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#SetGranularity
 :SetGranularity rdf:type owl:Class ;
-                rdfs:subClassOf :GranularityOperation ;
-                rdfs:comment "Abstract Navigation Operation for the operations that change a granularity level of an analysis situation up or down the hierarchy." .
+                rdfs:subClassOf :ChangeGranularityTo ;
+                rdfs:comment "Navigation Operation that change a granularity level of an analysis situation to a particular new level." .
+
+###  http://www.dke.jku.ac.at/swag/ag#ChangeGranularityTo
+:ChangeGranularityTo rdf:type owl:Class ;
+                     rdfs:subClassOf :GranularityOperation ;
+                     rdfs:comment "Abstract Navigation Operation for the operations that change a granularity level of an analysis situation (possibly up or down the hierarchy)." .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#Specification
