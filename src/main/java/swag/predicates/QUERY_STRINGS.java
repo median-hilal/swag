@@ -134,7 +134,7 @@ public class QUERY_STRINGS {
                   + "?hierOfCond ?dimOfCond "
                   + "WHERE "
                   + " {"
-                  + " {{ ?literalConditionType rdf:type ag:AggregatedMeasure}"
+                  + " {{ ?literalConditionType rdf:type ag:ResultMeasure}"
                   + " } "
                   + " OPTIONAL { ?literalConditionType ag:resultMeasureMDElement ?positionVar. "
                   + " OPTIONAL { ?positionVar ag:name ?positionVarName } "

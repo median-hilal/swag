@@ -239,7 +239,7 @@ public class MDSchemaBuilderQB4O extends MDSchemaBuilderAbstract {
 			// measure.
 			addFactOutEdgesToSet(owlConnection, set, ind, elem);
 			handleDerivedMeasures(ind, owlConnection, set, elem);
-			handleAggregatedMeasures(ind, owlConnection, set, elem);
+			//handleAggregatedMeasures(ind, owlConnection, set, elem);
 		} else {
 			if (elem instanceof Level) {
 				addEdgesToSet(owlConnection, set, ind, elem, Constants.QB4O_HIERARCHY_STEP,
