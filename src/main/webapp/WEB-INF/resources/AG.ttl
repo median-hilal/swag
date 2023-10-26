@@ -1089,17 +1089,17 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#RebindDimPredicate
 :RebindDimPredicate rdf:type owl:Class ;
-                    rdfs:subClassOf :ReplaceDimPredicate .
+                    rdfs:subClassOf :DimensionSelectionOperation .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#RebindResultMeasure
 :RebindResultMeasure rdf:type owl:Class ;
-                     rdfs:subClassOf :ReplaceResultMeasure .
+                     rdfs:subClassOf :ResultMeasureOperation .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#RebindResultPredicate
 :RebindResultPredicate rdf:type owl:Class ;
-                       rdfs:subClassOf :ReplaceResultPredicate .
+                       rdfs:subClassOf :ResultPredicateOperation .
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#RemoveBaseMeasureSelection
@@ -1134,7 +1134,7 @@ voaf:Vocabulary rdf:type owl:Class .
 
 ###  http://www.dke.jku.ac.at/swag/ag#ReplaceDimPredicate
 :ReplaceDimPredicate rdf:type owl:Class ;
-                     rdfs:subClassOf :DimensionSelectionOperation .
+                     rdfs:subClassOf :DimensionSelectionOperation , :AddDimPredicate, :RemoveDimPredicate.
 
 
 ###  http://www.dke.jku.ac.at/swag/ag#ReplaceResultMeasure
