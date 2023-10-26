@@ -186,7 +186,8 @@ films:ContinentMapping rdf:type owl:NamedIndividual ,
                                 smd:Mapping ;
                        smd:hasString """select ?continent
 {
- ?continent <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q5107> .
+
+ ?continent <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q5107> .
 }""" .
 
 
@@ -531,7 +532,8 @@ films:GenreMapping rdf:type owl:NamedIndividual ,
                             smd:Mapping ;
                    smd:hasString """Select ?genre
 {
-?genre <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q201658> 
+
+?genre <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q201658> 
 }""" .
 
 
@@ -605,16 +607,6 @@ films:OriginHier rdf:type owl:NamedIndividual ,
                           smd:Hierarchy ;
                  smd:hierInDimension films:OriginDim ;
                  rdfs:label "Origin"@en .
-
-
-###  http://www.dke.jku.ac.at/swag/filmsMDSchema#SumOfBoxOffice
-films:SumOfBoxOffice rdf:type owl:NamedIndividual ,
-                              ag:AggregatedMeasure ;
-                     qb4o:aggregateFunction qb4o:sum ;
-                     ag:aggregatedMeasure films:BoxOffice ;
-                     rdfs:comment "Sum of Box Office"@en ;
-                     rdfs:label "Sum of Box Office"@en .
-
 
 ###  http://www.dke.jku.ac.at/swag/filmsMDSchema#TimeDim
 films:TimeDim rdf:type owl:NamedIndividual ,
