@@ -1,0 +1,3 @@
+- predicates.ttl is prepared for asylum apps AG.
+- other or older files/predicesa_for_films_AG.ttl is for the films AG.
+- In the project class Constants -> change PredicatesFile to switch between different predicates settings.
